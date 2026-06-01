@@ -152,7 +152,6 @@ export default function NativeSOCFeaturesPage() {
                 alt="NativeDefence Logo"
                 className="transition-all duration-300 object-contain"
                 style={{
-                  filter: 'brightness(0) invert(1)',
                   ...(isDark ? { width: '135px', height: '40px' } : { height: '40px', width: 'auto' })
                 }}
               />
@@ -322,7 +321,7 @@ export default function NativeSOCFeaturesPage() {
       <footer style={{ background: '#050d1a' }} className="border-t border-[rgba(0,255,136,0.1)] transition-colors duration-500">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex flex-col sm:flex-row items-center gap-3">
-            <img src={logoDark} style={{ filter: 'brightness(0) invert(1)' }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />
+            <img src={logoDark} style={{ opacity: 0.8 }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />
             <p className="text-xs text-[#7a9bb5]/40">
               Copyright 2023  © NATIVEDEFENCE TECH LLP. All rights reserved.
             </p>

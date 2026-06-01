@@ -155,7 +155,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark }: HeroProps) {
             src={isDark ? logoDark : logoLight}
             alt="NativeDefence Logo"
             className="transition-all duration-300 object-contain"
-            style={{ height: '38px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+            style={{ height: '38px', width: 'auto' }}
           />
         </div>
 

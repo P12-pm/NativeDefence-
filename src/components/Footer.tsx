@@ -69,7 +69,7 @@ export default function Footer() {
               src={logoDark}
               alt="NativeDefence Logo"
               className="h-12 w-auto transition-all duration-300"
-              style={{ opacity: 0.9, filter: 'brightness(0) invert(1)' }}
+              style={{ opacity: 0.9 }}
             />
           </div>
           <p
