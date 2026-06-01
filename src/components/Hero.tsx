@@ -466,22 +466,8 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           </div>
         </div>
 
-        {/* ── Main Glassmorphism Card ── */}
-        <div
-          className="relative z-10 w-full max-w-4xl p-8 sm:p-14 rounded-3xl border border-[rgba(0,255,136,0.16)] backdrop-blur-2xl shadow-[0_30px_70px_rgba(0,0,0,0.65)] hover:border-[rgba(0,255,136,0.25)] transition-all duration-500 group flex flex-col items-center"
-          style={{
-            background: 'linear-gradient(135deg, rgba(10,22,40,0.6) 0%, rgba(5,13,26,0.75) 100%)',
-          }}
-        >
-          {/* Subtle grid pattern inside card */}
-          <div className="absolute inset-0 cyber-grid-bg-static opacity-10 pointer-events-none rounded-3xl" />
-          
-          {/* Shimmering border glow overlay */}
-          <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-               style={{
-                 boxShadow: 'inset 0 0 30px rgba(0,255,136,0.06), 0 0 40px rgba(0,255,136,0.03)',
-               }}
-          />
+        {/* ── Hero Content Container ── */}
+        <div className="relative z-10 w-full max-w-4xl flex flex-col items-center text-center">
 
           {/* Cyber badge */}
           <div
@@ -545,7 +531,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             {/* Secondary platform explorer CTA */}
             <Link
               to="/nativesoc"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-full border border-[rgba(0,255,136,0.25)] hover:border-[#00ff88] hover:text-[#00ff88] bg-rgba(5,13,26,0.4) backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-full border border-[rgba(0,255,136,0.25)] hover:border-[#00ff88] hover:text-[#00ff88] bg-[rgba(5,13,26,0.4)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
             >
               <Terminal className="w-4 h-4" />
               Explore Platform
