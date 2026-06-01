@@ -204,7 +204,7 @@ export default function PartnersPage() {
                 src={logoDark}
                 alt="NativeDefence Logo"
                 className="transition-all duration-300 object-contain"
-                style={{ height: '38px', width: 'auto' }}
+                style={{ height: '30px', width: 'auto' }}
               />
             </Link>
           </div>
