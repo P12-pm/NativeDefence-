@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logoDark from '../assets/logo_dark.avif';
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, Shield, Eye, Zap,
-  Database, FileSearch, Users, Sun, Moon, Menu, X, Sparkles, CheckCircle
+  Database, FileSearch, Users, Menu, X, Sparkles, CheckCircle
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
@@ -126,7 +126,7 @@ const stats = [
    MAIN PAGE COMPONENT
 ══════════════════════════════════════════════════════ */
 export default function NativeSOCPage() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, _setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
@@ -188,14 +188,7 @@ export default function NativeSOCPage() {
 
           {/* Right actions */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsDark(d => !d)}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
-              aria-label="Toggle theme"
-            >
-              <Sun className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-100' : 'opacity-0 rotate-90'}`} />
-              <Moon className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90' : 'opacity-100'}`} />
-            </button>
+            
             <Link
               to="/#contact"
               className="hidden sm:flex items-center gap-1.5 hover:opacity-90 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors duration-200"

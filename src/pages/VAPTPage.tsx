@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logoDark from '../assets/logo_dark.avif';
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, Award, Sparkles,
-  Sun, Moon, Menu, X, CheckCircle, Target, Flame, ChevronRight, ChevronDown
+  Menu, X, CheckCircle, Target, Flame, ChevronRight, ChevronDown
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
@@ -198,7 +198,7 @@ const steps = [
 ];
 
 export default function VAPTPage() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, _setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedThreat, setExpandedThreat] = useState<number | null>(null);
   const [threatSearch, setThreatSearch] = useState('');
@@ -300,15 +300,7 @@ export default function VAPTPage() {
 
           {/* Nav Actions */}
           <div className="flex items-center gap-2">
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setIsDark(d => !d)}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
-              aria-label="Toggle theme"
-            >
-              <Sun className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-100' : 'opacity-0 rotate-90'}`} />
-              <Moon className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90' : 'opacity-100'}`} />
-            </button>
+            
 
             {/* CTA */}
             <Link

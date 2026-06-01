@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Play, Shield, Menu, X, Sun, Moon, ChevronDown, Terminal, Wifi } from 'lucide-react';
+import { Play, Shield, Menu, X, ChevronDown, Terminal, Wifi } from 'lucide-react';
 import logoLight from '../assets/logo_light.avif';
 import logoDark from '../assets/logo_dark.avif';
 import { Link } from 'react-router-dom';
@@ -51,7 +51,7 @@ interface HeroProps {
   onToggleDark: () => void;
 }
 
-export default function Hero({ onNavClick, isDark, onToggleDark }: HeroProps) {
+export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }: HeroProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileExpand, setMobileExpand] = useState<string | null>(null);
@@ -272,20 +272,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark }: HeroProps) {
         {/* ── Right cluster ────────────────────────────── */}
         <div className="flex items-center gap-2">
 
-          {/* Dark mode toggle */}
-          <button
-            onClick={onToggleDark}
-            className="hidden sm:flex items-center justify-center w-9 h-9 rounded-full relative transition-all duration-300"
-            style={{
-              background: 'rgba(5,13,26,0.7)',
-              backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(0,255,136,0.2)',
-            }}
-            aria-label={isDark ? 'Light mode' : 'Dark mode'}
-          >
-            <Sun className={`w-4 h-4 text-[#00ff88] absolute transition-all duration-300 ${isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-50'}`} />
-            <Moon className={`w-4 h-4 text-[#00ff88] absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`} />
-          </button>
+          
 
           {/* Hamburger */}
           <button
@@ -332,14 +319,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark }: HeroProps) {
             NativeDefence<sup className="text-[9px]">™</sup>
           </span>
           <div className="flex items-center gap-2">
-            <button
-              onClick={onToggleDark}
-              className="flex items-center justify-center w-8 h-8 rounded-full"
-              style={{ background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.15)' }}
-            >
-              <Sun className={`w-3.5 h-3.5 text-[#00ff88] absolute transition-all duration-300 ${isDark ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'}`} />
-              <Moon className={`w-3.5 h-3.5 text-[#00ff88] absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90' : 'opacity-100 rotate-0'}`} />
-            </button>
+            
             <button
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-center w-8 h-8 rounded-full"

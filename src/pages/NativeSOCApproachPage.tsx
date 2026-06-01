@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logoDark from '../assets/logo_dark.avif';
 import {
   ArrowLeft, ArrowRight, Shield, Activity, Database, Sparkles,
-  Sun, Moon, Menu, X
+  Menu, X
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
@@ -18,7 +18,7 @@ const subLinks = [
 ];
 
 export default function NativeSOCApproachPage() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, _setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   /* Sync dark class */
@@ -74,14 +74,7 @@ export default function NativeSOCApproachPage() {
 
           {/* Nav Actions */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsDark(d => !d)}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
-              aria-label="Toggle theme"
-            >
-              <Sun className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-100' : 'opacity-0 rotate-90'}`} />
-              <Moon className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90' : 'opacity-100'}`} />
-            </button>
+            
 
             <Link
               to="/#contact"
