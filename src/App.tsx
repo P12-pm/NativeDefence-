@@ -55,7 +55,7 @@ function HomePage() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/NativeDefence-">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/nativesoc" element={<NativeSOCPage />} />
