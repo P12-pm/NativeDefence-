@@ -1,6 +1,7 @@
 import { useInView } from '../hooks/useInView';
 import { NHG } from '../constants';
 import { ArrowRight } from 'lucide-react';
+import TerminalSection from './TerminalSection';
 
 const features = [
   { id: 'SIEM',  title: 'Security Information & Event Management', desc: 'Centralise and correlate log data from every source across your organisation for complete, real-time security intelligence.' },
@@ -148,6 +149,14 @@ export default function NativeSOC() {
               </span>
             ))}
           </div>
+        </div>
+
+        {/* Diagnostic CLI Console Simulator */}
+        <div className="mt-16 sm:mt-24 max-w-4xl mx-auto reveal" style={{ transitionDelay: '400ms' }}>
+          <p className="text-xs font-bold tracking-widest uppercase mb-4 text-[#00E5FF] text-center">
+            Diagnostics Laboratory Sandbox
+          </p>
+          <TerminalSection />
         </div>
       </div>
     </section>

@@ -3,6 +3,8 @@ import { Play, Shield, Menu, X, ChevronDown, Terminal, Wifi, ArrowRight } from '
 import logoLight from '../assets/logo_light.avif';
 import logoDark from '../assets/logo_dark.avif';
 import { Link } from 'react-router-dom';
+import HackerText from './HackerText';
+import ThreatDashboard from './ThreatDashboard';
 
 /* ── Cybersecurity hero video ── */
 const CYBER_VIDEO = '/NativeDefence-/Create_a_premium_cinematic_cyb.mp4';
@@ -466,87 +468,97 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           </div>
         </div>
 
-        {/* ── Hero Content Container ── */}
-        <div className="relative z-10 w-full max-w-4xl flex flex-col items-center text-center">
+        {/* ── Hero Two-Column Content Grid ── */}
+        <div className="relative z-10 w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 
           {/* Central Blue/Cyan Ambient Glow */}
           <div
-            className="absolute -translate-y-1/4 w-[600px] h-[400px] pointer-events-none rounded-full blur-[140px] opacity-40 z-0"
+            className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-[600px] h-[500px] pointer-events-none rounded-full blur-[140px] opacity-40 z-0"
             style={{
-              background: 'radial-gradient(circle, rgba(0,229,255,0.4) 0%, rgba(59,130,246,0.3) 50%, transparent 80%)',
+              background: 'radial-gradient(circle, rgba(0,229,255,0.3) 0%, rgba(59,130,246,0.25) 50%, transparent 80%)',
             }}
           />
 
-          {/* Cyber badge */}
-          <div
-            className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full"
-            style={{
-              background: 'rgba(0,229,255,0.08)',
-              border: '1px solid rgba(0,229,255,0.25)',
-              backdropFilter: 'blur(8px)',
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
-            <span className="text-[11px] font-bold text-[#00E5FF] tracking-[0.12em] uppercase">
-              NativeSOC™ — Advanced Threat Intelligence
-            </span>
-          </div>
+          {/* Left Column: Heading Copy and CTAs */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10">
 
-          {/* Heading */}
-          <h1
-            className="font-normal leading-[0.95] text-white text-center max-w-3xl"
-            style={{
-              fontFamily: NHG,
-              fontSize: 'clamp(2.2rem, 5.5vw, 5rem)',
-              letterSpacing: '-0.035em',
-            }}
-          >
-            Defense is the Best Offence in{' '}
-            <span
-              className="animate-flicker shimmer-text block sm:inline font-semibold"
+            {/* Cyber badge */}
+            <div
+              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full"
               style={{
-                textShadow: '0 0 25px rgba(0,229,255,0.5)',
+                background: 'rgba(0,229,255,0.08)',
+                border: '1px solid rgba(0,229,255,0.25)',
+                backdropFilter: 'blur(8px)',
               }}
             >
-              Cyber Security
-            </span>
-          </h1>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
+              <span className="text-[11px] font-bold text-[#00E5FF] tracking-[0.12em] uppercase">
+                NativeSOC™ — Advanced Threat Intelligence
+              </span>
+            </div>
 
-          {/* Subheading */}
-          <p
-            className="mt-6 sm:mt-8 text-[#7a9bb5] text-sm sm:text-base md:text-lg leading-relaxed max-w-lg text-center"
-            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
-          >
-            Stay ahead of the threat, Stay ahead in the Fight.
-          </p>
-
-          {/* Strong CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full sm:w-auto justify-center">
-            
-            {/* Primary assessment CTA */}
-            <a
-              href="#contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-[#0A0F1F] text-sm font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 group"
-              style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
+            {/* Heading with Scrambling HackerText */}
+            <h1
+              className="font-normal leading-[1.0] text-white max-w-3xl animate-reveal"
+              style={{
+                fontFamily: NHG,
+                fontSize: 'clamp(2.2rem, 5.0vw, 4.5rem)',
+                letterSpacing: '-0.035em',
+              }}
             >
-              <Shield className="w-4 h-4" />
-              Free Assessment
-              <div className="w-6 h-6 rounded-full bg-[#0A0F1F]/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </a>
-            
-            {/* Secondary platform explorer CTA */}
-            <Link
-              to="/nativesoc"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-full border border-[rgba(0,229,255,0.25)] hover:border-[#00E5FF] hover:text-[#00E5FF] bg-[rgba(10,15,31,0.4)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
-            >
-              <Terminal className="w-4 h-4" />
-              Explore Platform
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </Link>
+              <HackerText text="Defense is the Best Offence in" />{' '}
+              <span
+                className="animate-flicker shimmer-text block sm:inline font-semibold"
+                style={{
+                  textShadow: '0 0 25px rgba(0,229,255,0.5)',
+                }}
+              >
+                <HackerText text="Cyber Security" delay={300} triggerOnHover />
+              </span>
+            </h1>
 
+            {/* Subheading */}
+            <p
+              className="mt-6 sm:mt-8 text-[#7a9bb5] text-sm sm:text-base md:text-lg leading-relaxed max-w-xl"
+              style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
+            >
+              Stay ahead of the threat, Stay ahead in the Fight.
+            </p>
+
+            {/* Strong CTAs */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full sm:w-auto justify-center lg:justify-start">
+              
+              {/* Primary assessment CTA */}
+              <a
+                href="#contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-[#0A0F1F] text-sm font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 group"
+                style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
+              >
+                <Shield className="w-4 h-4" />
+                Free Assessment
+                <div className="w-6 h-6 rounded-full bg-[#0A0F1F]/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </a>
+              
+              {/* Secondary platform explorer CTA */}
+              <Link
+                to="/nativesoc"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-full border border-[rgba(0,229,255,0.25)] hover:border-[#00E5FF] hover:text-[#00E5FF] bg-[rgba(10,15,31,0.4)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
+              >
+                <Terminal className="w-4 h-4" />
+                Explore Platform
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
+
+            </div>
           </div>
+
+          {/* Right Column: Live Simulated Threat Dashboard */}
+          <div className="lg:col-span-5 w-full relative z-10 flex flex-col gap-6">
+            <ThreatDashboard />
+          </div>
+
         </div>
       </div>
 

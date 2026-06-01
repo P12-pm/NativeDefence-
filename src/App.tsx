@@ -22,8 +22,13 @@ import WhyNativeSOCPage from './pages/WhyNativeSOCPage'
 import CoursePage from './pages/CoursePage'
 import CybersecurityAwarenessPage from './pages/CybersecurityAwarenessPage'
 
+// Advanced Cyber Features Components
+import LoadingScreen from './components/LoadingScreen'
+import MouseFollowGlow from './components/MouseFollowGlow'
+
 function HomePage() {
   const [isDark, setIsDark] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const root = document.documentElement
@@ -34,22 +39,48 @@ function HomePage() {
     }
   }, [isDark])
 
+  // Global Scroll Reveal Intersection Observer Hook
+  useEffect(() => {
+    if (loading) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [loading]);
+
   const handleNavClick = (section: string) => {
     const el = document.getElementById(section)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <div className="min-h-screen transition-colors duration-500" style={{ background: '#0A0F1F' }}>
-      <Hero onNavClick={handleNavClick} isDark={isDark} onToggleDark={() => setIsDark(d => !d)} />
-      <About />
-      <NativeSOC />
-      <Services />
-      <Team />
-      <Testimonial />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+      
+      <div className="min-h-screen transition-colors duration-500 relative" style={{ background: '#0A0F1F' }}>
+        <MouseFollowGlow />
+        <Hero onNavClick={handleNavClick} isDark={isDark} onToggleDark={() => setIsDark(d => !d)} />
+        <About />
+        <NativeSOC />
+        <Services />
+        <Team />
+        <Testimonial />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   )
 }
 
