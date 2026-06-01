@@ -1,7 +1,7 @@
 import { NHG } from '../constants';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logoDark from '../assets/logo_dark.png';
+import logoDark from '../assets/logo_dark.avif';
 
 const cols = {
   Platform: [

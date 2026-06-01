@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Play, Shield, Menu, X, Sun, Moon, ChevronDown, Terminal, Wifi } from 'lucide-react';
-import logoLight from '../assets/logo_light.png';
-import logoDark from '../assets/logo_dark.png';
+import logoLight from '../assets/logo_light.avif';
+import logoDark from '../assets/logo_dark.avif';
 import { Link } from 'react-router-dom';
 
 /* ── Cybersecurity hero video (Pexels free stock) ── */

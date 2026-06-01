@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoDark from '../assets/logo_dark.png';
+import logoDark from '../assets/logo_dark.avif';
 import {
   ArrowLeft, ArrowRight, Shield, Activity, Database, Sparkles,
   Sun, Moon, Menu, X
@@ -54,9 +54,7 @@ export default function NativeSOCApproachPage() {
                 src={logoDark}
                 alt="NativeDefence Logo"
                 className="transition-all duration-300 object-contain"
-                style={{
-                  ...(isDark ? { width: '135px', height: '40px' } : { height: '40px', width: 'auto' })
-                }}
+                style={{ height: '38px', width: 'auto' }}
               />
             </Link>
           </div>
