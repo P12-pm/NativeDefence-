@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Play, Shield, Menu, X, ChevronDown, Terminal, Wifi } from 'lucide-react';
+import { Play, Shield, Menu, X, ChevronDown, Terminal, Wifi, ArrowRight } from 'lucide-react';
 import logoLight from '../assets/logo_light.avif';
 import logoDark from '../assets/logo_dark.avif';
 import { Link } from 'react-router-dom';
@@ -427,70 +427,132 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         </div>
       </div>
 
-      {/* ── Hero copy ────────────────────────────────────── */}
-      <div className="relative z-10 flex flex-col items-center text-center pt-32 sm:pt-36 md:pt-44 px-4 sm:px-6">
+      {/* ── Hero copy with Premium Glassmorphism Card & Floating Icons ── */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] pt-32 pb-24 px-4 sm:px-6 md:px-10">
+        
+        {/* Floating holographic security icons */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+          
+          {/* Top-Left: Shield Icon */}
+          <div
+            className="absolute top-[20%] left-[8%] md:left-[12%] animate-float hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(5,13,26,0.6)] border border-[rgba(0,255,136,0.25)] shadow-[0_0_20px_rgba(0,255,136,0.15)] text-[#00ff88]"
+            style={{ animationDelay: '0s', transform: 'rotate(-10deg)', backdropFilter: 'blur(8px)' }}
+          >
+            <Shield className="w-5 h-5 animate-pulse" />
+          </div>
 
-        {/* Cyber badge */}
-        <div
-          className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full"
-          style={{
-            background: 'rgba(0,255,136,0.08)',
-            border: '1px solid rgba(0,255,136,0.25)',
-            backdropFilter: 'blur(8px)',
-          }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse" />
-          <span className="text-[11px] font-bold text-[#00ff88] tracking-[0.12em] uppercase">
-            NativeSOC™ — Advanced Threat Intelligence
-          </span>
+          {/* Top-Right: Terminal Icon */}
+          <div
+            className="absolute top-[25%] right-[8%] md:right-[12%] animate-float-slow hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(5,13,26,0.6)] border border-[rgba(0,212,255,0.25)] shadow-[0_0_20px_rgba(0,212,255,0.15)] text-[#00d4ff]"
+            style={{ animationDelay: '1.5s', transform: 'rotate(15deg)', backdropFilter: 'blur(8px)' }}
+          >
+            <Terminal className="w-6 h-6" />
+          </div>
+
+          {/* Bottom-Left: Wifi Icon */}
+          <div
+            className="absolute bottom-[30%] left-[6%] md:left-[10%] animate-float-slow hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(5,13,26,0.6)] border border-[rgba(0,255,136,0.25)] shadow-[0_0_20px_rgba(0,255,136,0.15)] text-[#00ff88]"
+            style={{ animationDelay: '0.8s', transform: 'rotate(8deg)', backdropFilter: 'blur(8px)' }}
+          >
+            <Wifi className="w-6 h-6" />
+          </div>
+
+          {/* Bottom-Right: Play Icon */}
+          <div
+            className="absolute bottom-[28%] right-[6%] md:right-[10%] animate-float hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(5,13,26,0.6)] border border-[rgba(0,212,255,0.25)] shadow-[0_0_20px_rgba(0,212,255,0.15)] text-[#00d4ff]"
+            style={{ animationDelay: '2.2s', transform: 'rotate(-12deg)', backdropFilter: 'blur(8px)' }}
+          >
+            <Play className="w-5 h-5" />
+          </div>
         </div>
 
-        <h1
-          className="font-normal leading-[0.95] text-white max-w-5xl"
+        {/* ── Main Glassmorphism Card ── */}
+        <div
+          className="relative z-10 w-full max-w-4xl p-8 sm:p-14 rounded-3xl border border-[rgba(0,255,136,0.16)] backdrop-blur-2xl shadow-[0_30px_70px_rgba(0,0,0,0.65)] hover:border-[rgba(0,255,136,0.25)] transition-all duration-500 group flex flex-col items-center"
           style={{
-            fontFamily: NHG,
-            fontSize: 'clamp(2.2rem, 6vw, 5.5rem)',
-            letterSpacing: '-0.035em',
-            textShadow: '0 0 60px rgba(0,0,0,0.5)',
+            background: 'linear-gradient(135deg, rgba(10,22,40,0.6) 0%, rgba(5,13,26,0.75) 100%)',
           }}
         >
-          Defense is the Best Offence in{' '}
-          <span
-            className="animate-flicker"
+          {/* Subtle grid pattern inside card */}
+          <div className="absolute inset-0 cyber-grid-bg-static opacity-10 pointer-events-none rounded-3xl" />
+          
+          {/* Shimmering border glow overlay */}
+          <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+               style={{
+                 boxShadow: 'inset 0 0 30px rgba(0,255,136,0.06), 0 0 40px rgba(0,255,136,0.03)',
+               }}
+          />
+
+          {/* Cyber badge */}
+          <div
+            className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full"
             style={{
-              color: '#00ff88',
-              textShadow: '0 0 20px rgba(0,255,136,0.6), 0 0 40px rgba(0,255,136,0.3)',
+              background: 'rgba(0,255,136,0.08)',
+              border: '1px solid rgba(0,255,136,0.25)',
+              backdropFilter: 'blur(8px)',
             }}
           >
-            Cyber Security
-          </span>
-        </h1>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse" />
+            <span className="text-[11px] font-bold text-[#00ff88] tracking-[0.12em] uppercase">
+              NativeSOC™ — Advanced Threat Intelligence
+            </span>
+          </div>
 
-        <p
-          className="mt-6 sm:mt-8 text-[#7a9bb5] text-sm sm:text-base md:text-lg leading-relaxed max-w-md px-2"
-          style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
-        >
-          Stay ahead of the threat, Stay ahead in the Fight.
-        </p>
+          {/* Heading */}
+          <h1
+            className="font-normal leading-[0.95] text-white text-center max-w-3xl"
+            style={{
+              fontFamily: NHG,
+              fontSize: 'clamp(2.2rem, 5.5vw, 5rem)',
+              letterSpacing: '-0.035em',
+            }}
+          >
+            Defense is the Best Offence in{' '}
+            <span
+              className="animate-flicker shimmer-text block sm:inline font-semibold"
+              style={{
+                textShadow: '0 0 25px rgba(0,255,136,0.5)',
+              }}
+            >
+              Cyber Security
+            </span>
+          </h1>
 
-        {/* CTAs */}
-        <div className="flex items-center gap-4 mt-8 flex-wrap justify-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 text-[#050d1a] text-sm font-bold px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,136,0.5)] hover:-translate-y-0.5"
-            style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+          {/* Subheading */}
+          <p
+            className="mt-6 sm:mt-8 text-[#7a9bb5] text-sm sm:text-base md:text-lg leading-relaxed max-w-lg text-center"
+            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
           >
-            <Shield className="w-4 h-4" />
-            Free Assessment
-          </a>
-          <Link
-            to="/nativesoc"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#00ff88] transition-all duration-300 group"
-          >
-            <Terminal className="w-4 h-4" />
-            Explore Platform
-            <span className="group-hover:translate-x-0.5 transition-transform duration-300">→</span>
-          </Link>
+            Stay ahead of the threat, Stay ahead in the Fight.
+          </p>
+
+          {/* Strong CTAs */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full sm:w-auto justify-center">
+            
+            {/* Primary assessment CTA */}
+            <a
+              href="#contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-[#050d1a] text-sm font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,255,136,0.6)] hover:-translate-y-0.5 group"
+              style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+            >
+              <Shield className="w-4 h-4" />
+              Free Assessment
+              <div className="w-6 h-6 rounded-full bg-[#050d1a]/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </a>
+            
+            {/* Secondary platform explorer CTA */}
+            <Link
+              to="/nativesoc"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-full border border-[rgba(0,255,136,0.25)] hover:border-[#00ff88] hover:text-[#00ff88] bg-rgba(5,13,26,0.4) backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
+            >
+              <Terminal className="w-4 h-4" />
+              Explore Platform
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+
+          </div>
         </div>
       </div>
 
