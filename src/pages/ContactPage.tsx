@@ -250,7 +250,11 @@ export default function ContactPage() {
                 {/* Sales Channel */}
                 <a
                   href="mailto:sales@nativedefence.com"
-                  
+                  className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    background: 'rgba(5,13,26,0.7)',
+                    border: '1px solid rgba(0,255,136,0.12)',
+                  }}
                 >
                   <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-[#00ff88]" />
@@ -267,7 +271,11 @@ export default function ContactPage() {
                 {/* General Inquiry / Info Channel */}
                 <a
                   href="mailto:info@nativedefence.com"
-                  
+                  className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    background: 'rgba(5,13,26,0.7)',
+                    border: '1px solid rgba(0,255,136,0.12)',
+                  }}
                 >
                   <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-[#00ff88]" />
@@ -284,7 +292,11 @@ export default function ContactPage() {
                 {/* Phone Channel */}
                 <a
                   href="tel:+919748780073"
-                  
+                  className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    background: 'rgba(5,13,26,0.7)',
+                    border: '1px solid rgba(0,255,136,0.12)',
+                  }}
                 >
                   <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-[#00ff88]" />
@@ -300,7 +312,13 @@ export default function ContactPage() {
               </div>
 
               {/* Operating Hours */}
-              <div >
+              <div
+                className="flex items-center gap-4 p-5 rounded-2xl"
+                style={{
+                  background: 'rgba(5,13,26,0.7)',
+                  border: '1px solid rgba(0,255,136,0.12)',
+                }}
+              >
                 <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88]">
                   <Clock className="w-5 h-5" />
                 </div>
@@ -347,7 +365,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right: State-of-the-Art Contact Form */}
-            <div >
+            <div className="lg:col-span-7 bg-[rgba(10,22,40,0.4)] p-8 sm:p-12 rounded-3xl border border-[rgba(0,255,136,0.12)] backdrop-blur-xl shadow-2xl">
 
               {isSuccess ? (
                 <div className="h-full flex flex-col items-center justify-center text-center py-16 space-y-6">
@@ -375,7 +393,7 @@ export default function ContactPage() {
 
                   <div className="space-y-2">
                     <h2 className="text-xl font-semibold text-white" style={{ fontFamily: NHG }}>
-                      Initiate Security Assesment
+                      Initiate Security Assessment
                     </h2>
                     <p className="text-xs text-[#7a9bb5]">
                       Fill out your corporate details below and a senior architect will be in touch.
@@ -384,7 +402,7 @@ export default function ContactPage() {
 
                   {/* Name Input */}
                   <div>
-                    <label className="block text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color: formActive === 'name' ? PRIMARY : '#4b5b47' }}>
+                    <label className="block text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color: formActive === 'name' ? PRIMARY : '#7a9bb5' }}>
                       Full Name
                     </label>
                     <input
@@ -402,7 +420,7 @@ export default function ContactPage() {
                   {/* Email & Company Dual Layout */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color: formActive === 'email' ? PRIMARY : '#4b5b47' }}>
+                      <label className="block text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color: formActive === 'email' ? PRIMARY : '#7a9bb5' }}>
                         Work Email
                       </label>
                       <input
@@ -417,7 +435,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color: formActive === 'company' ? PRIMARY : '#4b5b47' }}>
+                      <label className="block text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color: formActive === 'company' ? PRIMARY : '#7a9bb5' }}>
                         Company Name
                       </label>
                       <input
@@ -453,7 +471,7 @@ export default function ContactPage() {
 
                   {/* Message Input */}
                   <div>
-                    <label className="block text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color: formActive === 'message' ? PRIMARY : '#4b5b47' }}>
+                    <label className="block text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color: formActive === 'message' ? PRIMARY : '#7a9bb5' }}>
                       How can we help you?
                     </label>
                     <textarea
@@ -473,7 +491,8 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-3 hover:opacity-90 text-white text-sm font-semibold py-4 rounded-full transition-all duration-300 disabled:opacity-70 group"
+                    className="w-full flex items-center justify-center gap-3 hover:opacity-90 text-[#050d1a] text-sm font-bold py-4 rounded-full transition-all duration-300 disabled:opacity-70 group"
+                    style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)', boxShadow: '0 0 20px rgba(0,255,136,0.15)' }}
                   >
                     {isSubmitting ? 'Verifying Threat Parameters...' : 'Submit Request'}
                     <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -538,7 +557,8 @@ export default function ContactPage() {
           <div className="flex flex-wrap gap-3">
             <a
               href="mailto:sales@nativedefence.com"
-              className="inline-flex items-center gap-2 hover:opacity-90 text-white text-sm font-semibold px-5 py-3.5 rounded-full transition-all duration-300"
+              className="inline-flex items-center gap-2 hover:opacity-90 text-[#050d1a] text-sm font-semibold px-5 py-3.5 rounded-full transition-all duration-300"
+              style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
             >
               Email Incident Command
               <ArrowRight className="w-3.5 h-3.5" />
