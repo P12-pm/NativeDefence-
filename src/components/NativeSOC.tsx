@@ -1,5 +1,5 @@
 import { useInView } from '../hooks/useInView';
-import { NHG, COLORS } from '../constants';
+import { NHG } from '../constants';
 import { ArrowRight } from 'lucide-react';
 
 const features = [
@@ -23,24 +23,38 @@ export default function NativeSOC() {
   return (
     <section
       id="nativesoc"
-      className="bg-[#f7f6f2] dark:bg-[#141d13] transition-colors duration-500"
+      style={{ background: '#0a1628' }}
+      className="transition-colors duration-500 relative overflow-hidden"
     >
+      {/* Background elements */}
+      <div className="absolute inset-0 cyber-grid-bg-static opacity-20 pointer-events-none" />
+      <div
+        className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 60%)',
+          transform: 'translate(-20%, 30%)',
+        }}
+      />
+
       <div
         ref={ref}
-        className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-20 sm:py-28 lg:py-36"
+        className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-20 sm:py-28 lg:py-36"
       >
         {/* Section tag */}
         <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
-          <span className="text-[11px] font-semibold text-white bg-[#336443] rounded-full px-3 py-1 tracking-widest uppercase">
+          <span
+            className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
+            style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.25)', color: '#00ff88' }}
+          >
             02
           </span>
-          <span className="text-sm font-medium text-[#4b5b47] dark:text-[#8a9e86]">Platform Overview</span>
+          <span className="text-sm font-medium" style={{ color: '#7a9bb5' }}>Platform Overview</span>
         </div>
 
         {/* Heading row */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16 sm:mb-20">
           <h2
-            className={`font-normal text-[#1f2a1d] dark:text-white reveal ${inView ? 'in-view' : ''}`}
+            className={`font-normal text-white reveal ${inView ? 'in-view' : ''}`}
             style={{
               fontFamily: NHG,
               fontSize: 'clamp(2rem, 6vw, 5rem)',
@@ -51,22 +65,51 @@ export default function NativeSOC() {
             }}
           >
             NativeSOC —{' '}
-            <span style={{ color: COLORS.accent }}>your complete</span>{' '}
+            <span style={{ color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.4)' }}>
+              your complete
+            </span>{' '}
             cyber defence platform.
           </h2>
 
           <a
             href="#contact"
-            className={`hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-[#336443] dark:text-[#85AB8B] hover:gap-3 transition-all duration-300 group reveal ${inView ? 'in-view' : ''} flex-shrink-0`}
-            style={{ transitionDelay: '100ms' }}
+            className={`hidden lg:inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300 group reveal ${inView ? 'in-view' : ''} flex-shrink-0`}
+            style={{ color: '#00ff88', transitionDelay: '100ms' }}
           >
             Get a demo
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
 
+        {/* Dashboard image */}
+        <div
+          className={`mb-12 rounded-2xl overflow-hidden reveal ${inView ? 'in-view' : ''}`}
+          style={{
+            border: '1px solid rgba(0,255,136,0.12)',
+            transitionDelay: '80ms',
+            boxShadow: '0 0 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,255,136,0.05)',
+          }}
+        >
+          <img
+            src="/NativeDefence-/cyber_network_protection.png"
+            alt="Cybersecurity Network Protection Platform"
+            className="w-full h-64 md:h-80 object-cover"
+            style={{ filter: 'brightness(0.85) saturate(1.2)' }}
+          />
+          <div
+            className="flex items-center gap-3 px-5 py-3"
+            style={{ background: 'rgba(5,13,26,0.9)', borderTop: '1px solid rgba(0,255,136,0.1)' }}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
+            <span className="text-xs font-mono" style={{ color: '#00ff88' }}>NativeSOC™ Platform — Real-time threat monitoring active</span>
+          </div>
+        </div>
+
         {/* Features grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1f2a1d]/10 dark:bg-white/10 rounded-2xl overflow-hidden mb-16">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px rounded-2xl overflow-hidden mb-16"
+          style={{ background: 'rgba(0,255,136,0.08)' }}
+        >
           {features.map((f, i) => (
             <FeatureCell key={f.id} feature={f} delay={i * 60} inView={inView} />
           ))}
@@ -74,15 +117,32 @@ export default function NativeSOC() {
 
         {/* Verticals strip */}
         <div className={`reveal ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '300ms' }}>
-          <p className="text-xs font-semibold tracking-widest uppercase text-[#336443] dark:text-[#85AB8B] mb-5">
+          <p
+            className="text-xs font-bold tracking-widest uppercase mb-5"
+            style={{ color: '#00ff88' }}
+          >
             Industry Coverage
           </p>
           <div className="flex flex-wrap gap-2 sm:gap-3">
             {verticals.map((v, i) => (
               <span
                 key={v}
-                className="px-4 py-2 rounded-full text-sm font-medium text-[#1f2a1d] dark:text-[#c5d9c3] bg-white dark:bg-[#1f2a1d] border border-[#1f2a1d]/12 dark:border-white/10 transition-all duration-300 hover:border-[#336443]/40 hover:text-[#336443] dark:hover:text-[#85AB8B]"
-                style={{ transitionDelay: `${i * 30}ms` }}
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+                style={{
+                  color: '#c8e0f0',
+                  background: 'rgba(10,22,40,0.7)',
+                  border: '1px solid rgba(0,255,136,0.1)',
+                  transitionDelay: `${i * 30}ms`,
+                  cursor: 'default',
+                }}
+                onMouseEnter={e => {
+                  (e.target as HTMLElement).style.color = '#00ff88';
+                  (e.target as HTMLElement).style.borderColor = 'rgba(0,255,136,0.3)';
+                }}
+                onMouseLeave={e => {
+                  (e.target as HTMLElement).style.color = '#c8e0f0';
+                  (e.target as HTMLElement).style.borderColor = 'rgba(0,255,136,0.1)';
+                }}
               >
                 {v}
               </span>
@@ -97,29 +157,39 @@ export default function NativeSOC() {
 function FeatureCell({ feature, delay, inView }: { feature: typeof features[0]; delay: number; inView: boolean }) {
   return (
     <div
-      className={`bg-white dark:bg-[#141d13] p-6 sm:p-8 group hover:bg-[#f0f7f1] dark:hover:bg-[#1a2619] transition-colors duration-300 reveal ${inView ? 'in-view' : ''}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`p-6 sm:p-8 group hover:-translate-y-0.5 transition-all duration-300 reveal ${inView ? 'in-view' : ''} cursor-default`}
+      style={{
+        background: '#0a1628',
+        transitionDelay: `${delay}ms`,
+      }}
+      onMouseEnter={e => {
+        (e.currentTarget as HTMLElement).style.background = '#0f1f3d';
+      }}
+      onMouseLeave={e => {
+        (e.currentTarget as HTMLElement).style.background = '#0a1628';
+      }}
     >
       {/* Feature ID tag */}
       <div className="inline-flex items-center mb-4">
         <span
           className="text-xs font-bold tracking-widest"
-          style={{ color: COLORS.primary }}
+          style={{ color: '#00ff88' }}
         >
           {feature.id}
         </span>
         <div
-          className="ml-2 w-0 group-hover:w-8 h-px bg-[#336443] transition-all duration-500 ease-out"
+          className="ml-2 w-0 group-hover:w-8 h-px transition-all duration-500 ease-out"
+          style={{ background: '#00ff88' }}
         />
       </div>
 
       <h3
-        className="font-medium text-[#1f2a1d] dark:text-white mb-3 leading-tight"
+        className="font-medium text-white mb-3 leading-tight"
         style={{ fontFamily: NHG, fontSize: '1.05rem', letterSpacing: '-0.01em' }}
       >
         {feature.title}
       </h3>
-      <p className="text-sm text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+      <p className="text-sm leading-relaxed" style={{ color: '#7a9bb5' }}>
         {feature.desc}
       </p>
     </div>

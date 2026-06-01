@@ -1,5 +1,5 @@
 import { useInView, useCountUp } from '../hooks/useInView';
-import { NHG, COLORS } from '../constants';
+import { NHG } from '../constants';
 import { Shield, Eye, Zap, ArrowRight } from 'lucide-react';
 
 const stats = [
@@ -15,28 +15,46 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-white dark:bg-[#0e150d] transition-colors duration-500"
+      style={{ background: '#050d1a' }}
+      className="transition-colors duration-500 relative overflow-hidden"
     >
-      {/* ── Top half: large intro ─────────────────────────── */}
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 cyber-grid-bg-static opacity-30 pointer-events-none" />
+
+      {/* Glow orb */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 60%)',
+          transform: 'translate(20%, -20%)',
+        }}
+      />
+
+      {/* ── Top half: large intro ─────────────────────── */}
       <div
         ref={sectionRef}
-        className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 pt-20 sm:pt-28 lg:pt-36"
+        className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 pt-20 sm:pt-28 lg:pt-36"
       >
         {/* Section tag */}
         <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
           <span
-            className="text-[11px] font-semibold text-white bg-[#336443] rounded-full px-3 py-1 tracking-widest uppercase"
+            className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
+            style={{
+              background: 'rgba(0,255,136,0.1)',
+              border: '1px solid rgba(0,255,136,0.25)',
+              color: '#00ff88',
+            }}
           >
             01
           </span>
-          <span className="text-sm font-medium text-[#4b5b47] dark:text-[#8a9e86]">
+          <span className="text-sm font-medium" style={{ color: '#7a9bb5' }}>
             Introducing NativeDefence
           </span>
         </div>
 
         {/* Big heading */}
         <h2
-          className={`font-normal text-[#1f2a1d] dark:text-white reveal ${inView ? 'in-view' : ''}`}
+          className={`font-normal text-white reveal ${inView ? 'in-view' : ''}`}
           style={{
             fontFamily: NHG,
             fontSize: 'clamp(2rem, 6vw, 5rem)',
@@ -47,14 +65,20 @@ export default function About() {
           }}
         >
           Expert-driven security,{' '}
-          <span style={{ color: COLORS.accent }}>delivering cyber resilience</span>{' '}
+          <span style={{ color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.4)' }}>
+            delivering cyber resilience
+          </span>{' '}
           in a threat‑first world.
         </h2>
 
         {/* Divider line */}
         <div
-          className={`mt-12 sm:mt-16 border-t border-[#1f2a1d]/10 dark:border-white/10 reveal ${inView ? 'in-view' : ''}`}
-          style={{ transitionDelay: '140ms' }}
+          className={`mt-12 sm:mt-16 reveal ${inView ? 'in-view' : ''}`}
+          style={{
+            height: '1px',
+            background: 'rgba(0,255,136,0.1)',
+            transitionDelay: '140ms',
+          }}
         />
 
         {/* Two-column content */}
@@ -62,27 +86,42 @@ export default function About() {
           className={`mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 pb-16 sm:pb-20 reveal ${inView ? 'in-view' : ''}`}
           style={{ transitionDelay: '180ms' }}
         >
-          {/* Left: body text + cta */}
+          {/* Left: body text + image + cta */}
           <div>
             <p
-              className="text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed mb-8"
-              style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', lineHeight: 1.75 }}
+              style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', lineHeight: 1.75, color: '#7a9bb5' }}
+              className="leading-relaxed mb-6"
             >
               Through advanced threat research, expert SOC operations and continuous
               iteration, we help organisations achieve true cyber resilience — staying
               ahead of evolving threats before they impact your business.
             </p>
             <p
-              className="text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed mb-10"
-              style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', lineHeight: 1.75 }}
+              style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', lineHeight: 1.75, color: '#7a9bb5' }}
+              className="leading-relaxed mb-8"
             >
               NativeSOC team works with end-customers, resellers, SIs and OEMs —
               leveraging vast experience across BFSI, Healthcare, Manufacturing,
               Education and more.
             </p>
+
+            {/* SOC image */}
+            <div
+              className="mb-8 rounded-2xl overflow-hidden"
+              style={{ border: '1px solid rgba(0,255,136,0.12)' }}
+            >
+              <img
+                src="/NativeDefence-/cyber_soc_dashboard.png"
+                alt="Cybersecurity SOC Operations Center"
+                className="w-full h-48 object-cover"
+                style={{ filter: 'brightness(0.9) saturate(1.1)' }}
+              />
+            </div>
+
             <a
               href="#team"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#336443] dark:text-[#85AB8B] hover:gap-3 transition-all duration-300 group"
+              className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300 group"
+              style={{ color: '#00ff88' }}
             >
               Meet the team
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -98,18 +137,22 @@ export default function About() {
             ].map(({ icon: Icon, title, desc }, i) => (
               <div
                 key={title}
-                className="grad-border flex items-start gap-4 p-5 bg-[#f7f6f2] dark:bg-[#141d13] rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
-                style={{ animationDelay: `${i * 0.2}s` }}
+                className="grad-border flex items-start gap-4 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 group"
+                style={{
+                  background: 'rgba(10,22,40,0.7)',
+                  border: '1px solid rgba(0,255,136,0.1)',
+                  animationDelay: `${i * 0.2}s`,
+                }}
               >
                 <div
                   className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: 'rgba(51,100,67,0.1)' }}
+                  style={{ background: 'rgba(0,255,136,0.1)' }}
                 >
-                  <Icon className="w-5 h-5 text-[#336443]" />
+                  <Icon className="w-5 h-5" style={{ color: '#00ff88' }} />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#1f2a1d] dark:text-white text-sm mb-1">{title}</p>
-                  <p className="text-[#4b5b47] dark:text-[#8a9e86] text-sm leading-relaxed">{desc}</p>
+                  <p className="font-semibold text-white text-sm mb-1">{title}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: '#7a9bb5' }}>{desc}</p>
                 </div>
               </div>
             ))}
@@ -117,7 +160,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* ── Stats bar ────────────────────────────────────── */}
+      {/* ── Stats bar ────────────────────────────────── */}
       <StatsBar inView={inView} />
     </section>
   );
@@ -127,23 +170,29 @@ function StatsBar({ inView }: { inView: boolean }) {
   const s = stats.map(s => ({ ...s, count: useCountUp(s.value, inView) }));
 
   return (
-    <div className="bg-[#1f2a1d] dark:bg-[#0a110a]">
+    <div style={{ background: '#0a1628', borderTop: '1px solid rgba(0,255,136,0.1)', borderBottom: '1px solid rgba(0,255,136,0.1)' }}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-12 sm:py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-white/10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x" style={{ '--tw-divide-opacity': 1 } as React.CSSProperties}>
           {s.map(({ count, suffix, label }) => (
-            <div key={label} className="flex flex-col items-center lg:items-start lg:px-10 gap-1">
+            <div
+              key={label}
+              className="flex flex-col items-center lg:items-start lg:px-10 gap-1"
+              style={{ borderColor: 'rgba(0,255,136,0.1)' }}
+            >
               <span
-                className="font-normal text-white"
+                className="font-normal"
                 style={{
                   fontFamily: NHG,
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                   lineHeight: 1,
                   letterSpacing: '-0.03em',
+                  color: '#00ff88',
+                  textShadow: '0 0 20px rgba(0,255,136,0.3)',
                 }}
               >
                 {count}{suffix}
               </span>
-              <span className="text-sm text-[#85AB8B] font-medium">{label}</span>
+              <span className="text-sm font-medium" style={{ color: '#7a9bb5' }}>{label}</span>
             </div>
           ))}
         </div>

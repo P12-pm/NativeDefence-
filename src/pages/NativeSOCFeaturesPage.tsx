@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoLight from '../assets/logo_light.png';
 import logoDark from '../assets/logo_dark.png';
 import {
   ArrowLeft, Zap, CheckCircle, Server, Cloud, Cpu,
@@ -8,7 +7,7 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#336443';
+const PRIMARY = '#00ff88';
 
 const subLinks = [
   { label: 'NativeSOC Approach', href: '/nativesocapproach' },
@@ -131,31 +130,31 @@ export default function NativeSOCFeaturesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0e150d] transition-colors duration-500 text-[#1f2a1d] dark:text-[#c5d9c3]">
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#0e150d]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back */}
           <div className="flex items-center gap-4">
             <Link
               to="/nativesoc"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#4b5b47] dark:text-[#8a9e86] hover:text-[#1f2a1d] dark:hover:text-white transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#1f2a1d]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
-                src={isDark ? logoDark : logoLight}
+                src={logoDark}
                 alt="NativeDefence Logo"
                 className="transition-all duration-300 object-contain"
-                style={isDark
-                  ? { width: '135px', height: '40px' }
-                  : { height: '40px', width: 'auto' }
-                }
+                style={{
+                  filter: 'brightness(0) invert(1)',
+                  ...(isDark ? { width: '135px', height: '40px' } : { height: '40px', width: 'auto' })
+                }}
               />
             </Link>
           </div>
@@ -166,7 +165,7 @@ export default function NativeSOCFeaturesPage() {
               <Link
                 key={l.href}
                 to={l.href}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/nativesocfeatures' ? 'bg-[#1f2a1d] text-white dark:bg-[#336443]' : 'text-[#4b5b47] dark:text-[#8a9e86] hover:text-[#1f2a1d] dark:hover:text-white hover:bg-[#f7f6f2] dark:hover:bg-[#1f2a1d]'}`}
+                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/nativesocfeatures' ? 'bg-[rgba(0,255,136,0.15)] text-[#00ff88]' : 'text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)]'}`}
               >
                 {l.label}
               </Link>
@@ -177,38 +176,38 @@ export default function NativeSOCFeaturesPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsDark(d => !d)}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-[#f7f6f2] dark:bg-[#1f2a1d] border border-black/8 dark:border-white/8 relative"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
             >
-              <Sun className={`w-3.5 h-3.5 text-[#1f2a1d] dark:text-white absolute transition-all duration-300 ${isDark ? 'opacity-100' : 'opacity-0 rotate-90'}`} />
-              <Moon className={`w-3.5 h-3.5 text-[#1f2a1d] dark:text-white absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90' : 'opacity-100'}`} />
+              <Sun className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-100' : 'opacity-0 rotate-90'}`} />
+              <Moon className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90' : 'opacity-100'}`} />
             </button>
 
             <Link
               to="/#contact"
-              className="hidden sm:flex items-center gap-1.5 bg-[#1f2a1d] hover:bg-[#2a3827] dark:bg-[#336443] dark:hover:bg-[#2a5438] text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors duration-200"
+              className="hidden sm:flex items-center gap-1.5 hover:opacity-90 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors duration-200"
             >
               Get Demo
             </Link>
 
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[#f7f6f2] dark:bg-[#1f2a1d] border border-black/8 dark:border-white/8 relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
             >
-              <Menu className={`w-4 h-4 text-[#1f2a1d] dark:text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
-              <X className={`w-4 h-4 text-[#1f2a1d] dark:text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
+              <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
+              <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
             </button>
           </div>
         </div>
 
         {/* Mobile Drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-black/5 dark:border-white/5 pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
             {subLinks.map(l => (
               <Link
                 key={l.href}
                 to={l.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-left text-sm font-medium py-2.5 border-b border-black/5 dark:border-white/5 last:border-0 ${l.href === '/nativesocfeatures' ? 'text-[#336443] dark:text-[#85AB8B] font-semibold' : 'text-[#4b5b47] dark:text-[#8a9e86]'}`}
+                className={`text-left text-sm font-medium py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0 ${l.href === '/nativesocfeatures' ? 'text-[#00ff88] font-semibold' : 'text-[#7a9bb5]'}`}
               >
                 {l.label}
               </Link>
@@ -216,7 +215,7 @@ export default function NativeSOCFeaturesPage() {
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#1f2a1d] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
             >
               Get Demo
             </Link>
@@ -232,14 +231,14 @@ export default function NativeSOCFeaturesPage() {
         </div>
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="inline-flex items-center gap-2 bg-[#f0f7f1] dark:bg-[#141d13] border border-[#336443]/15 dark:border-white/10 rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#336443] dark:text-[#85AB8B]" />
-            <span className="text-xs font-bold text-[#336443] dark:text-[#85AB8B] tracking-wider uppercase">Platform Capabilities</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
+            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">Platform Capabilities</span>
           </div>
 
           <div className="max-w-3xl">
             <h1
-              className="font-normal text-[#1f2a1d] dark:text-white mb-6"
+              className="font-normal text-white mb-6"
               style={{
                 fontFamily: NHG,
                 fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)',
@@ -248,9 +247,9 @@ export default function NativeSOCFeaturesPage() {
               }}
             >
               Granular Security <br />
-              <span className="text-[#336443] dark:text-[#85AB8B] font-medium">Features Ecosystem.</span>
+              <span className="text-[#00ff88] font-medium">Features Ecosystem.</span>
             </h1>
-            <p className="text-sm sm:text-base text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#7a9bb5] leading-relaxed">
               Explore the advanced features powering the six integrated layers of NativeSOC. From host-level audits
               to container health logs, manage and prioritize threats seamlessly.
             </p>
@@ -259,7 +258,7 @@ export default function NativeSOCFeaturesPage() {
       </section>
 
       {/* ══ INTERACTIVE TABS & GRID ══ */}
-      <section className="bg-[#f7f6f2] dark:bg-[#141d13] py-16 sm:py-24 transition-colors duration-500">
+      <section >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           {/* Tab Switcher */}
@@ -273,7 +272,8 @@ export default function NativeSOCFeaturesPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-full border transition-all duration-200 ${activeTab === tab.id ? 'bg-[#1f2a1d] text-white border-transparent' : 'bg-white dark:bg-[#0e150d] text-[#4b5b47] dark:text-[#8a9e86] border-black/5 dark:border-white/5 hover:border-[#336443]/30'}`}
+                className={`inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-full border transition-all duration-200 ${activeTab === tab.id ? 'bg-[#050d1a] text-white border-transparent' : 'text-[#7a9bb5] border-[rgba(0,255,136,0.1)] hover:border-[rgba(0,255,136,0.3)]'}`}
+                style={{ background: '#050d1a' }}
               >
                 {tab.icon}
                 {tab.label}
@@ -286,26 +286,26 @@ export default function NativeSOCFeaturesPage() {
             {getActiveFeatures().map((f) => (
               <div
                 key={f.title}
-                className="bg-white dark:bg-[#0e150d] p-6 sm:p-8 rounded-3xl border border-black/5 dark:border-white/5 flex flex-col justify-between hover:shadow-lg transition-all duration-300"
+                style={{ background: '#050d1a' }} className="p-6 sm:p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-lg transition-all duration-300"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#336443]/10 dark:bg-[#336443]/20 flex items-center justify-center text-[#336443] dark:text-[#85AB8B] mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88] mb-6">
                     {getTabIcon()}
                   </div>
-                  <h3 className="text-lg font-semibold text-[#1f2a1d] dark:text-white mb-4" style={{ fontFamily: NHG }}>
+                  <h3 className="text-lg font-semibold text-white mb-4" style={{ fontFamily: NHG }}>
                     {f.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#7a9bb5] leading-relaxed mb-6">
                     {f.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-black/5 dark:border-white/5 space-y-3">
-                  <span className="text-[10px] font-bold tracking-widest text-[#336443] dark:text-[#85AB8B] uppercase">Technical Metrics</span>
+                <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] space-y-3">
+                  <span className="text-[10px] font-bold tracking-widest text-[#00ff88] uppercase">Technical Metrics</span>
                   <ul className="space-y-2">
                     {f.points.map(pt => (
-                      <li key={pt} className="flex items-start gap-2 text-xs text-[#1f2a1d] dark:text-[#c5d9c3]">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#336443] mt-0.5 flex-shrink-0" />
+                      <li key={pt} className="flex items-start gap-2 text-xs text-white">
+                        <CheckCircle className="w-3.5 h-3.5 text-[#00ff88] mt-0.5 flex-shrink-0" />
                         <span>{pt}</span>
                       </li>
                     ))}
@@ -319,17 +319,17 @@ export default function NativeSOCFeaturesPage() {
       </section>
 
       {/* ══ FOOTER ══ */}
-      <footer className="bg-white dark:bg-[#0e150d] border-t border-[#1f2a1d]/10 dark:border-white/10 transition-colors duration-500">
+      <footer style={{ background: '#050d1a' }} className="border-t border-[rgba(0,255,136,0.1)] transition-colors duration-500">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex flex-col sm:flex-row items-center gap-3">
-            <img src={isDark ? logoDark : logoLight} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 dark:opacity-85 transition-all duration-300" />
-            <p className="text-xs text-[#4b5b47]/50 dark:text-[#8a9e86]/40">
+            <img src={logoDark} style={{ filter: 'brightness(0) invert(1)' }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />
+            <p className="text-xs text-[#7a9bb5]/40">
               Copyright 2023  © NATIVEDEFENCE TECH LLP. All rights reserved.
             </p>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs text-[#4b5b47]/50 dark:text-[#8a9e86]/40">Granular Auditing Operations Active</span>
+            <span className="text-xs text-[#7a9bb5]/40">Granular Auditing Operations Active</span>
           </div>
         </div>
       </footer>

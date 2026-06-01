@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoLight from '../assets/logo_light.png';
 import logoDark from '../assets/logo_dark.png';
 import {
   ArrowLeft, Shield, Zap, Database, Users,
@@ -8,7 +7,7 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#336443';
+const PRIMARY = '#00ff88';
 
 const subLinks = [
   { label: 'NativeSOC Approach', href: '/nativesocapproach' },
@@ -63,31 +62,31 @@ export default function WhyNativeSOCPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0e150d] transition-colors duration-500 text-[#1f2a1d] dark:text-[#c5d9c3]">
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#0e150d]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back */}
           <div className="flex items-center gap-4">
             <Link
               to="/nativesoc"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#4b5b47] dark:text-[#8a9e86] hover:text-[#1f2a1d] dark:hover:text-white transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#1f2a1d]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
-                src={isDark ? logoDark : logoLight}
+                src={logoDark}
                 alt="NativeDefence Logo"
                 className="transition-all duration-300 object-contain"
-                style={isDark
-                  ? { width: '135px', height: '40px' }
-                  : { height: '40px', width: 'auto' }
-                }
+                style={{
+                  filter: 'brightness(0) invert(1)',
+                  ...(isDark ? { width: '135px', height: '40px' } : { height: '40px', width: 'auto' })
+                }}
               />
             </Link>
           </div>
@@ -98,7 +97,7 @@ export default function WhyNativeSOCPage() {
               <Link
                 key={l.href}
                 to={l.href}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/whynativesoc' ? 'bg-[#1f2a1d] text-white dark:bg-[#336443]' : 'text-[#4b5b47] dark:text-[#8a9e86] hover:text-[#1f2a1d] dark:hover:text-white hover:bg-[#f7f6f2] dark:hover:bg-[#1f2a1d]'}`}
+                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/whynativesoc' ? 'bg-[rgba(0,255,136,0.15)] text-[#00ff88]' : 'text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)]'}`}
               >
                 {l.label}
               </Link>
@@ -109,38 +108,38 @@ export default function WhyNativeSOCPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsDark(d => !d)}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-[#f7f6f2] dark:bg-[#1f2a1d] border border-black/8 dark:border-white/8 relative"
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
             >
-              <Sun className={`w-3.5 h-3.5 text-[#1f2a1d] dark:text-white absolute transition-all duration-300 ${isDark ? 'opacity-100' : 'opacity-0 rotate-90'}`} />
-              <Moon className={`w-3.5 h-3.5 text-[#1f2a1d] dark:text-white absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90' : 'opacity-100'}`} />
+              <Sun className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-100' : 'opacity-0 rotate-90'}`} />
+              <Moon className={`w-3.5 h-3.5 text-white absolute transition-all duration-300 ${isDark ? 'opacity-0 -rotate-90' : 'opacity-100'}`} />
             </button>
 
             <Link
               to="/#contact"
-              className="hidden sm:flex items-center gap-1.5 bg-[#1f2a1d] hover:bg-[#2a3827] dark:bg-[#336443] dark:hover:bg-[#2a5438] text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors duration-200"
+              className="hidden sm:flex items-center gap-1.5 hover:opacity-90 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors duration-200"
             >
               Get Demo
             </Link>
 
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[#f7f6f2] dark:bg-[#1f2a1d] border border-black/8 dark:border-white/8 relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
             >
-              <Menu className={`w-4 h-4 text-[#1f2a1d] dark:text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
-              <X className={`w-4 h-4 text-[#1f2a1d] dark:text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
+              <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
+              <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
             </button>
           </div>
         </div>
 
         {/* Mobile Drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-black/5 dark:border-white/5 pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
             {subLinks.map(l => (
               <Link
                 key={l.href}
                 to={l.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-left text-sm font-medium py-2.5 border-b border-black/5 dark:border-white/5 last:border-0 ${l.href === '/whynativesoc' ? 'text-[#336443] dark:text-[#85AB8B] font-semibold' : 'text-[#4b5b47] dark:text-[#8a9e86]'}`}
+                className={`text-left text-sm font-medium py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0 ${l.href === '/whynativesoc' ? 'text-[#00ff88] font-semibold' : 'text-[#7a9bb5]'}`}
               >
                 {l.label}
               </Link>
@@ -148,7 +147,7 @@ export default function WhyNativeSOCPage() {
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#1f2a1d] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
             >
               Get Demo
             </Link>
@@ -164,14 +163,14 @@ export default function WhyNativeSOCPage() {
         </div>
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="inline-flex items-center gap-2 bg-[#f0f7f1] dark:bg-[#141d13] border border-[#336443]/15 dark:border-white/10 rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#336443] dark:text-[#85AB8B]" />
-            <span className="text-xs font-bold text-[#336443] dark:text-[#85AB8B] tracking-wider uppercase">Platform Differentiators</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
+            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">Platform Differentiators</span>
           </div>
 
           <div className="max-w-3xl">
             <h1
-              className="font-normal text-[#1f2a1d] dark:text-white mb-6"
+              className="font-normal text-white mb-6"
               style={{
                 fontFamily: NHG,
                 fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)',
@@ -180,9 +179,9 @@ export default function WhyNativeSOCPage() {
               }}
             >
               Why Enterprise <br />
-              <span className="text-[#336443] dark:text-[#85AB8B] font-medium">Deploys NativeSOC.</span>
+              <span className="text-[#00ff88] font-medium">Deploys NativeSOC.</span>
             </h1>
-            <p className="text-sm sm:text-base text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#7a9bb5] leading-relaxed">
               We resolve corporate alert fatigue, manage complex SIEM tasks, and deploy multi-layered EDR systems
               backed by 24/7 expert human threat hunters (HUMINT).
             </p>
@@ -191,7 +190,7 @@ export default function WhyNativeSOCPage() {
       </section>
 
       {/* ══ FOUR KEY DIFFERENTIATORS ══ */}
-      <section className="bg-[#f7f6f2] dark:bg-[#141d13] py-20 transition-colors duration-500">
+      <section >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -200,15 +199,15 @@ export default function WhyNativeSOCPage() {
               return (
                 <div
                   key={diff.title}
-                  className="bg-white dark:bg-[#0e150d] p-8 sm:p-10 rounded-3xl border border-black/5 dark:border-white/5 space-y-6 hover:shadow-md transition-shadow duration-300"
+                  style={{ background: '#050d1a' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,255,136,0.1)] space-y-6 hover:shadow-md transition-shadow duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#336443]/10 dark:bg-[#336443]/20 flex items-center justify-center text-[#336443] dark:text-[#85AB8B]">
+                  <div className="w-12 h-12 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88]">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#1f2a1d] dark:text-white" style={{ fontFamily: NHG }}>
+                  <h3 className="text-xl font-bold text-white" style={{ fontFamily: NHG }}>
                     {diff.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#7a9bb5] leading-relaxed">
                     {diff.desc}
                   </p>
                 </div>
@@ -220,40 +219,40 @@ export default function WhyNativeSOCPage() {
       </section>
 
       {/* ══ THE MITRE & HUMINT DETAILS ══ */}
-      <section className="bg-white dark:bg-[#0e150d] py-20 transition-colors duration-500 border-t border-black/5 dark:border-white/5">
+      <section style={{ background: '#050d1a' }} className="py-20 transition-colors duration-500 border-t border-[rgba(0,255,136,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: Robust Proactive & Predictive */}
             <div className="space-y-6">
-              <span className="text-[10px] font-bold tracking-widest text-[#336443] dark:text-[#85AB8B] uppercase">MITRE ATT&amp;CK Alignment</span>
-              <h2 className="text-3xl font-semibold text-[#1f2a1d] dark:text-white" style={{ fontFamily: NHG }}>
+              <span className="text-[10px] font-bold tracking-widest text-[#00ff88] uppercase">MITRE ATT&amp;CK Alignment</span>
+              <h2 className="text-3xl font-semibold text-white" style={{ fontFamily: NHG }}>
                 Robust Proactive &amp; Predictive Monitoring
               </h2>
-              <p className="text-sm text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+              <p className="text-sm text-[#7a9bb5] leading-relaxed">
                 NativeSOC uses multiple tools for security monitoring, file integrity monitoring, and endpoint configuration assessment.
                 Add to that the **MITRE ATT&amp;CK framework**, which uses multiple tactics and many techniques used by contemporary threat actors,
                 helping to identify or indicate an attack in progress in real time.
               </p>
-              <div className="p-5 rounded-2xl bg-[#f7f6f2] dark:bg-[#141d13] border border-black/5 dark:border-white/5 text-xs text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+              <div >
                 <strong>MITRE ATT&amp;CK Mapping:</strong> Well-documented, real-world knowledge base detailing threat actor behaviors, process execution steps, and lateral movements.
               </div>
             </div>
 
             {/* Right: HUMINT Our Secret Sauce */}
             <div className="space-y-6">
-              <span className="text-[10px] font-bold tracking-widest text-[#336443] dark:text-[#85AB8B] uppercase">Human Intelligence</span>
-              <h2 className="text-3xl font-semibold text-[#1f2a1d] dark:text-white" style={{ fontFamily: NHG }}>
+              <span className="text-[10px] font-bold tracking-widest text-[#00ff88] uppercase">Human Intelligence</span>
+              <h2 className="text-3xl font-semibold text-white" style={{ fontFamily: NHG }}>
                 HUMINT – Our Secret Sauce
               </h2>
-              <p className="text-sm text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+              <p className="text-sm text-[#7a9bb5] leading-relaxed">
                 The robust NativeSOC platform is ably supported with an expert driven **"Human Intelligence"** services from a state-of-art 24x7 SOC Centre.
                 Cybersecurity skilled personnel deficit is a global issue. We at NativeSOC are domain experts and extend the solution through many
                 Security delivery partners, in the process creating a workforce of Cybersecurity skilled personnel who understand the cumulative
                 and comprehensive aspect of security in an enterprise IT Infrastructure.
               </p>
-              <div className="p-5 rounded-2xl bg-[#f7f6f2] dark:bg-[#141d13] border border-black/5 dark:border-white/5 text-xs text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+              <div >
                 <strong>Triage Analysts:</strong> Dedicated security operations center engineers monitoring syslog streams 24/7 to safeguard your enterprise assets.
               </div>
             </div>
@@ -264,15 +263,15 @@ export default function WhyNativeSOCPage() {
       </section>
 
       {/* ══ THE CATCH THE HACKER ROADMAP ══ */}
-      <section className="bg-[#f7f6f2] dark:bg-[#141d13] py-20 transition-colors duration-500 border-t border-black/5 dark:border-white/5">
+      <section >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold text-white bg-[#336443] rounded-full px-3 py-1 tracking-widest uppercase">Containment</span>
-            <h2 className="text-3xl font-semibold text-[#1f2a1d] dark:text-white mt-4" style={{ fontFamily: NHG }}>
+            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Containment</span>
+            <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               Catch the Hacker in the Act!
             </h2>
-            <p className="text-xs text-[#4b5b47] dark:text-[#8a9e86] mt-2">
+            <p className="text-xs text-[#7a9bb5] mt-2">
               Our 24/7 threat operations center runs custom hardening protocols to restrict attackers across their lifecycle.
             </p>
           </div>
@@ -288,21 +287,21 @@ export default function WhyNativeSOCPage() {
             ].map(step => (
               <div
                 key={step.id}
-                className="bg-white dark:bg-[#0e150d] p-6 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col justify-between hover:shadow transition-shadow duration-200"
+                style={{ background: '#050d1a' }} className="p-6 rounded-2xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow transition-shadow duration-200"
               >
                 <div>
-                  <span className="text-xs font-bold text-[#336443] dark:text-[#85AB8B] bg-[#f0f7f1] dark:bg-[#1a2619] px-2.5 py-1 rounded">
+                  <span className="text-xs font-bold text-[#00ff88] bg-[rgba(0,255,136,0.08)] px-2.5 py-1 rounded">
                     {step.id}
                   </span>
-                  <h4 className="text-base font-semibold text-[#1f2a1d] dark:text-white mt-4 mb-2" style={{ fontFamily: NHG }}>
+                  <h4 className="text-base font-semibold text-white mt-4 mb-2" style={{ fontFamily: NHG }}>
                     {step.title}
                   </h4>
-                  <p className="text-[11px] sm:text-xs text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#7a9bb5] leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-black/5 dark:border-white/5 mt-4 flex items-center gap-1.5 text-[9px] font-bold text-[#336443] dark:text-[#85AB8B] uppercase">
+                <div className="pt-4 border-t border-[rgba(0,255,136,0.1)] mt-4 flex items-center gap-1.5 text-[9px] font-bold text-[#00ff88] uppercase">
                   <CheckCircle className="w-3 h-3" />
                   Contained
                 </div>
@@ -314,17 +313,17 @@ export default function WhyNativeSOCPage() {
       </section>
 
       {/* ══ FOOTER ══ */}
-      <footer className="bg-white dark:bg-[#0e150d] border-t border-[#1f2a1d]/10 dark:border-white/10 transition-colors duration-500">
+      <footer style={{ background: '#050d1a' }} className="border-t border-[rgba(0,255,136,0.1)] transition-colors duration-500">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex flex-col sm:flex-row items-center gap-3">
-            <img src={isDark ? logoDark : logoLight} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 dark:opacity-85 transition-all duration-300" />
-            <p className="text-xs text-[#4b5b47]/50 dark:text-[#8a9e86]/40">
+            <img src={logoDark} style={{ filter: 'brightness(0) invert(1)' }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />
+            <p className="text-xs text-[#7a9bb5]/40">
               Copyright 2023  © NATIVEDEFENCE TECH LLP. All rights reserved.
             </p>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs text-[#4b5b47]/50 dark:text-[#8a9e86]/40">Active HUMINT 24/7 Security Operations</span>
+            <span className="text-xs text-[#7a9bb5]/40">Active HUMINT 24/7 Security Operations</span>
           </div>
         </div>
       </footer>

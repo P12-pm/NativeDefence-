@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
-import { NHG, COLORS } from '../constants';
+import { NHG } from '../constants';
 
 const team = [
   {
@@ -10,7 +10,8 @@ const team = [
     short: 'Serial entrepreneur. Built Cyberoam (100k+ customers, 150+ countries) and Elitecore ($100M+ valuation).',
     bio:   'Hemal Patel is a successful serial entrepreneur and technology executive with diverse skills spanning Sales, Marketing, Product Design and Financial Management. He built Cyberoam — now part of Sophos — with 100,000+ customers across 150+ countries, and Elitecore, acquired by Sterlite at $100M+ enterprise valuation. He has also served as SVP at Sophos managing IT and Operations.',
     creds: ['Stanford Advanced PM Programme', 'Masters in CS — USA', 'BE Electronics & Telecom'],
-    color: '#336443',
+    color: '#00ff88',
+    colorDim: 'rgba(0,255,136,0.12)',
   },
   {
     initials: 'SN',
@@ -19,7 +20,8 @@ const team = [
     short: 'SOC & SIEM expert leading NativeSOC\'s technical operations from Ahmedabad.',
     bio:   'Srijan Nandi leads NativeSOC\'s technical and SOC operations based in Ahmedabad. A specialist in SIEM architecture, threat detection engineering and SOC operations, he brings deep domain expertise across enterprise security platforms and has built scalable security operations for organisations across multiple verticals.',
     creds: ['SOC Operations Lead', 'SIEM Architecture Expert', 'Threat Detection Engineering'],
-    color: '#4b7a5e',
+    color: '#00d4ff',
+    colorDim: 'rgba(0,212,255,0.12)',
   },
   {
     initials: 'BS',
@@ -28,7 +30,8 @@ const team = [
     short: 'Driving NativeSOC sales from Mumbai across end-customers, resellers, SIs and OEMs.',
     bio:   'Bishwajit Sutradhar leads NativeSOC\'s sales and marketing from Mumbai, building relationships across end-customers, resellers, systems integrators and OEMs. With extensive networks across BFSI, Healthcare and Enterprise verticals, he drives go-to-market strategy and channel partnerships across India and beyond.',
     creds: ['Enterprise Sales Leadership', 'Channel & Partner Management', 'Go-to-Market Strategy'],
-    color: '#5a8a6a',
+    color: '#00d4aa',
+    colorDim: 'rgba(0,212,170,0.12)',
   },
 ];
 
@@ -38,27 +41,77 @@ export default function Team() {
   return (
     <section
       id="team"
-      className="bg-[#f7f6f2] dark:bg-[#141d13] transition-colors duration-500"
+      style={{ background: '#0a1628' }}
+      className="transition-colors duration-500 relative overflow-hidden"
     >
+      {/* Subtle background */}
+      <div className="absolute inset-0 cyber-grid-bg-static opacity-20 pointer-events-none" />
+      <div
+        className="absolute top-1/2 left-0 w-[600px] h-[600px] pointer-events-none -translate-y-1/2"
+        style={{
+          background: 'radial-gradient(circle, rgba(0,255,136,0.04) 0%, transparent 60%)',
+          transform: 'translateX(-30%)',
+        }}
+      />
+
       <div
         ref={ref}
-        className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-20 sm:py-28 lg:py-36"
+        className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-20 sm:py-28 lg:py-36"
       >
         {/* Tag */}
         <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
-          <span className="text-[11px] font-semibold text-white bg-[#336443] rounded-full px-3 py-1 tracking-widest uppercase">04</span>
-          <span className="text-sm font-medium text-[#4b5b47] dark:text-[#8a9e86]">Leadership</span>
+          <span
+            className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
+            style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.25)', color: '#00ff88' }}
+          >
+            04
+          </span>
+          <span className="text-sm font-medium" style={{ color: '#7a9bb5' }}>Leadership</span>
         </div>
 
         {/* Heading */}
         <h2
-          className={`font-normal text-[#1f2a1d] dark:text-white mb-16 sm:mb-20 reveal ${inView ? 'in-view' : ''}`}
-          style={{ fontFamily: NHG, fontSize: 'clamp(2rem, 6vw, 5rem)', lineHeight: 0.95, letterSpacing: '-0.03em', maxWidth: '700px', transitionDelay: '80ms' }}
+          className={`font-normal text-white mb-16 sm:mb-20 reveal ${inView ? 'in-view' : ''}`}
+          style={{
+            fontFamily: NHG,
+            fontSize: 'clamp(2rem, 6vw, 5rem)',
+            lineHeight: 0.95,
+            letterSpacing: '-0.03em',
+            maxWidth: '700px',
+            transitionDelay: '80ms',
+          }}
         >
           Leaders who built{' '}
-          <span style={{ color: COLORS.accent }}>global security brands</span>{' '}
+          <span style={{ color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.4)' }}>
+            global security brands
+          </span>{' '}
           from scratch.
         </h2>
+
+        {/* Security team image banner */}
+        <div
+          className={`mb-16 rounded-2xl overflow-hidden reveal ${inView ? 'in-view' : ''}`}
+          style={{
+            border: '1px solid rgba(0,255,136,0.12)',
+            transitionDelay: '80ms',
+            boxShadow: '0 0 40px rgba(0,0,0,0.4)',
+          }}
+        >
+          <img
+            src="/NativeDefence-/cyber_security_team.png"
+            alt="NativeDefence Cybersecurity Team"
+            className="w-full h-56 md:h-72 object-cover"
+            style={{ filter: 'brightness(0.8) saturate(1.1)' }}
+          />
+          <div
+            className="px-5 py-3"
+            style={{ background: 'rgba(5,13,26,0.9)', borderTop: '1px solid rgba(0,255,136,0.1)' }}
+          >
+            <span className="text-xs font-mono" style={{ color: '#7a9bb5' }}>
+              NativeSOC — Expert-driven Cyber Security Team · Ahmedabad & Mumbai
+            </span>
+          </div>
+        </div>
 
         {/* Team cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
@@ -69,15 +122,18 @@ export default function Team() {
 
         {/* Company footer note */}
         <div
-          className={`mt-14 pt-10 border-t border-[#1f2a1d]/10 dark:border-white/10 reveal ${inView ? 'in-view' : ''}`}
-          style={{ transitionDelay: '320ms' }}
+          className={`mt-14 pt-10 reveal ${inView ? 'in-view' : ''}`}
+          style={{
+            borderTop: '1px solid rgba(0,255,136,0.1)',
+            transitionDelay: '320ms',
+          }}
         >
-          <p className="text-[#4b5b47] dark:text-[#8a9e86] max-w-2xl" style={{ fontSize: '0.95rem', lineHeight: 1.8 }}>
+          <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: '#7a9bb5', maxWidth: '48rem' }}>
             NativeSOC is an expert-driven cybersecurity services company, with Technical and SOC
             operations based in{' '}
-            <span className="font-semibold text-[#1f2a1d] dark:text-white">Ahmedabad</span> and Sales
+            <span className="font-semibold text-white">Ahmedabad</span> and Sales
             and Marketing from{' '}
-            <span className="font-semibold text-[#1f2a1d] dark:text-white">Mumbai</span>. We work with
+            <span className="font-semibold text-white">Mumbai</span>. We work with
             end-customers, resellers, SIs and OEMs across India and globally.
           </p>
         </div>
@@ -106,26 +162,50 @@ function TeamCard({ member, delay, inView }: { member: typeof team[0]; delay: nu
       >
         {/* Front */}
         <div
-          className="absolute inset-0 bg-white dark:bg-[#1a2619] rounded-2xl overflow-hidden flex flex-col"
-          style={{ backfaceVisibility: 'hidden' }}
+          className="absolute inset-0 rounded-2xl overflow-hidden flex flex-col"
+          style={{
+            backfaceVisibility: 'hidden',
+            background: '#0a1628',
+            border: `1px solid ${member.colorDim}`,
+          }}
         >
-          {/* Coloured header band */}
+          {/* Coloured header band with circuit pattern */}
           <div
-            className="h-28 flex items-center justify-center flex-shrink-0"
-            style={{ background: member.color }}
+            className="h-28 flex items-center justify-center flex-shrink-0 relative overflow-hidden"
+            style={{
+              background: `linear-gradient(135deg, rgba(5,13,26,0.9), rgba(10,22,40,0.95))`,
+              borderBottom: `1px solid ${member.colorDim}`,
+            }}
           >
+            {/* Decorative circuit lines */}
+            <div className="absolute inset-0 cyber-grid-bg-static opacity-30" />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: `radial-gradient(circle at center, ${member.color}15 0%, transparent 60%)`,
+              }}
+            />
+
             {/* Animated rings */}
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center z-10">
               {[56, 44, 32].map((r, i) => (
                 <div
                   key={r}
-                  className="absolute rounded-full border border-white/20"
-                  style={{ width: r * 2, height: r * 2, animationDelay: `${i * 0.4}s` }}
+                  className="absolute rounded-full"
+                  style={{
+                    width: r * 2, height: r * 2,
+                    border: `1px solid ${member.color}20`,
+                    animationDelay: `${i * 0.4}s`,
+                  }}
                 />
               ))}
               <div
-                className="relative w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-xl z-10"
-                style={{ fontFamily: NHG }}
+                className="relative w-16 h-16 rounded-full flex items-center justify-center text-[#050d1a] font-bold text-xl z-10"
+                style={{
+                  fontFamily: NHG,
+                  background: `linear-gradient(135deg, ${member.color}, ${member.color}bb)`,
+                  boxShadow: `0 0 20px ${member.color}40`,
+                }}
               >
                 {member.initials}
               </div>
@@ -134,26 +214,36 @@ function TeamCard({ member, delay, inView }: { member: typeof team[0]; delay: nu
 
           {/* Body */}
           <div className="p-6 flex flex-col flex-1">
-            <p className="text-xs font-semibold text-[#336443] dark:text-[#85AB8B] tracking-widest uppercase mb-1">{member.role}</p>
-            <h3 className="text-[#1f2a1d] dark:text-white font-semibold text-lg mb-3" style={{ fontFamily: NHG, letterSpacing: '-0.01em' }}>{member.name}</h3>
-            <p className="text-sm text-[#4b5b47] dark:text-[#8a9e86] leading-relaxed flex-1">{member.short}</p>
-            <p className="text-xs text-[#85AB8B] mt-4 font-medium">Hover to read more →</p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: member.color }}>{member.role}</p>
+            <h3 className="text-white font-semibold text-lg mb-3" style={{ fontFamily: NHG, letterSpacing: '-0.01em' }}>{member.name}</h3>
+            <p className="text-sm leading-relaxed flex-1" style={{ color: '#7a9bb5' }}>{member.short}</p>
+            <p className="text-xs mt-4 font-medium" style={{ color: member.color }}>Hover to read more →</p>
           </div>
         </div>
 
         {/* Back */}
         <div
-          className="absolute inset-0 bg-[#1f2a1d] dark:bg-[#0a110a] rounded-2xl flex flex-col p-6"
-          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+          className="absolute inset-0 rounded-2xl flex flex-col p-6"
+          style={{
+            backfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
+            background: '#050d1a',
+            border: `1px solid ${member.colorDim}`,
+          }}
         >
-          <p className="text-xs font-semibold text-[#85AB8B] tracking-widest uppercase mb-2">{member.role}</p>
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: member.color }}>{member.role}</p>
           <h3 className="text-white font-semibold text-lg mb-4" style={{ fontFamily: NHG }}>{member.name}</h3>
-          <p className="text-[#8a9e86] text-sm leading-relaxed flex-1">{member.bio}</p>
+          <p className="text-sm leading-relaxed flex-1" style={{ color: '#7a9bb5' }}>{member.bio}</p>
           <div className="mt-4 flex flex-wrap gap-1.5">
             {member.creds.map(c => (
               <span
                 key={c}
-                className="px-2.5 py-1 rounded-md text-xs text-[#85AB8B] bg-white/5 border border-white/10"
+                className="px-2.5 py-1 rounded-md text-xs font-medium"
+                style={{
+                  color: member.color,
+                  background: `${member.color}10`,
+                  border: `1px solid ${member.color}20`,
+                }}
               >
                 {c}
               </span>

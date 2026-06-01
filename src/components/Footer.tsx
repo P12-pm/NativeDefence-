@@ -28,9 +28,12 @@ const cols = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1f2a1d] dark:bg-[#0a110a] transition-colors duration-500">
+    <footer
+      style={{ background: '#020910', borderTop: '1px solid rgba(0,255,136,0.08)' }}
+      className="transition-colors duration-500"
+    >
       {/* CTA band */}
-      <div className="border-b border-white/10">
+      <div style={{ borderBottom: '1px solid rgba(0,255,136,0.08)' }}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-12 sm:py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <h3
@@ -39,14 +42,18 @@ export default function Footer() {
             >
               Ready to fortify your defences?
             </h3>
-            <p className="text-sm text-[#85AB8B]/70">Book a free security assessment — no commitment.</p>
+            <p className="text-sm" style={{ color: 'rgba(0,255,136,0.5)' }}>Book a free security assessment — no commitment.</p>
           </div>
           <a
             href="#contact"
-            className="flex-shrink-0 flex items-center gap-3 bg-white hover:bg-[#f0f7f1] text-[#1f2a1d] text-sm font-semibold px-6 py-3.5 rounded-full transition-colors duration-300 group"
+            className="flex-shrink-0 flex items-center gap-3 text-[#020910] text-sm font-bold px-6 py-3.5 rounded-full transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,255,136,0.4)]"
+            style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
           >
             Get free assessment
-            <div className="w-6 h-6 rounded-full bg-[#1f2a1d]/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
+            <div
+              className="w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5"
+              style={{ background: 'rgba(2,9,16,0.2)' }}
+            >
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </a>
@@ -58,14 +65,23 @@ export default function Footer() {
         {/* Brand col */}
         <div>
           <div className="flex items-center mb-4">
-            <img src={logoDark} alt="NativeDefence Logo" className="h-12 w-auto opacity-95 hover:opacity-100 transition-all duration-300" />
+            <img
+              src={logoDark}
+              alt="NativeDefence Logo"
+              className="h-12 w-auto transition-all duration-300"
+              style={{ opacity: 0.9, filter: 'brightness(0) invert(1)' }}
+            />
           </div>
-          <p className="text-xs text-[#85AB8B]/60 leading-relaxed mb-5 max-w-[200px]">
-            NativeSOC is an expert-driven Cyber Security Services company, with its Technical and SOC operations based out of Ahmedabad and Sales and Marketing driving from Mumbai. NativeSOC Team works with End-Customers, Resellers, SI's, and OEM's potentially due to its vast experience in the domain.
+          <p
+            className="text-xs leading-relaxed mb-5 max-w-[200px]"
+            style={{ color: 'rgba(0,255,136,0.45)' }}
+          >
+            NativeSOC is an expert-driven Cyber Security Services company, with its Technical and SOC operations based out of Ahmedabad and Sales and Marketing driving from Mumbai.
           </p>
           <a
             href="mailto:sales@nativedefence.com"
-            className="text-xs text-[#85AB8B] hover:text-white transition-colors duration-200 font-medium"
+            className="text-xs font-medium hover:text-white transition-colors duration-200"
+            style={{ color: 'rgba(0,255,136,0.6)' }}
           >
             sales@nativedefence.com
           </a>
@@ -74,21 +90,28 @@ export default function Footer() {
         {/* Nav cols */}
         {Object.entries(cols).map(([group, links]) => (
           <div key={group}>
-            <p className="text-[11px] font-bold tracking-widest uppercase text-[#85AB8B]/50 mb-5">{group}</p>
+            <p
+              className="text-[11px] font-bold tracking-widest uppercase mb-5"
+              style={{ color: 'rgba(0,255,136,0.4)' }}
+            >
+              {group}
+            </p>
             <ul className="flex flex-col gap-3">
               {links.map(l => (
                 <li key={l.label}>
                   {l.href.startsWith('/') ? (
                     <Link
                       to={l.href}
-                      className="text-sm text-[#85AB8B]/60 hover:text-white transition-colors duration-200"
+                      className="text-sm font-medium transition-colors duration-200 hover:text-white"
+                      style={{ color: 'rgba(0,255,136,0.45)' }}
                     >
                       {l.label}
                     </Link>
                   ) : (
                     <a
                       href={l.href}
-                      className="text-sm text-[#85AB8B]/60 hover:text-white transition-colors duration-200"
+                      className="text-sm font-medium transition-colors duration-200 hover:text-white"
+                      style={{ color: 'rgba(0,255,136,0.45)' }}
                     >
                       {l.label}
                     </a>
@@ -101,14 +124,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div style={{ borderTop: '1px solid rgba(0,255,136,0.06)' }}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-[#85AB8B]/40">
+          <p className="text-xs" style={{ color: 'rgba(0,255,136,0.3)' }}>
             Copyright 2023 © NATIVEDEFENCE TECH LLP. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 dot-blink" />
-            <span className="text-xs text-[#85AB8B]/50">All systems operational</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] dot-blink" />
+            <span className="text-xs" style={{ color: 'rgba(0,255,136,0.4)' }}>All systems operational</span>
           </div>
         </div>
       </div>
