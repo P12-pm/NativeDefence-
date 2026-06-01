@@ -4,8 +4,8 @@ import logoLight from '../assets/logo_light.avif';
 import logoDark from '../assets/logo_dark.avif';
 import { Link } from 'react-router-dom';
 
-/* ── Cybersecurity hero video (Pexels free stock) ── */
-const CYBER_VIDEO = 'https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4';
+/* ── Cybersecurity hero video ── */
+const CYBER_VIDEO = '/NativeDefence-/Create_a_premium_cinematic_cyb.mp4';
 
 const NHG =
   '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
