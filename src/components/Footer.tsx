@@ -29,11 +29,11 @@ const cols = {
 export default function Footer() {
   return (
     <footer
-      style={{ background: '#020910', borderTop: '1px solid rgba(0,255,136,0.08)' }}
+      style={{ background: '#070a14', borderTop: '1px solid rgba(0,229,255,0.08)' }}
       className="transition-colors duration-500"
     >
       {/* CTA band */}
-      <div style={{ borderBottom: '1px solid rgba(0,255,136,0.08)' }}>
+      <div style={{ borderBottom: '1px solid rgba(0,229,255,0.08)' }}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-12 sm:py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <h3
@@ -42,12 +42,12 @@ export default function Footer() {
             >
               Ready to fortify your defences?
             </h3>
-            <p className="text-sm" style={{ color: 'rgba(0,255,136,0.5)' }}>Book a free security assessment — no commitment.</p>
+            <p className="text-sm" style={{ color: 'rgba(0,229,255,0.5)' }}>Book a free security assessment — no commitment.</p>
           </div>
           <a
             href="#contact"
-            className="flex-shrink-0 flex items-center gap-3 text-[#020910] text-sm font-bold px-6 py-3.5 rounded-full transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,255,136,0.4)]"
-            style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+            className="flex-shrink-0 flex items-center gap-3 text-[#070a14] text-sm font-bold px-6 py-3.5 rounded-full transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]"
+            style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
           >
             Get free assessment
             <div
@@ -74,14 +74,14 @@ export default function Footer() {
           </div>
           <p
             className="text-xs leading-relaxed mb-5 max-w-[200px]"
-            style={{ color: 'rgba(0,255,136,0.45)' }}
+            style={{ color: 'rgba(0,229,255,0.45)' }}
           >
             NativeSOC is an expert-driven Cyber Security Services company, with its Technical and SOC operations based out of Ahmedabad and Sales and Marketing driving from Mumbai.
           </p>
           <a
             href="mailto:sales@nativedefence.com"
             className="text-xs font-medium hover:text-white transition-colors duration-200"
-            style={{ color: 'rgba(0,255,136,0.6)' }}
+            style={{ color: 'rgba(0,229,255,0.6)' }}
           >
             sales@nativedefence.com
           </a>
@@ -92,7 +92,7 @@ export default function Footer() {
           <div key={group}>
             <p
               className="text-[11px] font-bold tracking-widest uppercase mb-5"
-              style={{ color: 'rgba(0,255,136,0.4)' }}
+              style={{ color: 'rgba(0,229,255,0.4)' }}
             >
               {group}
             </p>
@@ -103,7 +103,7 @@ export default function Footer() {
                     <Link
                       to={l.href}
                       className="text-sm font-medium transition-colors duration-200 hover:text-white"
-                      style={{ color: 'rgba(0,255,136,0.45)' }}
+                      style={{ color: 'rgba(0,229,255,0.45)' }}
                     >
                       {l.label}
                     </Link>
@@ -111,7 +111,7 @@ export default function Footer() {
                     <a
                       href={l.href}
                       className="text-sm font-medium transition-colors duration-200 hover:text-white"
-                      style={{ color: 'rgba(0,255,136,0.45)' }}
+                      style={{ color: 'rgba(0,229,255,0.45)' }}
                     >
                       {l.label}
                     </a>
@@ -124,14 +124,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div style={{ borderTop: '1px solid rgba(0,255,136,0.06)' }}>
+      <div style={{ borderTop: '1px solid rgba(0,229,255,0.06)' }}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs" style={{ color: 'rgba(0,255,136,0.3)' }}>
+          <p className="text-xs" style={{ color: 'rgba(0,229,255,0.3)' }}>
             Copyright 2023 © NATIVEDEFENCE TECH LLP. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] dot-blink" />
-            <span className="text-xs" style={{ color: 'rgba(0,255,136,0.4)' }}>All systems operational</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] dot-blink" />
+            <span className="text-xs" style={{ color: 'rgba(0,229,255,0.4)' }}>All systems operational</span>
           </div>
         </div>
       </div>

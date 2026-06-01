@@ -7,8 +7,8 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
-const ACCENT = '#00d4aa';
+const PRIMARY = '#00E5FF';
+const ACCENT = '#3B82F6';
 
 interface Partner {
   name: string;
@@ -183,22 +183,22 @@ export default function PartnersPage() {
   };
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back button */}
           <div className="flex items-center gap-4">
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -213,19 +213,19 @@ export default function PartnersPage() {
           <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => handleSubLinkClick('partners-hero')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Overview
             </button>
             <button
               onClick={() => handleSubLinkClick('alliance-grid')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Technology Alliances
             </button>
             <button
               onClick={() => handleSubLinkClick('join-partner')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Join Partner Program
             </button>
@@ -246,7 +246,7 @@ export default function PartnersPage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -256,29 +256,29 @@ export default function PartnersPage() {
 
         {/* Mobile menu drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             <button
               onClick={() => handleSubLinkClick('partners-hero')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Overview
             </button>
             <button
               onClick={() => handleSubLinkClick('alliance-grid')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Technology Alliances
             </button>
             <button
               onClick={() => handleSubLinkClick('join-partner')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0"
             >
               Join Partner Program
             </button>
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Become a Partner
             </Link>
@@ -298,9 +298,9 @@ export default function PartnersPage() {
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
           {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">NativeSOC Alliance Network</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">NativeSOC Alliance Network</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -316,9 +316,9 @@ export default function PartnersPage() {
                 }}
               >
                 Technology Alliance <br />
-                <span className="text-[#00ff88] font-medium">Partners.</span>
+                <span className="text-[#00E5FF] font-medium">Partners.</span>
               </h1>
-              <h2 className="text-sm font-semibold tracking-wider text-[#00ff88] uppercase mb-6 flex items-center gap-2">
+              <h2 className="text-sm font-semibold tracking-wider text-[#00E5FF] uppercase mb-6 flex items-center gap-2">
                 <Globe className="w-4 h-4" />
                 Unifying and fortifying the global security stack
               </h2>
@@ -335,7 +335,7 @@ export default function PartnersPage() {
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => handleSubLinkClick('alliance-grid')}
-                  className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+                  className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
                 >
                   Explore Integrations
                   <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -344,7 +344,7 @@ export default function PartnersPage() {
                 </button>
                 <button
                   onClick={() => handleSubLinkClick('join-partner')}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00ff88] hover:gap-3 transition-all duration-300"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00E5FF] hover:gap-3 transition-all duration-300"
                 >
                   Apply to Program
                   <ArrowUpRight className="w-4 h-4" />
@@ -355,31 +355,31 @@ export default function PartnersPage() {
             {/* Interactive integrations network canvas */}
             <div className="lg:col-span-5 flex justify-center items-center">
               <div >
-                <div className="absolute inset-4 rounded-full border border-[rgba(0,255,136,0.3)]/10  animate-pulse" />
+                <div className="absolute inset-4 rounded-full border border-[rgba(0,229,255,0.3)]/10  animate-pulse" />
 
                 {/* Central NativeSOC Core */}
-                <div className="relative w-28 h-28 rounded-full bg-[#050d1a] border-4 border-[rgba(0,255,136,0.3)] flex flex-col items-center justify-center shadow-xl group-hover:scale-105 transition-transform duration-500 z-10">
-                  <Shield className="w-8 h-8 text-[#00d4aa] mb-1" />
-                  <span className="text-[10px] font-bold tracking-widest text-[#00d4aa] uppercase">NativeSOC</span>
+                <div className="relative w-28 h-28 rounded-full bg-[#0A0F1F] border-4 border-[rgba(0,229,255,0.3)] flex flex-col items-center justify-center shadow-xl group-hover:scale-105 transition-transform duration-500 z-10">
+                  <Shield className="w-8 h-8 text-[#3B82F6] mb-1" />
+                  <span className="text-[10px] font-bold tracking-widest text-[#3B82F6] uppercase">NativeSOC</span>
                 </div>
 
                 {/* Orbiting technology nodes */}
                 <div className="absolute w-full h-full animate-spin" style={{ animationDuration: '20s' }}>
                   {/* Node 1: Cloud */}
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-xl border border-black/5 flex items-center justify-center shadow-md -rotate-spin" style={{ background: '#050d1a', animation: 'counter-spin 20s linear infinite' }}>
-                    <Cloud className="w-5 h-5 text-[#00ff88]" />
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-xl border border-black/5 flex items-center justify-center shadow-md -rotate-spin" style={{ background: '#0A0F1F', animation: 'counter-spin 20s linear infinite' }}>
+                    <Cloud className="w-5 h-5 text-[#00E5FF]" />
                   </div>
                   {/* Node 2: Endpoint */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-xl border border-black/5 flex items-center justify-center shadow-md -rotate-spin" style={{ background: '#050d1a', animation: 'counter-spin 20s linear infinite' }}>
-                    <Server className="w-5 h-5 text-[#00ff88]" />
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-xl border border-black/5 flex items-center justify-center shadow-md -rotate-spin" style={{ background: '#0A0F1F', animation: 'counter-spin 20s linear infinite' }}>
+                    <Server className="w-5 h-5 text-[#00E5FF]" />
                   </div>
                   {/* Node 3: OS */}
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl border border-black/5 flex items-center justify-center shadow-md -rotate-spin" style={{ background: '#050d1a', animation: 'counter-spin 20s linear infinite' }}>
-                    <Cpu className="w-5 h-5 text-[#00ff88]" />
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl border border-black/5 flex items-center justify-center shadow-md -rotate-spin" style={{ background: '#0A0F1F', animation: 'counter-spin 20s linear infinite' }}>
+                    <Cpu className="w-5 h-5 text-[#00E5FF]" />
                   </div>
                   {/* Node 4: DB */}
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl border border-black/5 flex items-center justify-center shadow-md -rotate-spin" style={{ background: '#050d1a', animation: 'counter-spin 20s linear infinite' }}>
-                    <Database className="w-5 h-5 text-[#00ff88]" />
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl border border-black/5 flex items-center justify-center shadow-md -rotate-spin" style={{ background: '#0A0F1F', animation: 'counter-spin 20s linear infinite' }}>
+                    <Database className="w-5 h-5 text-[#00E5FF]" />
                   </div>
                 </div>
               </div>
@@ -393,7 +393,7 @@ export default function PartnersPage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Integration Schema</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Integration Schema</span>
             <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               Technology Alliance Ecosystem
             </h2>
@@ -413,8 +413,8 @@ export default function PartnersPage() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id as any)}
-                className={`inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-full border transition-all duration-200 ${activeCategory === cat.id ? 'bg-[#050d1a] text-white border-transparent' : 'text-[#7a9bb5] border-[rgba(0,255,136,0.1)] hover:border-[rgba(0,255,136,0.3)]'}`}
-                style={{ background: '#050d1a' }}
+                className={`inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-full border transition-all duration-200 ${activeCategory === cat.id ? 'bg-[#0A0F1F] text-white border-transparent' : 'text-[#7a9bb5] border-[rgba(0,229,255,0.1)] hover:border-[rgba(0,229,255,0.3)]'}`}
+                style={{ background: '#0A0F1F' }}
               >
                 {cat.icon}
                 {cat.label}
@@ -427,14 +427,14 @@ export default function PartnersPage() {
             {getActivePartners().map((partner) => (
               <div
                 key={partner.name}
-                style={{ background: '#050d1a' }} className="p-6 sm:p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300"
+                style={{ background: '#0A0F1F' }} className="p-6 sm:p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88]">
+                    <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF]">
                       {getCategoryIcon()}
                     </div>
-                    <span className="text-[10px] font-bold text-[#00ff88] bg-[rgba(0,255,136,0.08)] px-2.5 py-1 rounded border border-[rgba(0,255,136,0.15)]">
+                    <span className="text-[10px] font-bold text-[#00E5FF] bg-[rgba(0,229,255,0.08)] px-2.5 py-1 rounded border border-[rgba(0,229,255,0.15)]">
                       {partner.role}
                     </span>
                   </div>
@@ -446,7 +446,7 @@ export default function PartnersPage() {
                     {partner.desc}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-[rgba(0,255,136,0.1)] mt-4 text-xs font-semibold text-[#00ff88]">
+                <div className="pt-4 border-t border-[rgba(0,229,255,0.1)] mt-4 text-xs font-semibold text-[#00E5FF]">
                   <strong>Telemetry Scope:</strong> {partner.details}
                 </div>
               </div>
@@ -460,9 +460,9 @@ export default function PartnersPage() {
       <section id="join-partner" className="py-20 sm:py-28 relative overflow-hidden transition-colors duration-500">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
-          <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[rgba(0,255,136,0.08)]  border border-[rgba(0,255,136,0.15)]  flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
+          <div className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[rgba(0,229,255,0.08)]  border border-[rgba(0,229,255,0.15)]  flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
             <div className="flex-1 space-y-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#00ff88] px-3.5 py-1 rounded-full border border-black/5 self-start" style={{ background: '#050d1a' }}>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#00E5FF] px-3.5 py-1 rounded-full border border-black/5 self-start" style={{ background: '#0A0F1F' }}>
                 Become a Partner
               </span>
               <h2 className="text-3xl font-semibold text-white leading-tight" style={{ fontFamily: NHG }}>
@@ -478,7 +478,7 @@ export default function PartnersPage() {
             <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
               <Link
                 to="/#contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#050d1a] hover:opacity-90 text-white text-xs font-bold px-6 py-4 rounded-full transition-all duration-300 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 bg-[#0A0F1F] hover:opacity-90 text-white text-xs font-bold px-6 py-4 rounded-full transition-all duration-300 whitespace-nowrap"
               >
                 Apply for Channel Partner
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -506,7 +506,7 @@ export default function PartnersPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               to="/#contact"
-              className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+              className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
             >
               Join Partner Program
               <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -515,7 +515,7 @@ export default function PartnersPage() {
             </Link>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-white dark:bg-[#050d1a] hover:bg-[#f0f0ee] dark:hover:bg-[#00cc70] text-white border border-[rgba(0,255,136,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-white dark:bg-[#0A0F1F] hover:bg-[#f0f0ee] dark:hover:bg-[#3B82F6] text-white border border-[rgba(0,229,255,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to home
@@ -524,7 +524,7 @@ export default function PartnersPage() {
         </div>
 
         {/* Lower copyright band */}
-        <div className="border-t border-[rgba(0,255,136,0.1)]">
+        <div className="border-t border-[rgba(0,229,255,0.1)]">
           <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <img src={logoDark} style={{ opacity: 0.8 }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />

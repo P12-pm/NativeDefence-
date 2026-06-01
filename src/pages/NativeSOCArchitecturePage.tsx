@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
+const PRIMARY = '#00E5FF';
 
 const subLinks = [
   { label: 'NativeSOC Approach', href: '/nativesocapproach' },
@@ -72,22 +72,22 @@ export default function NativeSOCArchitecturePage() {
   }, []);
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back */}
           <div className="flex items-center gap-4">
             <Link
               to="/nativesoc"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -104,7 +104,7 @@ export default function NativeSOCArchitecturePage() {
               <Link
                 key={l.href}
                 to={l.href}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/nativesocarchitecture' ? 'bg-[rgba(0,255,136,0.15)] text-[#00ff88]' : 'text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)]'}`}
+                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/nativesocarchitecture' ? 'bg-[rgba(0,229,255,0.15)] text-[#00E5FF]' : 'text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)]'}`}
               >
                 {l.label}
               </Link>
@@ -124,7 +124,7 @@ export default function NativeSOCArchitecturePage() {
 
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -134,13 +134,13 @@ export default function NativeSOCArchitecturePage() {
 
         {/* Mobile Drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             {subLinks.map(l => (
               <Link
                 key={l.href}
                 to={l.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-left text-sm font-medium py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0 ${l.href === '/nativesocarchitecture' ? 'text-[#00ff88] font-semibold' : 'text-[#7a9bb5]'}`}
+                className={`text-left text-sm font-medium py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0 ${l.href === '/nativesocarchitecture' ? 'text-[#00E5FF] font-semibold' : 'text-[#7a9bb5]'}`}
               >
                 {l.label}
               </Link>
@@ -148,7 +148,7 @@ export default function NativeSOCArchitecturePage() {
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Get Demo
             </Link>
@@ -164,9 +164,9 @@ export default function NativeSOCArchitecturePage() {
         </div>
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">Architecture &amp; Compliance</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">Architecture &amp; Compliance</span>
           </div>
 
           <div className="max-w-3xl">
@@ -180,7 +180,7 @@ export default function NativeSOCArchitecturePage() {
               }}
             >
               Secure Operational <br />
-              <span className="text-[#00ff88] font-medium">Platform Blueprint.</span>
+              <span className="text-[#00E5FF] font-medium">Platform Blueprint.</span>
             </h1>
             <p className="text-sm sm:text-base text-[#7a9bb5] leading-relaxed">
               NativeSOC is engineered to enforce strict privacy, data retention, and continuous cloud safety protocols.
@@ -195,7 +195,7 @@ export default function NativeSOCArchitecturePage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Certifications</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Certifications</span>
             <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               Global Information Security Frameworks
             </h2>
@@ -208,13 +208,13 @@ export default function NativeSOCArchitecturePage() {
             {complianceCerts.map((cert) => (
               <div
                 key={cert.id}
-                style={{ background: '#050d1a' }} className="p-6 sm:p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
+                style={{ background: '#0A0F1F' }} className="p-6 sm:p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88] mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF] mb-6">
                     <Award className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-bold text-[#00ff88] bg-[rgba(0,255,136,0.08)] px-2.5 py-1 rounded">
+                  <span className="text-xs font-bold text-[#00E5FF] bg-[rgba(0,229,255,0.08)] px-2.5 py-1 rounded">
                     {cert.id}
                   </span>
                   <h3 className="text-lg font-semibold text-white mt-4 mb-3" style={{ fontFamily: NHG }}>
@@ -225,7 +225,7 @@ export default function NativeSOCArchitecturePage() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[rgba(0,255,136,0.1)] mt-6 flex items-center gap-2 text-[10px] font-bold text-[#00ff88] uppercase">
+                <div className="pt-4 border-t border-[rgba(0,229,255,0.1)] mt-6 flex items-center gap-2 text-[10px] font-bold text-[#00E5FF] uppercase">
                   <CheckCircle className="w-3.5 h-3.5" />
                   Audited &amp; Active
                 </div>
@@ -237,11 +237,11 @@ export default function NativeSOCArchitecturePage() {
       </section>
 
       {/* ══ SECURE DATA FLOW SCHEMA ══ */}
-      <section style={{ background: '#050d1a' }} className="py-20 transition-colors duration-500 border-t border-[rgba(0,255,136,0.1)]">
+      <section style={{ background: '#0A0F1F' }} className="py-20 transition-colors duration-500 border-t border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Secure Flow</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Secure Flow</span>
             <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               Multi-Agent Telemetry Flow
             </h2>
@@ -255,7 +255,7 @@ export default function NativeSOCArchitecturePage() {
 
             {/* Step 1 */}
             <div >
-              <div className="w-10 h-10 rounded-xl bg-[#00ff88]/10 flex items-center justify-center text-[#00ff88]">
+              <div className="w-10 h-10 rounded-xl bg-[#00E5FF]/10 flex items-center justify-center text-[#00E5FF]">
                 <Server className="w-5 h-5" />
               </div>
               <h4 className="text-base font-semibold text-white" style={{ fontFamily: NHG }}>
@@ -268,7 +268,7 @@ export default function NativeSOCArchitecturePage() {
 
             {/* Step 2 */}
             <div >
-              <div className="w-10 h-10 rounded-xl bg-[#00ff88]/10 flex items-center justify-center text-[#00ff88]">
+              <div className="w-10 h-10 rounded-xl bg-[#00E5FF]/10 flex items-center justify-center text-[#00E5FF]">
                 <Cpu className="w-5 h-5" />
               </div>
               <h4 className="text-base font-semibold text-white" style={{ fontFamily: NHG }}>
@@ -281,7 +281,7 @@ export default function NativeSOCArchitecturePage() {
 
             {/* Step 3 */}
             <div >
-              <div className="w-10 h-10 rounded-xl bg-[#00ff88]/10 flex items-center justify-center text-[#00ff88]">
+              <div className="w-10 h-10 rounded-xl bg-[#00E5FF]/10 flex items-center justify-center text-[#00E5FF]">
                 <Database className="w-5 h-5" />
               </div>
               <h4 className="text-base font-semibold text-white" style={{ fontFamily: NHG }}>

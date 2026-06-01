@@ -23,7 +23,7 @@ export default function NativeSOC() {
   return (
     <section
       id="nativesoc"
-      style={{ background: '#0a1628' }}
+      style={{ background: '#111827' }}
       className="transition-colors duration-500 relative overflow-hidden"
     >
       {/* Background elements */}
@@ -31,7 +31,7 @@ export default function NativeSOC() {
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 60%)',
           transform: 'translate(-20%, 30%)',
         }}
       />
@@ -44,7 +44,7 @@ export default function NativeSOC() {
         <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
-            style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.25)', color: '#00ff88' }}
+            style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
           >
             02
           </span>
@@ -65,7 +65,7 @@ export default function NativeSOC() {
             }}
           >
             NativeSOC —{' '}
-            <span style={{ color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.4)' }}>
+            <span style={{ color: '#00E5FF', textShadow: '0 0 20px rgba(0,229,255,0.4)' }}>
               your complete
             </span>{' '}
             cyber defence platform.
@@ -74,7 +74,7 @@ export default function NativeSOC() {
           <a
             href="#contact"
             className={`hidden lg:inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300 group reveal ${inView ? 'in-view' : ''} flex-shrink-0`}
-            style={{ color: '#00ff88', transitionDelay: '100ms' }}
+            style={{ color: '#00E5FF', transitionDelay: '100ms' }}
           >
             Get a demo
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -85,9 +85,9 @@ export default function NativeSOC() {
         <div
           className={`mb-12 rounded-2xl overflow-hidden reveal ${inView ? 'in-view' : ''}`}
           style={{
-            border: '1px solid rgba(0,255,136,0.12)',
+            border: '1px solid rgba(0,229,255,0.12)',
             transitionDelay: '80ms',
-            boxShadow: '0 0 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,255,136,0.05)',
+            boxShadow: '0 0 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,229,255,0.05)',
           }}
         >
           <img
@@ -98,17 +98,17 @@ export default function NativeSOC() {
           />
           <div
             className="flex items-center gap-3 px-5 py-3"
-            style={{ background: 'rgba(5,13,26,0.9)', borderTop: '1px solid rgba(0,255,136,0.1)' }}
+            style={{ background: 'rgba(10,15,31,0.9)', borderTop: '1px solid rgba(0,229,255,0.1)' }}
           >
-            <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
-            <span className="text-xs font-mono" style={{ color: '#00ff88' }}>NativeSOC™ Platform — Real-time threat monitoring active</span>
+            <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
+            <span className="text-xs font-mono" style={{ color: '#00E5FF' }}>NativeSOC™ Platform — Real-time threat monitoring active</span>
           </div>
         </div>
 
         {/* Features grid */}
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px rounded-2xl overflow-hidden mb-16"
-          style={{ background: 'rgba(0,255,136,0.08)' }}
+          style={{ background: 'rgba(0,229,255,0.08)' }}
         >
           {features.map((f, i) => (
             <FeatureCell key={f.id} feature={f} delay={i * 60} inView={inView} />
@@ -119,7 +119,7 @@ export default function NativeSOC() {
         <div className={`reveal ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '300ms' }}>
           <p
             className="text-xs font-bold tracking-widest uppercase mb-5"
-            style={{ color: '#00ff88' }}
+            style={{ color: '#00E5FF' }}
           >
             Industry Coverage
           </p>
@@ -130,18 +130,18 @@ export default function NativeSOC() {
                 className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
                 style={{
                   color: '#c8e0f0',
-                  background: 'rgba(10,22,40,0.7)',
-                  border: '1px solid rgba(0,255,136,0.1)',
+                  background: 'rgba(17,24,39,0.7)',
+                  border: '1px solid rgba(0,229,255,0.1)',
                   transitionDelay: `${i * 30}ms`,
                   cursor: 'default',
                 }}
                 onMouseEnter={e => {
-                  (e.target as HTMLElement).style.color = '#00ff88';
-                  (e.target as HTMLElement).style.borderColor = 'rgba(0,255,136,0.3)';
+                  (e.target as HTMLElement).style.color = '#00E5FF';
+                  (e.target as HTMLElement).style.borderColor = 'rgba(0,229,255,0.3)';
                 }}
                 onMouseLeave={e => {
                   (e.target as HTMLElement).style.color = '#c8e0f0';
-                  (e.target as HTMLElement).style.borderColor = 'rgba(0,255,136,0.1)';
+                  (e.target as HTMLElement).style.borderColor = 'rgba(0,229,255,0.1)';
                 }}
               >
                 {v}
@@ -159,27 +159,27 @@ function FeatureCell({ feature, delay, inView }: { feature: typeof features[0]; 
     <div
       className={`p-6 sm:p-8 group hover:-translate-y-0.5 transition-all duration-300 reveal ${inView ? 'in-view' : ''} cursor-default`}
       style={{
-        background: '#0a1628',
+        background: '#111827',
         transitionDelay: `${delay}ms`,
       }}
       onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.background = '#0f1f3d';
+        (e.currentTarget as HTMLElement).style.background = '#1F2937';
       }}
       onMouseLeave={e => {
-        (e.currentTarget as HTMLElement).style.background = '#0a1628';
+        (e.currentTarget as HTMLElement).style.background = '#111827';
       }}
     >
       {/* Feature ID tag */}
       <div className="inline-flex items-center mb-4">
         <span
           className="text-xs font-bold tracking-widest"
-          style={{ color: '#00ff88' }}
+          style={{ color: '#00E5FF' }}
         >
           {feature.id}
         </span>
         <div
           className="ml-2 w-0 group-hover:w-8 h-px transition-all duration-500 ease-out"
-          style={{ background: '#00ff88' }}
+          style={{ background: '#00E5FF' }}
         />
       </div>
 

@@ -7,8 +7,8 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
-const ACCENT = '#00d4aa';
+const PRIMARY = '#00E5FF';
+const ACCENT = '#3B82F6';
 
 interface ThreatItem {
   id: number;
@@ -244,22 +244,22 @@ export default function VAPTPage() {
   );
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back button */}
           <div className="flex items-center gap-4">
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -274,25 +274,25 @@ export default function VAPTPage() {
           <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => handleSubLinkClick('vapt-intro')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Overview
             </button>
             <button
               onClick={() => handleSubLinkClick('timeline-methodology')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Methodology
             </button>
             <button
               onClick={() => handleSubLinkClick('safeguard-industries')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Industries
             </button>
             <button
               onClick={() => handleSubLinkClick('threat-intel')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Threat Intelligence
             </button>
@@ -313,7 +313,7 @@ export default function VAPTPage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -323,35 +323,35 @@ export default function VAPTPage() {
 
         {/* Mobile menu drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-96' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             <button
               onClick={() => handleSubLinkClick('vapt-intro')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Overview
             </button>
             <button
               onClick={() => handleSubLinkClick('timeline-methodology')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Methodology
             </button>
             <button
               onClick={() => handleSubLinkClick('safeguard-industries')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Industries
             </button>
             <button
               onClick={() => handleSubLinkClick('threat-intel')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0"
             >
               Threat Intelligence
             </button>
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Schedule VAPT
             </Link>
@@ -371,9 +371,9 @@ export default function VAPTPage() {
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
           {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">Proactive Defense Systems</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">Proactive Defense Systems</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -389,9 +389,9 @@ export default function VAPTPage() {
                 }}
               >
                 Fortify Your Digital Defenses <br />
-                <span className="text-[#00ff88] font-medium">with NATIVEDEFENCE's VAPT Services.</span>
+                <span className="text-[#00E5FF] font-medium">with NATIVEDEFENCE's VAPT Services.</span>
               </h1>
-              <h2 className="text-lg sm:text-xl font-medium text-[#00ff88] mb-5 uppercase tracking-wide">
+              <h2 className="text-lg sm:text-xl font-medium text-[#00E5FF] mb-5 uppercase tracking-wide">
                 Elevate Your Cybersecurity Today!
               </h2>
               <p
@@ -407,7 +407,7 @@ export default function VAPTPage() {
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => handleSubLinkClick('vapt-canvas')}
-                  className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+                  className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
                 >
                   Explore Capabilities
                   <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -416,7 +416,7 @@ export default function VAPTPage() {
                 </button>
                 <Link
                   to="/#contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00ff88] hover:gap-3 transition-all duration-300"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00E5FF] hover:gap-3 transition-all duration-300"
                 >
                   Request a Free Audit
                   <ArrowUpRight className="w-4 h-4" />
@@ -428,7 +428,7 @@ export default function VAPTPage() {
             <div className="lg:col-span-5 flex justify-center items-center">
               <div
                 className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
-                style={{ border: '1px solid rgba(0,255,136,0.15)' }}
+                style={{ border: '1px solid rgba(0,229,255,0.15)' }}
               >
                 <img
                   src="/NativeDefence-/cyber_pentest_terminal.png"
@@ -438,10 +438,10 @@ export default function VAPTPage() {
                 />
                 <div
                   className="absolute bottom-0 left-0 right-0 px-4 py-3 flex items-center gap-2"
-                  style={{ background: 'rgba(5,13,26,0.85)', borderTop: '1px solid rgba(0,255,136,0.1)' }}
+                  style={{ background: 'rgba(10,15,31,0.85)', borderTop: '1px solid rgba(0,229,255,0.1)' }}
                 >
-                  <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
-                  <span className="text-xs font-mono text-[#00ff88]">VAPT Assessment Active</span>
+                  <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
+                  <span className="text-xs font-mono text-[#00E5FF]">VAPT Assessment Active</span>
                 </div>
               </div>
             </div>
@@ -450,10 +450,10 @@ export default function VAPTPage() {
       </section>
 
       {/* ══ GOALS & OBJECTIVES CARD BAND ══ */}
-      <section className="bg-[#0a1628]/60/40 py-10 border-y border-[rgba(0,255,136,0.1)] transition-colors duration-500">
+      <section className="bg-[#111827]/60/40 py-10 border-y border-[rgba(0,229,255,0.1)] transition-colors duration-500">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="flex gap-4 items-start p-6 bg-white rounded-2xl border border-[rgba(0,255,136,0.1)]">
-            <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88] flex-shrink-0">
+          <div className="flex gap-4 items-start p-6 bg-white rounded-2xl border border-[rgba(0,229,255,0.1)]">
+            <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF] flex-shrink-0">
               <Target className="w-5 h-5" />
             </div>
             <div>
@@ -463,8 +463,8 @@ export default function VAPTPage() {
               </p>
             </div>
           </div>
-          <div className="flex gap-4 items-start p-6 bg-white rounded-2xl border border-[rgba(0,255,136,0.1)]">
-            <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88] flex-shrink-0">
+          <div className="flex gap-4 items-start p-6 bg-white rounded-2xl border border-[rgba(0,229,255,0.1)]">
+            <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF] flex-shrink-0">
               <Award className="w-5 h-5" />
             </div>
             <div>
@@ -481,7 +481,7 @@ export default function VAPTPage() {
       <section id="vapt-canvas" className="py-20 sm:py-28 transition-colors duration-500">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Dual Paradigm</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Dual Paradigm</span>
             <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               The VAPT Core Structure
             </h2>
@@ -494,7 +494,7 @@ export default function VAPTPage() {
             {/* VA Card */}
             <div >
               <div>
-                <span className="text-xs font-bold tracking-widest text-[#00ff88] uppercase block mb-4">Practice 01</span>
+                <span className="text-xs font-bold tracking-widest text-[#00E5FF] uppercase block mb-4">Practice 01</span>
                 <h3 className="text-2xl font-semibold text-white mb-4" style={{ fontFamily: NHG }}>
                   Vulnerability Assessment
                 </h3>
@@ -504,7 +504,7 @@ export default function VAPTPage() {
                   prioritize remediation effectively for enhanced security.
                 </p>
               </div>
-              <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] flex items-center gap-2 text-xs font-semibold text-[#00ff88]">
+              <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] flex items-center gap-2 text-xs font-semibold text-[#00E5FF]">
                 <CheckCircle className="w-4 h-4 text-emerald-500" />
                 Proactive weaknesses discovery and cataloging
               </div>
@@ -513,7 +513,7 @@ export default function VAPTPage() {
             {/* PT Card */}
             <div >
               <div>
-                <span className="text-xs font-bold tracking-widest text-[#00ff88] uppercase block mb-4">Practice 02</span>
+                <span className="text-xs font-bold tracking-widest text-[#00E5FF] uppercase block mb-4">Practice 02</span>
                 <h3 className="text-2xl font-semibold text-white mb-4" style={{ fontFamily: NHG }}>
                   Penetration Testing
                 </h3>
@@ -523,7 +523,7 @@ export default function VAPTPage() {
                   scans might overlook, guaranteeing the fortification of your defenses.
                 </p>
               </div>
-              <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] flex items-center gap-2 text-xs font-semibold text-[#00ff88]">
+              <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] flex items-center gap-2 text-xs font-semibold text-[#00E5FF]">
                 <CheckCircle className="w-4 h-4 text-emerald-500" />
                 Ethical exploit simulations and validation
               </div>
@@ -537,10 +537,10 @@ export default function VAPTPage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="max-w-2xl mb-16">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Testing Cycle</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Testing Cycle</span>
             <h2 className="text-3xl sm:text-4xl font-normal text-white mt-4" style={{ fontFamily: NHG, lineHeight: 1.05 }}>
               Our 8-Step <br />
-              <span className="text-[#00ff88] font-semibold">Scope &amp; Methodology</span>
+              <span className="text-[#00E5FF] font-semibold">Scope &amp; Methodology</span>
             </h2>
             <p className="text-sm text-[#7a9bb5] mt-4">
               We execute our assessments under strict boundaries following standard operational phases to maintain safety and thoroughness.
@@ -550,13 +550,13 @@ export default function VAPTPage() {
           {/* Steps Timeline Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((s) => (
-              <div key={s.num} style={{ background: '#050d1a' }} className="p-6 rounded-2xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
+              <div key={s.num} style={{ background: '#0A0F1F' }} className="p-6 rounded-2xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold text-[#00ff88] bg-[rgba(0,255,136,0.08)] px-2.5 py-1 rounded-full border border-[rgba(0,255,136,0.15)]">
+                    <span className="text-xs font-bold text-[#00E5FF] bg-[rgba(0,229,255,0.08)] px-2.5 py-1 rounded-full border border-[rgba(0,229,255,0.15)]">
                       Phase {s.num}
                     </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF]" />
                   </div>
 
                   <h3 className="font-semibold text-base text-white mb-4" style={{ fontFamily: NHG }}>
@@ -570,7 +570,7 @@ export default function VAPTPage() {
                       <p className="text-xs text-[#7a9bb5] leading-relaxed font-medium">{s.goal}</p>
                     </div>
                     <div>
-                      <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#00ff88] block mb-0.5">Objective</span>
+                      <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#00E5FF] block mb-0.5">Objective</span>
                       <p className="text-xs text-[#7a9bb5] leading-relaxed">{s.obj}</p>
                     </div>
                   </div>
@@ -587,7 +587,7 @@ export default function VAPTPage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Target Coverage</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Target Coverage</span>
             <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               Industries We Safeguard
             </h2>
@@ -652,7 +652,7 @@ export default function VAPTPage() {
 
           <div className="max-w-3xl mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Vulnerability Intel</span>
+              <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Vulnerability Intel</span>
               <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
                 Significant Threat Intelligence
               </h2>
@@ -668,7 +668,7 @@ export default function VAPTPage() {
                 value={threatSearch}
                 onChange={(e) => setThreatSearch(e.target.value)}
                 placeholder="Search CVEs or keywords..."
-                className="w-full text-sm px-4 py-2.5 rounded-full border border-black/10 focus:outline-none focus:border-[rgba(0,255,136,0.3)]/50 focus:ring-1 focus:ring-[#336443]/30" style={{ background: '#050d1a' }}
+                className="w-full text-sm px-4 py-2.5 rounded-full border border-black/10 focus:outline-none focus:border-[rgba(0,229,255,0.3)]/50 focus:ring-1 focus:ring-[#336443]/30" style={{ background: '#0A0F1F' }}
               />
             </div>
           </div>
@@ -680,7 +680,7 @@ export default function VAPTPage() {
               return (
                 <div
                   key={threat.id}
-                  style={{ background: '#050d1a' }} className="rounded-2xl border border-[rgba(0,255,136,0.1)] overflow-hidden transition-all duration-300 hover:shadow-md"
+                  style={{ background: '#0A0F1F' }} className="rounded-2xl border border-[rgba(0,229,255,0.1)] overflow-hidden transition-all duration-300 hover:shadow-md"
                 >
                   <button
                     onClick={() => setExpandedThreat(isExpanded ? null : threat.id)}
@@ -691,7 +691,7 @@ export default function VAPTPage() {
                         <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md ${threat.severity === 'Critical' ? 'bg-rose-100 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400' : 'bg-amber-100 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400'}`}>
                           {threat.severity}
                         </span>
-                        <span className="text-[10px] font-bold text-[#00ff88] bg-[rgba(0,255,136,0.08)] px-2 py-0.5 rounded border border-[rgba(0,255,136,0.15)]">
+                        <span className="text-[10px] font-bold text-[#00E5FF] bg-[rgba(0,229,255,0.08)] px-2 py-0.5 rounded border border-[rgba(0,229,255,0.15)]">
                           {threat.cve}
                         </span>
                       </div>
@@ -704,8 +704,8 @@ export default function VAPTPage() {
                     </div>
                   </button>
 
-                  <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isExpanded ? 'max-h-[500px] border-t border-[rgba(0,255,136,0.1)]' : 'max-h-0'}`}>
-                    <div className="p-6 space-y-4 text-xs sm:text-sm bg-[#0a1628]/40/30 leading-relaxed text-[#7a9bb5]">
+                  <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isExpanded ? 'max-h-[500px] border-t border-[rgba(0,229,255,0.1)]' : 'max-h-0'}`}>
+                    <div className="p-6 space-y-4 text-xs sm:text-sm bg-[#111827]/40/30 leading-relaxed text-[#7a9bb5]">
                       <div>
                         <strong className="text-white">Affected Applications:</strong> {threat.affected}
                       </div>
@@ -723,9 +723,9 @@ export default function VAPTPage() {
                       <div>
                         <strong className="text-white">Recommendation:</strong> {threat.recommendation}
                       </div>
-                      <div className="bg-[rgba(0,255,136,0.08)] dark:bg-[#142214] p-3 rounded-xl border border-[rgba(0,255,136,0.15)]">
-                        <strong className="text-[#00ff88] block mb-0.5">Remediation Path</strong>
-                        <p className="text-xs text-[#00ff88]">{threat.remediation}</p>
+                      <div className="bg-[rgba(0,229,255,0.08)] dark:bg-[#142214] p-3 rounded-xl border border-[rgba(0,229,255,0.15)]">
+                        <strong className="text-[#00E5FF] block mb-0.5">Remediation Path</strong>
+                        <p className="text-xs text-[#00E5FF]">{threat.remediation}</p>
                       </div>
                     </div>
                   </div>
@@ -735,7 +735,7 @@ export default function VAPTPage() {
           </div>
 
           {filteredThreats.length === 0 && (
-            <div className="text-center py-10 rounded-2xl border border-black/5" style={{ background: '#050d1a' }}>
+            <div className="text-center py-10 rounded-2xl border border-black/5" style={{ background: '#0A0F1F' }}>
               <Flame className="w-8 h-8 text-rose-500 mx-auto mb-2" />
               <p className="text-sm font-medium">No threats match your query.</p>
             </div>
@@ -761,7 +761,7 @@ export default function VAPTPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               to="/#contact"
-              className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+              className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
             >
               Get Free VAPT Assessment
               <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -770,7 +770,7 @@ export default function VAPTPage() {
             </Link>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-white dark:bg-[#050d1a] hover:bg-[#f0f0ee] dark:hover:bg-[#00cc70] text-white border border-[rgba(0,255,136,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-white dark:bg-[#0A0F1F] hover:bg-[#f0f0ee] dark:hover:bg-[#3B82F6] text-white border border-[rgba(0,229,255,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to home
@@ -779,7 +779,7 @@ export default function VAPTPage() {
         </div>
 
         {/* Lower copyright band */}
-        <div className="border-t border-[rgba(0,255,136,0.1)]">
+        <div className="border-t border-[rgba(0,229,255,0.1)]">
           <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <img src={logoDark} style={{ opacity: 0.8 }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />

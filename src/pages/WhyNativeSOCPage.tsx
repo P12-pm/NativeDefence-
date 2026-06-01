@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
+const PRIMARY = '#00E5FF';
 
 const subLinks = [
   { label: 'NativeSOC Approach', href: '/nativesocapproach' },
@@ -62,22 +62,22 @@ export default function WhyNativeSOCPage() {
   }, []);
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back */}
           <div className="flex items-center gap-4">
             <Link
               to="/nativesoc"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -94,7 +94,7 @@ export default function WhyNativeSOCPage() {
               <Link
                 key={l.href}
                 to={l.href}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/whynativesoc' ? 'bg-[rgba(0,255,136,0.15)] text-[#00ff88]' : 'text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)]'}`}
+                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/whynativesoc' ? 'bg-[rgba(0,229,255,0.15)] text-[#00E5FF]' : 'text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)]'}`}
               >
                 {l.label}
               </Link>
@@ -114,7 +114,7 @@ export default function WhyNativeSOCPage() {
 
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -124,13 +124,13 @@ export default function WhyNativeSOCPage() {
 
         {/* Mobile Drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             {subLinks.map(l => (
               <Link
                 key={l.href}
                 to={l.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-left text-sm font-medium py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0 ${l.href === '/whynativesoc' ? 'text-[#00ff88] font-semibold' : 'text-[#7a9bb5]'}`}
+                className={`text-left text-sm font-medium py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0 ${l.href === '/whynativesoc' ? 'text-[#00E5FF] font-semibold' : 'text-[#7a9bb5]'}`}
               >
                 {l.label}
               </Link>
@@ -138,7 +138,7 @@ export default function WhyNativeSOCPage() {
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Get Demo
             </Link>
@@ -154,9 +154,9 @@ export default function WhyNativeSOCPage() {
         </div>
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">Platform Differentiators</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">Platform Differentiators</span>
           </div>
 
           <div className="max-w-3xl">
@@ -170,7 +170,7 @@ export default function WhyNativeSOCPage() {
               }}
             >
               Why Enterprise <br />
-              <span className="text-[#00ff88] font-medium">Deploys NativeSOC.</span>
+              <span className="text-[#00E5FF] font-medium">Deploys NativeSOC.</span>
             </h1>
             <p className="text-sm sm:text-base text-[#7a9bb5] leading-relaxed">
               We resolve corporate alert fatigue, manage complex SIEM tasks, and deploy multi-layered EDR systems
@@ -190,9 +190,9 @@ export default function WhyNativeSOCPage() {
               return (
                 <div
                   key={diff.title}
-                  style={{ background: '#050d1a' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,255,136,0.1)] space-y-6 hover:shadow-md transition-shadow duration-300"
+                  style={{ background: '#0A0F1F' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,229,255,0.1)] space-y-6 hover:shadow-md transition-shadow duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88]">
+                  <div className="w-12 h-12 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF]">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-xl font-bold text-white" style={{ fontFamily: NHG }}>
@@ -210,14 +210,14 @@ export default function WhyNativeSOCPage() {
       </section>
 
       {/* ══ THE MITRE & HUMINT DETAILS ══ */}
-      <section style={{ background: '#050d1a' }} className="py-20 transition-colors duration-500 border-t border-[rgba(0,255,136,0.1)]">
+      <section style={{ background: '#0A0F1F' }} className="py-20 transition-colors duration-500 border-t border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             {/* Left: Robust Proactive & Predictive */}
             <div className="space-y-6">
-              <span className="text-[10px] font-bold tracking-widest text-[#00ff88] uppercase">MITRE ATT&amp;CK Alignment</span>
+              <span className="text-[10px] font-bold tracking-widest text-[#00E5FF] uppercase">MITRE ATT&amp;CK Alignment</span>
               <h2 className="text-3xl font-semibold text-white" style={{ fontFamily: NHG }}>
                 Robust Proactive &amp; Predictive Monitoring
               </h2>
@@ -233,7 +233,7 @@ export default function WhyNativeSOCPage() {
 
             {/* Right: HUMINT Our Secret Sauce */}
             <div className="space-y-6">
-              <span className="text-[10px] font-bold tracking-widest text-[#00ff88] uppercase">Human Intelligence</span>
+              <span className="text-[10px] font-bold tracking-widest text-[#00E5FF] uppercase">Human Intelligence</span>
               <h2 className="text-3xl font-semibold text-white" style={{ fontFamily: NHG }}>
                 HUMINT – Our Secret Sauce
               </h2>
@@ -258,7 +258,7 @@ export default function WhyNativeSOCPage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Containment</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Containment</span>
             <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               Catch the Hacker in the Act!
             </h2>
@@ -278,10 +278,10 @@ export default function WhyNativeSOCPage() {
             ].map(step => (
               <div
                 key={step.id}
-                style={{ background: '#050d1a' }} className="p-6 rounded-2xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow transition-shadow duration-200"
+                style={{ background: '#0A0F1F' }} className="p-6 rounded-2xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow transition-shadow duration-200"
               >
                 <div>
-                  <span className="text-xs font-bold text-[#00ff88] bg-[rgba(0,255,136,0.08)] px-2.5 py-1 rounded">
+                  <span className="text-xs font-bold text-[#00E5FF] bg-[rgba(0,229,255,0.08)] px-2.5 py-1 rounded">
                     {step.id}
                   </span>
                   <h4 className="text-base font-semibold text-white mt-4 mb-2" style={{ fontFamily: NHG }}>
@@ -292,7 +292,7 @@ export default function WhyNativeSOCPage() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[rgba(0,255,136,0.1)] mt-4 flex items-center gap-1.5 text-[9px] font-bold text-[#00ff88] uppercase">
+                <div className="pt-4 border-t border-[rgba(0,229,255,0.1)] mt-4 flex items-center gap-1.5 text-[9px] font-bold text-[#00E5FF] uppercase">
                   <CheckCircle className="w-3 h-3" />
                   Contained
                 </div>
@@ -304,7 +304,7 @@ export default function WhyNativeSOCPage() {
       </section>
 
       {/* ══ FOOTER ══ */}
-      <footer style={{ background: '#050d1a' }} className="border-t border-[rgba(0,255,136,0.1)] transition-colors duration-500">
+      <footer style={{ background: '#0A0F1F' }} className="border-t border-[rgba(0,229,255,0.1)] transition-colors duration-500">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <img src={logoDark} style={{ opacity: 0.8 }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />

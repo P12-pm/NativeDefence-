@@ -97,7 +97,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
   };
 
   return (
-    <section id="home" className="relative w-full min-h-screen overflow-hidden" style={{ background: '#050d1a' }}>
+    <section id="home" className="relative w-full min-h-screen overflow-hidden" style={{ background: '#0A0F1F' }}>
 
       {/* ── Background Video ─────────────────────────── */}
       <div className="absolute inset-0 z-0">
@@ -126,14 +126,14 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         <div
           className="absolute bottom-0 left-0 w-[600px] h-[600px] pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(0,255,136,0.08) 0%, transparent 60%)',
+            background: 'radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 60%)',
             transform: 'translate(-30%, 30%)',
           }}
         />
         <div
           className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 60%)',
+            background: 'radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 60%)',
             transform: 'translate(20%, -20%)',
           }}
         />
@@ -142,7 +142,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
       {/* ── NAV ────────────────────────────────────────── */}
       <nav
         className={`absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 sm:py-5 transition-all duration-500 ${
-          scrolled ? 'bg-[#050d1a]/80 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]' : ''
+          scrolled ? 'bg-[#0A0F1F]/80 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]' : ''
         }`}
       >
 
@@ -163,11 +163,11 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         <div
           className="hidden lg:flex items-center rounded-full px-2 py-1.5 gap-0.5"
           style={{
-            background: 'rgba(5,13,26,0.7)',
+            background: 'rgba(10,15,31,0.7)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
-            border: '1px solid rgba(0,255,136,0.15)',
-            boxShadow: '0 0 20px rgba(0,255,136,0.05)',
+            border: '1px solid rgba(0,229,255,0.15)',
+            boxShadow: '0 0 20px rgba(0,229,255,0.05)',
           }}
         >
 
@@ -183,8 +183,8 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                 <Link
                   to={item.href}
                   className={`inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap ${i === 0
-                    ? 'font-semibold text-[#00ff88] bg-[rgba(0,255,136,0.1)]'
-                    : 'font-medium text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[rgba(0,255,136,0.07)]'
+                    ? 'font-semibold text-[#00E5FF] bg-[rgba(0,229,255,0.1)]'
+                    : 'font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)]'
                     }`}
                 >
                   {item.label}
@@ -198,8 +198,8 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                 <a
                   href={item.href}
                   className={`inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap ${i === 0
-                    ? 'font-semibold text-[#00ff88] bg-[rgba(0,255,136,0.1)]'
-                    : 'font-medium text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[rgba(0,255,136,0.07)]'
+                    ? 'font-semibold text-[#00E5FF] bg-[rgba(0,229,255,0.1)]'
+                    : 'font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)]'
                     }`}
                 >
                   {item.label}
@@ -225,11 +225,11 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                       minWidth: '220px',
                       opacity: openDropdown === item.label ? 1 : 0,
                       transform: openDropdown === item.label ? 'translateY(0)' : 'translateY(-8px)',
-                      background: 'rgba(5,13,26,0.92)',
+                      background: 'rgba(10,15,31,0.92)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
-                      border: '1px solid rgba(0,255,136,0.15)',
-                      boxShadow: '0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0,255,136,0.05)',
+                      border: '1px solid rgba(0,229,255,0.15)',
+                      boxShadow: '0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0,229,255,0.05)',
                     }}
                   >
                     <div className="py-2 px-2 flex flex-col gap-0.5">
@@ -238,7 +238,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                           <Link
                             key={child.href}
                             to={child.href}
-                            className="block text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[rgba(0,255,136,0.07)] px-4 py-2.5 rounded-xl transition-all duration-150"
+                            className="block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)] px-4 py-2.5 rounded-xl transition-all duration-150"
                           >
                             {child.label}
                           </Link>
@@ -246,7 +246,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                           <a
                             key={child.href}
                             href={child.href}
-                            className="block text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[rgba(0,255,136,0.07)] px-4 py-2.5 rounded-xl transition-all duration-150"
+                            className="block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)] px-4 py-2.5 rounded-xl transition-all duration-150"
                           >
                             {child.label}
                           </a>
@@ -262,8 +262,8 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           {/* CTA button */}
           <a
             href="#contact"
-            className="ml-2 text-[#050d1a] text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 whitespace-nowrap hover:shadow-[0_0_20px_rgba(0,255,136,0.5)] hover:-translate-y-0.5"
-            style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+            className="ml-2 text-[#0A0F1F] text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 whitespace-nowrap hover:shadow-[0_0_20px_rgba(0,229,255,0.5)] hover:-translate-y-0.5"
+            style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
           >
             Free Assessment
           </a>
@@ -279,14 +279,14 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             onClick={() => setMenuOpen(v => !v)}
             className="lg:hidden relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300"
             style={{
-              background: 'rgba(5,13,26,0.7)',
+              background: 'rgba(10,15,31,0.7)',
               backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(0,255,136,0.2)',
+              border: '1px solid rgba(0,229,255,0.2)',
             }}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            <Menu className={`w-5 h-5 text-[#00ff88] absolute transition-all duration-300 ${menuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`} />
-            <X className={`w-5 h-5 text-[#00ff88] absolute transition-all duration-300 ${menuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`} />
+            <Menu className={`w-5 h-5 text-[#00E5FF] absolute transition-all duration-300 ${menuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`} />
+            <X className={`w-5 h-5 text-[#00E5FF] absolute transition-all duration-300 ${menuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`} />
           </button>
         </div>
       </nav>
@@ -296,26 +296,26 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         className={`lg:hidden fixed inset-0 z-20 transition-opacity duration-300 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setMenuOpen(false)}
       >
-        <div className="absolute inset-0 bg-[#050d1a]/60 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-[#0A0F1F]/60 backdrop-blur-sm" />
       </div>
 
       {/* ── Mobile drawer ───────────────────────────────── */}
       <div
         className={`lg:hidden fixed top-0 right-0 bottom-0 z-20 w-[88%] max-w-sm flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         style={{
-          background: 'rgba(5,13,26,0.97)',
+          background: 'rgba(10,15,31,0.97)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
-          borderLeft: '1px solid rgba(0,255,136,0.15)',
+          borderLeft: '1px solid rgba(0,229,255,0.15)',
           boxShadow: '-20px 0 60px rgba(0,0,0,0.5)',
         }}
       >
         {/* Drawer header */}
         <div
           className="flex items-center justify-between px-6 pt-6 pb-4 flex-shrink-0"
-          style={{ borderBottom: '1px solid rgba(0,255,136,0.1)' }}
+          style={{ borderBottom: '1px solid rgba(0,229,255,0.1)' }}
         >
-          <span className="font-semibold text-[#00ff88]" style={{ fontFamily: NHG }}>
+          <span className="font-semibold text-[#00E5FF]" style={{ fontFamily: NHG }}>
             NativeDefence<sup className="text-[9px]">™</sup>
           </span>
           <div className="flex items-center gap-2">
@@ -323,9 +323,9 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             <button
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-center w-8 h-8 rounded-full"
-              style={{ background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.15)' }}
+              style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.15)' }}
             >
-              <X className="w-4 h-4 text-[#00ff88]" />
+              <X className="w-4 h-4 text-[#00E5FF]" />
             </button>
           </div>
         </div>
@@ -343,7 +343,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                   <Link
                     to={item.href}
                     onClick={() => !item.children && setMenuOpen(false)}
-                    className="flex-1 py-4 text-xl font-semibold text-white hover:text-[#00ff88] transition-colors"
+                    className="flex-1 py-4 text-xl font-semibold text-white hover:text-[#00E5FF] transition-colors"
                     style={{ fontFamily: NHG, letterSpacing: '-0.02em' }}
                   >
                     {item.label}
@@ -352,7 +352,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                   <a
                     href={item.href}
                     onClick={() => !item.children && setMenuOpen(false)}
-                    className="flex-1 py-4 text-xl font-semibold text-white hover:text-[#00ff88] transition-colors"
+                    className="flex-1 py-4 text-xl font-semibold text-white hover:text-[#00E5FF] transition-colors"
                     style={{ fontFamily: NHG, letterSpacing: '-0.02em' }}
                   >
                     {item.label}
@@ -362,17 +362,17 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                   <button
                     onClick={() => setMobileExpand(mobileExpand === item.label ? null : item.label)}
                     className="flex items-center justify-center w-8 h-8 rounded-full flex-shrink-0"
-                    style={{ background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.15)' }}
+                    style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.15)' }}
                   >
                     <ChevronDown
-                      className={`w-4 h-4 text-[#00ff88] transition-transform duration-300 ${mobileExpand === item.label ? 'rotate-180' : 'rotate-0'}`}
+                      className={`w-4 h-4 text-[#00E5FF] transition-transform duration-300 ${mobileExpand === item.label ? 'rotate-180' : 'rotate-0'}`}
                     />
                   </button>
                 )}
               </div>
 
               {/* Divider */}
-              <div className="h-px mx-6" style={{ background: 'rgba(0,255,136,0.06)' }} />
+              <div className="h-px mx-6" style={{ background: 'rgba(0,229,255,0.06)' }} />
 
               {/* Sub-items */}
               {item.children && (
@@ -380,15 +380,15 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                   className="overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   style={{ maxHeight: mobileExpand === item.label ? `${item.children.length * 56}px` : '0px' }}
                 >
-                  <div className="pt-1 pb-3 pl-10 pr-6 flex flex-col gap-0.5" style={{ background: 'rgba(0,255,136,0.03)' }}>
+                  <div className="pt-1 pb-3 pl-10 pr-6 flex flex-col gap-0.5" style={{ background: 'rgba(0,229,255,0.03)' }}>
                     {item.children.map(child =>
                       child.href.startsWith('/') ? (
                         <Link
                           key={child.href}
                           to={child.href}
                           onClick={() => setMenuOpen(false)}
-                          className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors"
-                          style={{ borderBottom: '1px solid rgba(0,255,136,0.05)' }}
+                          className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors"
+                          style={{ borderBottom: '1px solid rgba(0,229,255,0.05)' }}
                         >
                           {child.label}
                         </Link>
@@ -397,8 +397,8 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                           key={child.href}
                           href={child.href}
                           onClick={() => setMenuOpen(false)}
-                          className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors"
-                          style={{ borderBottom: '1px solid rgba(0,255,136,0.05)' }}
+                          className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors"
+                          style={{ borderBottom: '1px solid rgba(0,229,255,0.05)' }}
                         >
                           {child.label}
                         </a>
@@ -414,13 +414,13 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         {/* Drawer footer CTA */}
         <div
           className={`flex-shrink-0 p-5 transition-all duration-500 ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
-          style={{ transitionDelay: menuOpen ? '500ms' : '0ms', borderTop: '1px solid rgba(0,255,136,0.1)' }}
+          style={{ transitionDelay: menuOpen ? '500ms' : '0ms', borderTop: '1px solid rgba(0,229,255,0.1)' }}
         >
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="block w-full text-center text-[#050d1a] text-sm font-bold px-5 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,136,0.4)]"
-            style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+            className="block w-full text-center text-[#0A0F1F] text-sm font-bold px-5 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]"
+            style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
           >
             Free Assessment
           </a>
@@ -435,7 +435,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           
           {/* Top-Left: Shield Icon */}
           <div
-            className="absolute top-[20%] left-[8%] md:left-[12%] animate-float hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(5,13,26,0.6)] border border-[rgba(0,255,136,0.25)] shadow-[0_0_20px_rgba(0,255,136,0.15)] text-[#00ff88]"
+            className="absolute top-[20%] left-[8%] md:left-[12%] animate-float hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(0,229,255,0.25)] shadow-[0_0_20px_rgba(0,229,255,0.15)] text-[#00E5FF]"
             style={{ animationDelay: '0s', transform: 'rotate(-10deg)', backdropFilter: 'blur(8px)' }}
           >
             <Shield className="w-5 h-5 animate-pulse" />
@@ -443,7 +443,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
           {/* Top-Right: Terminal Icon */}
           <div
-            className="absolute top-[25%] right-[8%] md:right-[12%] animate-float-slow hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(5,13,26,0.6)] border border-[rgba(0,212,255,0.25)] shadow-[0_0_20px_rgba(0,212,255,0.15)] text-[#00d4ff]"
+            className="absolute top-[25%] right-[8%] md:right-[12%] animate-float-slow hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(59,130,246,0.25)] shadow-[0_0_20px_rgba(59,130,246,0.15)] text-[#00E5FF]"
             style={{ animationDelay: '1.5s', transform: 'rotate(15deg)', backdropFilter: 'blur(8px)' }}
           >
             <Terminal className="w-6 h-6" />
@@ -451,7 +451,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
           {/* Bottom-Left: Wifi Icon */}
           <div
-            className="absolute bottom-[30%] left-[6%] md:left-[10%] animate-float-slow hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(5,13,26,0.6)] border border-[rgba(0,255,136,0.25)] shadow-[0_0_20px_rgba(0,255,136,0.15)] text-[#00ff88]"
+            className="absolute bottom-[30%] left-[6%] md:left-[10%] animate-float-slow hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(0,229,255,0.25)] shadow-[0_0_20px_rgba(0,229,255,0.15)] text-[#00E5FF]"
             style={{ animationDelay: '0.8s', transform: 'rotate(8deg)', backdropFilter: 'blur(8px)' }}
           >
             <Wifi className="w-6 h-6" />
@@ -459,7 +459,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
           {/* Bottom-Right: Play Icon */}
           <div
-            className="absolute bottom-[28%] right-[6%] md:right-[10%] animate-float hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(5,13,26,0.6)] border border-[rgba(0,212,255,0.25)] shadow-[0_0_20px_rgba(0,212,255,0.15)] text-[#00d4ff]"
+            className="absolute bottom-[28%] right-[6%] md:right-[10%] animate-float hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(59,130,246,0.25)] shadow-[0_0_20px_rgba(59,130,246,0.15)] text-[#00E5FF]"
             style={{ animationDelay: '2.2s', transform: 'rotate(-12deg)', backdropFilter: 'blur(8px)' }}
           >
             <Play className="w-5 h-5" />
@@ -469,17 +469,25 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         {/* ── Hero Content Container ── */}
         <div className="relative z-10 w-full max-w-4xl flex flex-col items-center text-center">
 
+          {/* Central Blue/Cyan Ambient Glow */}
+          <div
+            className="absolute -translate-y-1/4 w-[600px] h-[400px] pointer-events-none rounded-full blur-[140px] opacity-40 z-0"
+            style={{
+              background: 'radial-gradient(circle, rgba(0,229,255,0.4) 0%, rgba(59,130,246,0.3) 50%, transparent 80%)',
+            }}
+          />
+
           {/* Cyber badge */}
           <div
             className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full"
             style={{
-              background: 'rgba(0,255,136,0.08)',
-              border: '1px solid rgba(0,255,136,0.25)',
+              background: 'rgba(0,229,255,0.08)',
+              border: '1px solid rgba(0,229,255,0.25)',
               backdropFilter: 'blur(8px)',
             }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] animate-pulse" />
-            <span className="text-[11px] font-bold text-[#00ff88] tracking-[0.12em] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
+            <span className="text-[11px] font-bold text-[#00E5FF] tracking-[0.12em] uppercase">
               NativeSOC™ — Advanced Threat Intelligence
             </span>
           </div>
@@ -497,7 +505,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             <span
               className="animate-flicker shimmer-text block sm:inline font-semibold"
               style={{
-                textShadow: '0 0 25px rgba(0,255,136,0.5)',
+                textShadow: '0 0 25px rgba(0,229,255,0.5)',
               }}
             >
               Cyber Security
@@ -518,12 +526,12 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             {/* Primary assessment CTA */}
             <a
               href="#contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-[#050d1a] text-sm font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,255,136,0.6)] hover:-translate-y-0.5 group"
-              style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-[#0A0F1F] text-sm font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 group"
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
             >
               <Shield className="w-4 h-4" />
               Free Assessment
-              <div className="w-6 h-6 rounded-full bg-[#050d1a]/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
+              <div className="w-6 h-6 rounded-full bg-[#0A0F1F]/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </a>
@@ -531,7 +539,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             {/* Secondary platform explorer CTA */}
             <Link
               to="/nativesoc"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-full border border-[rgba(0,255,136,0.25)] hover:border-[#00ff88] hover:text-[#00ff88] bg-[rgba(5,13,26,0.4)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-full border border-[rgba(0,229,255,0.25)] hover:border-[#00E5FF] hover:text-[#00E5FF] bg-[rgba(10,15,31,0.4)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
             >
               <Terminal className="w-4 h-4" />
               Explore Platform
@@ -547,14 +555,14 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         <div
           className="p-4 rounded-2xl"
           style={{
-            background: 'rgba(5,13,26,0.7)',
+            background: 'rgba(10,15,31,0.7)',
             backdropFilter: 'blur(16px)',
-            border: '1px solid rgba(0,255,136,0.15)',
+            border: '1px solid rgba(0,229,255,0.15)',
           }}
         >
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-widest uppercase">NativeSOC™ Live</span>
+            <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-widest uppercase">NativeSOC™ Live</span>
           </div>
           <p className="text-xs text-[#7a9bb5] leading-relaxed mb-3">
             AI-driven threat detection, 24/7 SOC monitoring, and instant response — defending your enterprise around the clock.
@@ -562,14 +570,14 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="text-xs font-bold text-[#050d1a] px-4 py-1.5 rounded-full transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,255,136,0.4)]"
-              style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+              className="text-xs font-bold text-[#0A0F1F] px-4 py-1.5 rounded-full transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,229,255,0.4)]"
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
             >
               Get Protected
             </a>
             <Link
               to="/nativesoc"
-              className="text-xs font-semibold text-[#00ff88] hover:opacity-80 transition-opacity"
+              className="text-xs font-semibold text-[#00E5FF] hover:opacity-80 transition-opacity"
             >
               Learn more →
             </Link>
@@ -582,21 +590,21 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         <div
           className="flex items-center gap-2 px-3 py-2 rounded-full"
           style={{
-            background: 'rgba(5,13,26,0.7)',
+            background: 'rgba(10,15,31,0.7)',
             backdropFilter: 'blur(12px)',
-            border: '1px solid rgba(0,255,136,0.15)',
+            border: '1px solid rgba(0,229,255,0.15)',
           }}
         >
-          <Wifi className="w-3.5 h-3.5 text-[#00ff88]" />
-          <span className="text-xs font-mono text-[#00ff88]">{londonTime}</span>
+          <Wifi className="w-3.5 h-3.5 text-[#00E5FF]" />
+          <span className="text-xs font-mono text-[#00E5FF]">{londonTime}</span>
           <span className="text-xs text-[#7a9bb5]">· SOC Live</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] inline-block animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] inline-block animate-pulse" />
         </div>
         <div
-          className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 cursor-pointer hover:border-[#00ff88]"
-          style={{ background: 'rgba(5,13,26,0.7)', border: '1px solid rgba(0,255,136,0.15)' }}
+          className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 cursor-pointer hover:border-[#00E5FF]"
+          style={{ background: 'rgba(10,15,31,0.7)', border: '1px solid rgba(0,229,255,0.15)' }}
         >
-          <Play className="w-3 h-3 fill-[#00ff88] text-[#00ff88] ml-0.5" />
+          <Play className="w-3 h-3 fill-[#00E5FF] text-[#00E5FF] ml-0.5" />
         </div>
       </div>
 
@@ -605,14 +613,14 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         <div
           className="flex flex-col gap-2 p-3 rounded-xl"
           style={{
-            background: 'rgba(5,13,26,0.65)',
+            background: 'rgba(10,15,31,0.65)',
             backdropFilter: 'blur(12px)',
-            border: '1px solid rgba(0,255,136,0.12)',
+            border: '1px solid rgba(0,229,255,0.12)',
           }}
         >
           {[
-            { label: 'Threats Blocked', value: '2,847', color: '#00ff88' },
-            { label: 'Endpoints Secure', value: '1,204', color: '#00d4ff' },
+            { label: 'Threats Blocked', value: '2,847', color: '#00E5FF' },
+            { label: 'Endpoints Secure', value: '1,204', color: '#00E5FF' },
             { label: 'Alerts Active', value: '3', color: '#ff6b35' },
           ].map(stat => (
             <div key={stat.label} className="flex items-center justify-between gap-4">
@@ -620,7 +628,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
               <span className="text-[10px] font-bold font-mono" style={{ color: stat.color }}>{stat.value}</span>
             </div>
           ))}
-          <div className="mt-1 pt-1" style={{ borderTop: '1px solid rgba(0,255,136,0.1)' }}>
+          <div className="mt-1 pt-1" style={{ borderTop: '1px solid rgba(0,229,255,0.1)' }}>
             <span className="text-[9px] text-[#7a9bb5] font-mono">Live · Updated 2s ago</span>
           </div>
         </div>

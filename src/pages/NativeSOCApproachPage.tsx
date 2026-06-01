@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
+const PRIMARY = '#00E5FF';
 
 const subLinks = [
   { label: 'NativeSOC Approach', href: '/nativesocapproach' },
@@ -33,22 +33,22 @@ export default function NativeSOCApproachPage() {
   }, []);
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back button */}
           <div className="flex items-center gap-4">
             <Link
               to="/nativesoc"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -65,7 +65,7 @@ export default function NativeSOCApproachPage() {
               <Link
                 key={l.href}
                 to={l.href}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/nativesocapproach' ? 'bg-[rgba(0,255,136,0.15)] text-[#00ff88]' : 'text-[#7a9bb5] hover:text-[#00ff88] hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)]'}`}
+                className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${l.href === '/nativesocapproach' ? 'bg-[rgba(0,229,255,0.15)] text-[#00E5FF]' : 'text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)]'}`}
               >
                 {l.label}
               </Link>
@@ -86,7 +86,7 @@ export default function NativeSOCApproachPage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -96,13 +96,13 @@ export default function NativeSOCApproachPage() {
 
         {/* Mobile menu drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             {subLinks.map(l => (
               <Link
                 key={l.href}
                 to={l.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-left text-sm font-medium py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0 ${l.href === '/nativesocapproach' ? 'text-[#00ff88] font-semibold' : 'text-[#7a9bb5]'}`}
+                className={`text-left text-sm font-medium py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0 ${l.href === '/nativesocapproach' ? 'text-[#00E5FF] font-semibold' : 'text-[#7a9bb5]'}`}
               >
                 {l.label}
               </Link>
@@ -110,7 +110,7 @@ export default function NativeSOCApproachPage() {
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Get Demo
             </Link>
@@ -126,9 +126,9 @@ export default function NativeSOCApproachPage() {
         </div>
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">Strategic Methodology</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">Strategic Methodology</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -143,9 +143,9 @@ export default function NativeSOCApproachPage() {
                 }}
               >
                 The NativeSOC <br />
-                <span className="text-[#00ff88] font-medium">Approach.</span>
+                <span className="text-[#00E5FF] font-medium">Approach.</span>
               </h1>
-              <h2 className="text-sm font-semibold tracking-wider text-[#00ff88] uppercase mb-6 flex items-center gap-2">
+              <h2 className="text-sm font-semibold tracking-wider text-[#00E5FF] uppercase mb-6 flex items-center gap-2">
                 <Activity className="w-4 h-4" />
                 Comprehensive Security Operations Mapping
               </h2>
@@ -162,7 +162,7 @@ export default function NativeSOCApproachPage() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   to="/nativesocfeatures"
-                  className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-all duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+                  className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-all duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
                 >
                   Explore Pillars
                   <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -171,7 +171,7 @@ export default function NativeSOCApproachPage() {
                 </Link>
                 <Link
                   to="/#contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00ff88] hover:gap-3 transition-all duration-300"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00E5FF] hover:gap-3 transition-all duration-300"
                 >
                   Free SIEM Audit
                 </Link>
@@ -181,19 +181,19 @@ export default function NativeSOCApproachPage() {
             {/* Visual Abstract SVG Graphic */}
             <div className="lg:col-span-5 flex justify-center items-center">
               <div >
-                <div className="absolute inset-4 rounded-full border border-[rgba(0,255,136,0.3)]/10  animate-pulse" />
-                <div className="relative w-28 h-28 rounded-full bg-[#050d1a] border-4 border-[rgba(0,255,136,0.3)] flex flex-col items-center justify-center shadow-xl z-10">
-                  <Shield className="w-8 h-8 text-[#00d4aa]" />
-                  <span className="text-[9px] font-bold tracking-widest text-[#00d4aa] uppercase mt-1">XDR+SIEM</span>
+                <div className="absolute inset-4 rounded-full border border-[rgba(0,229,255,0.3)]/10  animate-pulse" />
+                <div className="relative w-28 h-28 rounded-full bg-[#0A0F1F] border-4 border-[rgba(0,229,255,0.3)] flex flex-col items-center justify-center shadow-xl z-10">
+                  <Shield className="w-8 h-8 text-[#3B82F6]" />
+                  <span className="text-[9px] font-bold tracking-widest text-[#3B82F6] uppercase mt-1">XDR+SIEM</span>
                 </div>
 
                 {/* Orbital telemetry paths */}
                 <div className="absolute w-full h-full animate-spin" style={{ animationDuration: '25s' }}>
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-lg border border-black/5 flex items-center justify-center shadow" style={{ background: '#050d1a' }}>
-                    <Database className="w-4 h-4 text-[#00ff88]" />
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-lg border border-black/5 flex items-center justify-center shadow" style={{ background: '#0A0F1F' }}>
+                    <Database className="w-4 h-4 text-[#00E5FF]" />
                   </div>
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-lg border border-black/5 flex items-center justify-center shadow" style={{ background: '#050d1a' }}>
-                    <Activity className="w-4 h-4 text-[#00ff88]" />
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-lg border border-black/5 flex items-center justify-center shadow" style={{ background: '#0A0F1F' }}>
+                    <Activity className="w-4 h-4 text-[#00E5FF]" />
                   </div>
                 </div>
               </div>
@@ -207,7 +207,7 @@ export default function NativeSOCApproachPage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">Pillars</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">Pillars</span>
             <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               The Dual Command Architecture
             </h2>
@@ -219,9 +219,9 @@ export default function NativeSOCApproachPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
             {/* Extended Detection and Response (XDR) */}
-            <div style={{ background: '#050d1a' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
+            <div style={{ background: '#0A0F1F' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
               <div className="space-y-6">
-                <div className="w-12 h-12 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88]">
+                <div className="w-12 h-12 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF]">
                   <Shield className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white" style={{ fontFamily: NHG }}>
@@ -234,16 +234,16 @@ export default function NativeSOCApproachPage() {
                   and other sources for unified security monitoring and protection.
                 </p>
               </div>
-              <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] mt-8 flex items-center gap-2 text-xs font-bold text-[#00ff88]">
+              <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] mt-8 flex items-center gap-2 text-xs font-bold text-[#00E5FF]">
                 <Activity className="w-4 h-4" />
                 Cross-layer attack correlation operational
               </div>
             </div>
 
             {/* Security Information and Event Management (SIEM) */}
-            <div style={{ background: '#050d1a' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
+            <div style={{ background: '#0A0F1F' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
               <div className="space-y-6">
-                <div className="w-12 h-12 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88]">
+                <div className="w-12 h-12 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF]">
                   <Database className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white" style={{ fontFamily: NHG }}>
@@ -256,7 +256,7 @@ export default function NativeSOCApproachPage() {
                   broader security coverage.
                 </p>
               </div>
-              <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] mt-8 flex items-center gap-2 text-xs font-bold text-[#00ff88]">
+              <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] mt-8 flex items-center gap-2 text-xs font-bold text-[#00E5FF]">
                 <Database className="w-4 h-4" />
                 Real-time compliance auditing active
               </div>
@@ -268,7 +268,7 @@ export default function NativeSOCApproachPage() {
       </section>
 
       {/* ══ FOOTER BAND ══ */}
-      <footer style={{ background: '#050d1a' }} className="border-t border-[rgba(0,255,136,0.1)] transition-colors duration-500">
+      <footer style={{ background: '#0A0F1F' }} className="border-t border-[rgba(0,229,255,0.1)] transition-colors duration-500">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <img src={logoDark} style={{ opacity: 0.8 }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />

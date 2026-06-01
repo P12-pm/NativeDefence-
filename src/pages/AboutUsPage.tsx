@@ -7,8 +7,8 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
-const ACCENT = '#00d4aa';
+const PRIMARY = '#00E5FF';
+const ACCENT = '#3B82F6';
 
 export default function AboutUsPage() {
   const [isDark, _setIsDark] = useState(false);
@@ -49,22 +49,22 @@ export default function AboutUsPage() {
   };
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back button */}
           <div className="flex items-center gap-4">
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -79,19 +79,19 @@ export default function AboutUsPage() {
           <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => handleSubLinkClick('about-hero')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Company
             </button>
             <button
               onClick={() => handleSubLinkClick('founder-spotlight')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Founder Profile
             </button>
             <button
               onClick={() => handleSubLinkClick('directors-spotlight')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Directors Technical &amp; Sales
             </button>
@@ -112,7 +112,7 @@ export default function AboutUsPage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -122,29 +122,29 @@ export default function AboutUsPage() {
 
         {/* Mobile menu drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             <button
               onClick={() => handleSubLinkClick('about-hero')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Company
             </button>
             <button
               onClick={() => handleSubLinkClick('founder-spotlight')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Founder Profile
             </button>
             <button
               onClick={() => handleSubLinkClick('directors-spotlight')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0"
             >
               Directors
             </button>
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Contact Us
             </Link>
@@ -164,9 +164,9 @@ export default function AboutUsPage() {
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
           {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">NativeDefence Leadership</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">NativeDefence Leadership</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
@@ -182,9 +182,9 @@ export default function AboutUsPage() {
                 }}
               >
                 Pioneering Cybersecurity. <br />
-                <span className="text-[#00ff88] font-medium">Empowering Global Organizations.</span>
+                <span className="text-[#00E5FF] font-medium">Empowering Global Organizations.</span>
               </h1>
-              <h2 className="text-sm font-semibold tracking-wider text-[#00ff88] uppercase mb-6 flex items-center gap-2">
+              <h2 className="text-sm font-semibold tracking-wider text-[#00E5FF] uppercase mb-6 flex items-center gap-2">
                 <Globe className="w-4 h-4" />
                 Technical &amp; SOC from Ahmedabad · Sales from Mumbai
               </h2>
@@ -201,7 +201,7 @@ export default function AboutUsPage() {
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => handleSubLinkClick('founder-spotlight')}
-                  className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+                  className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
                 >
                   Meet the Founder
                   <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -210,7 +210,7 @@ export default function AboutUsPage() {
                 </button>
                 <button
                   onClick={() => handleSubLinkClick('directors-spotlight')}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00ff88] hover:gap-3 transition-all duration-300"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00E5FF] hover:gap-3 transition-all duration-300"
                 >
                   Technical &amp; Sales Directors
                   <ArrowUpRight className="w-4 h-4" />
@@ -219,9 +219,9 @@ export default function AboutUsPage() {
             </div>
 
             {/* Quick stats block */}
-            <div className="lg:col-span-5 bg-[#0a1628]/80 backdrop-blur-md p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#00ff88]/5 rounded-full blur-2xl pointer-events-none" />
-              <Compass className="w-8 h-8 text-[#00ff88] mb-5" />
+            <div className="lg:col-span-5 bg-[#111827]/80 backdrop-blur-md p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] relative">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#00E5FF]/5 rounded-full blur-2xl pointer-events-none" />
+              <Compass className="w-8 h-8 text-[#00E5FF] mb-5" />
               <h3 className="font-semibold text-lg text-white mb-3" style={{ fontFamily: NHG }}>
                 Full-Spectrum Security Partners
               </h3>
@@ -229,7 +229,7 @@ export default function AboutUsPage() {
                 We assist organizations in navigating their digital threat landscapes with tailored VAPT audits,
                 24/7 managed SOC monitoring, strategic CISO advisory, and advanced EdTech training modules.
               </p>
-              <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#00ff88]">
+              <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#00E5FF]">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                 Securing 100,000+ Users Worldwide
               </div>
@@ -243,7 +243,7 @@ export default function AboutUsPage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="max-w-3xl mb-16">
-            <div className="inline-block text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase mb-4">
+            <div className="inline-block text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase mb-4">
               EXECUTIVE PROFILE
             </div>
             <h2
@@ -260,14 +260,14 @@ export default function AboutUsPage() {
             <div className="lg:col-span-4 space-y-6">
 
               {/* Profile Card */}
-              <div style={{ background: '#050d1a' }} className="p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] shadow-sm text-center">
-                <div className="w-24 h-24 mx-auto rounded-full bg-[#00ff88] text-white flex items-center justify-center text-3xl font-bold mb-5 shadow-inner" style={{ fontFamily: NHG }}>
+              <div style={{ background: '#0A0F1F' }} className="p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] shadow-sm text-center">
+                <div className="w-24 h-24 mx-auto rounded-full bg-[#00E5FF] text-white flex items-center justify-center text-3xl font-bold mb-5 shadow-inner" style={{ fontFamily: NHG }}>
                   HP
                 </div>
                 <h3 className="text-2xl font-semibold text-white leading-tight" style={{ fontFamily: NHG }}>
                   Hemal Patel
                 </h3>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#00ff88] mt-2 mb-6">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#00E5FF] mt-2 mb-6">
                   Founder &amp; CEO, Serial Entrepreneur
                 </p>
                 <div className="flex justify-center gap-1.5 flex-wrap">
@@ -280,18 +280,18 @@ export default function AboutUsPage() {
               </div>
 
               {/* Startup Metrics Grid */}
-              <div style={{ background: '#050d1a' }} className="p-6 rounded-3xl border border-[rgba(0,255,136,0.1)] space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#00ff88]">Enterprise Milestones</h4>
+              <div style={{ background: '#0A0F1F' }} className="p-6 rounded-3xl border border-[rgba(0,229,255,0.1)] space-y-4">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#00E5FF]">Enterprise Milestones</h4>
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center text-xs py-1 border-b border-[rgba(0,255,136,0.1)]">
+                  <div className="flex justify-between items-center text-xs py-1 border-b border-[rgba(0,229,255,0.1)]">
                     <span className="text-[#7a9bb5]">Cyberoam Brands</span>
                     <span className="font-semibold text-white">150+ Countries</span>
                   </div>
-                  <div className="flex justify-between items-center text-xs py-1 border-b border-[rgba(0,255,136,0.1)]">
+                  <div className="flex justify-between items-center text-xs py-1 border-b border-[rgba(0,229,255,0.1)]">
                     <span className="text-[#7a9bb5]">Elitecore Workforce</span>
                     <span className="font-semibold text-white">11 to 1700 employees</span>
                   </div>
-                  <div className="flex justify-between items-center text-xs py-1 border-b border-[rgba(0,255,136,0.1)]">
+                  <div className="flex justify-between items-center text-xs py-1 border-b border-[rgba(0,229,255,0.1)]">
                     <span className="text-[#7a9bb5]">Total Valuation Exit</span>
                     <span className="font-semibold text-white">$100M+ Val</span>
                   </div>
@@ -304,9 +304,9 @@ export default function AboutUsPage() {
             <div className="lg:col-span-8 space-y-6">
 
               {/* Detailed Biographies */}
-              <div style={{ background: '#050d1a' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,255,136,0.1)] shadow-sm space-y-6 text-[#7a9bb5] leading-relaxed text-sm sm:text-base">
+              <div style={{ background: '#0A0F1F' }} className="p-8 sm:p-10 rounded-3xl border border-[rgba(0,229,255,0.1)] shadow-sm space-y-6 text-[#7a9bb5] leading-relaxed text-sm sm:text-base">
 
-                <p className="font-medium text-white text-base sm:text-lg border-l-4 border-[rgba(0,255,136,0.3)] pl-4">
+                <p className="font-medium text-white text-base sm:text-lg border-l-4 border-[rgba(0,229,255,0.3)] pl-4">
                   Hemal Patel is a successful serial Entrepreneur and a Technology Executive with diverse skills and management experience, including Sales, Marketing, Product Design, Product Development and Financial Management.
                 </p>
 
@@ -322,7 +322,7 @@ export default function AboutUsPage() {
                   He has also been the founder of Eclipse Micro Computer which has managed large IT infrastructure projects for US firms like Chase Manhattan Bank, J.P. Morgan, Merrill Lynch, AT&T and many more.
                 </p>
 
-                <p className="pt-4 border-t border-[rgba(0,255,136,0.1)] text-xs sm:text-sm font-medium">
+                <p className="pt-4 border-t border-[rgba(0,229,255,0.1)] text-xs sm:text-sm font-medium">
                   Hemal Patel has a bachelor’s degree in Electronics and Telecommunication Engineering from India, Masters in Computer Science from USA and Advanced Project Management from Stanford University, CA, USA.
                 </p>
 
@@ -345,7 +345,7 @@ export default function AboutUsPage() {
 
           {/* Header */}
           <div className="max-w-3xl mb-16">
-            <div className="inline-block text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase mb-4">
+            <div className="inline-block text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase mb-4">
               TECHNICAL &amp; SALES DIRECTORS
             </div>
             <h2
@@ -366,23 +366,23 @@ export default function AboutUsPage() {
             <div >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-[#00ff88] text-white flex items-center justify-center text-xl font-bold" style={{ fontFamily: NHG }}>
+                  <div className="w-16 h-16 rounded-2xl bg-[#00E5FF] text-white flex items-center justify-center text-xl font-bold" style={{ fontFamily: NHG }}>
                     SN
                   </div>
-                  <span className="text-xs font-bold text-[#00ff88] border border-[rgba(0,255,136,0.1)] rounded-full px-3 py-1" style={{ background: '#050d1a' }}>
+                  <span className="text-xs font-bold text-[#00E5FF] border border-[rgba(0,229,255,0.1)] rounded-full px-3 py-1" style={{ background: '#0A0F1F' }}>
                     Technical Operations
                   </span>
                 </div>
                 <h3 className="text-2xl font-semibold text-white leading-tight mb-2" style={{ fontFamily: NHG }}>
                   Srijan Nandi
                 </h3>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#00ff88] mb-4">Director Technical</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#00E5FF] mb-4">Director Technical</p>
                 <p className="text-sm text-[#7a9bb5] leading-relaxed">
                   Directing the core security analysis platforms, SIEM/HIDS architectures, and container threat assessments.
                   Overseeing the 24/7 technical operations center in Ahmedabad to safeguard corporate infrastructures.
                 </p>
               </div>
-              <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] mt-8 flex items-center gap-2 text-xs text-[#7a9bb5]">
+              <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] mt-8 flex items-center gap-2 text-xs text-[#7a9bb5]">
                 <CheckCircle className="w-4 h-4 text-emerald-500" />
                 Technical Operations Center Lead
               </div>
@@ -392,23 +392,23 @@ export default function AboutUsPage() {
             <div >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-[#00ff88] text-white flex items-center justify-center text-xl font-bold" style={{ fontFamily: NHG }}>
+                  <div className="w-16 h-16 rounded-2xl bg-[#00E5FF] text-white flex items-center justify-center text-xl font-bold" style={{ fontFamily: NHG }}>
                     BS
                   </div>
-                  <span className="text-xs font-bold text-[#00ff88] border border-[rgba(0,255,136,0.1)] rounded-full px-3 py-1" style={{ background: '#050d1a' }}>
+                  <span className="text-xs font-bold text-[#00E5FF] border border-[rgba(0,229,255,0.1)] rounded-full px-3 py-1" style={{ background: '#0A0F1F' }}>
                     Commercial Operations
                   </span>
                 </div>
                 <h3 className="text-2xl font-semibold text-white leading-tight mb-2" style={{ fontFamily: NHG }}>
                   Bishwajit Sutradhar
                 </h3>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#00ff88] mb-4">Director Sales</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#00E5FF] mb-4">Director Sales</p>
                 <p className="text-sm text-[#7a9bb5] leading-relaxed">
                   Driving regional partner distributions, resellers, SI alignments, and enterprise accounts globally.
                   Orchestrating sales and marketing campaigns from Mumbai to deploy NativeSOC and VAPT models.
                 </p>
               </div>
-              <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] mt-8 flex items-center gap-2 text-xs text-[#7a9bb5]">
+              <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] mt-8 flex items-center gap-2 text-xs text-[#7a9bb5]">
                 <CheckCircle className="w-4 h-4 text-emerald-500" />
                 Global Partnerships &amp; Enterprise Sales Lead
               </div>
@@ -436,7 +436,7 @@ export default function AboutUsPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               to="/#contact"
-              className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+              className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
             >
               Get Free VAPT Assessment
               <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -445,7 +445,7 @@ export default function AboutUsPage() {
             </Link>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-white dark:bg-[#050d1a] hover:bg-[#f0f0ee] dark:hover:bg-[#00cc70] text-white border border-[rgba(0,255,136,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-white dark:bg-[#0A0F1F] hover:bg-[#f0f0ee] dark:hover:bg-[#3B82F6] text-white border border-[rgba(0,229,255,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to home
@@ -454,7 +454,7 @@ export default function AboutUsPage() {
         </div>
 
         {/* Lower copyright band */}
-        <div className="border-t border-[rgba(0,255,136,0.1)]">
+        <div className="border-t border-[rgba(0,229,255,0.1)]">
           <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <img src={logoDark} style={{ opacity: 0.8 }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />

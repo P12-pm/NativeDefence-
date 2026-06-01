@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
+const PRIMARY = '#00E5FF';
 
 interface CourseTrack {
   code: string;
@@ -56,22 +56,22 @@ export default function CoursePage() {
   }, []);
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back */}
           <div className="flex items-center gap-4">
             <Link
               to="/academy"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -95,7 +95,7 @@ export default function CoursePage() {
 
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -105,11 +105,11 @@ export default function CoursePage() {
 
         {/* Mobile menu drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Enquire for Cohort
             </Link>
@@ -125,9 +125,9 @@ export default function CoursePage() {
         </div>
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">Academy Tracks</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">Academy Tracks</span>
           </div>
 
           <div className="max-w-3xl">
@@ -141,7 +141,7 @@ export default function CoursePage() {
               }}
             >
               Master the Security <br />
-              <span className="text-[#00ff88] font-medium">Fundamentals &amp; Labs.</span>
+              <span className="text-[#00E5FF] font-medium">Fundamentals &amp; Labs.</span>
             </h1>
             <p className="text-sm sm:text-base text-[#7a9bb5] leading-relaxed">
               Certified cyber defense curricula designed to provide individuals with foundational, intermediate, and
@@ -159,11 +159,11 @@ export default function CoursePage() {
             {coursesList.map((c) => (
               <div
                 key={c.code}
-                style={{ background: '#050d1a' }} className="p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300"
+                style={{ background: '#0A0F1F' }} className="p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-bold text-[#00ff88] bg-[rgba(0,255,136,0.08)] px-2.5 py-1 rounded border border-[rgba(0,255,136,0.15)]">
+                    <span className="text-xs font-bold text-[#00E5FF] bg-[rgba(0,229,255,0.08)] px-2.5 py-1 rounded border border-[rgba(0,229,255,0.15)]">
                       {c.code}
                     </span>
                     <span className="text-xs text-[#7a9bb5] font-semibold">{c.level}</span>
@@ -178,12 +178,12 @@ export default function CoursePage() {
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] mt-6 space-y-4">
-                  <div className="text-[10px] font-bold tracking-widest text-[#00ff88] uppercase">Syllabus Highlights</div>
+                <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] mt-6 space-y-4">
+                  <div className="text-[10px] font-bold tracking-widest text-[#00E5FF] uppercase">Syllabus Highlights</div>
                   <ul className="space-y-2">
                     {c.points.map((pt) => (
                       <li key={pt} className="flex items-start gap-2 text-xs text-white">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#00ff88] mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-3.5 h-3.5 text-[#00E5FF] mt-0.5 flex-shrink-0" />
                         <span>{pt}</span>
                       </li>
                     ))}
@@ -197,11 +197,11 @@ export default function CoursePage() {
       </section>
 
       {/* ══ ADMISSIONS CALLOUT ══ */}
-      <section style={{ background: '#050d1a' }} className="py-16 transition-colors duration-500 border-t border-[rgba(0,255,136,0.1)]">
+      <section style={{ background: '#0A0F1F' }} className="py-16 transition-colors duration-500 border-t border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="p-8 sm:p-12 rounded-3xl bg-[rgba(0,255,136,0.08)]  border border-[rgba(0,255,136,0.15)]  flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="p-8 sm:p-12 rounded-3xl bg-[rgba(0,229,255,0.08)]  border border-[rgba(0,229,255,0.15)]  flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00ff88] border border-[rgba(0,255,136,0.1)] rounded-full px-3 py-1" style={{ background: '#050d1a' }}>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00E5FF] border border-[rgba(0,229,255,0.1)] rounded-full px-3 py-1" style={{ background: '#0A0F1F' }}>
                 <BookOpen className="w-3.5 h-3.5" />
                 Admissions Active
               </div>

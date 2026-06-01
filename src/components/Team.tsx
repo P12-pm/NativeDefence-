@@ -10,8 +10,8 @@ const team = [
     short: 'Serial entrepreneur. Built Cyberoam (100k+ customers, 150+ countries) and Elitecore ($100M+ valuation).',
     bio:   'Hemal Patel is a successful serial entrepreneur and technology executive with diverse skills spanning Sales, Marketing, Product Design and Financial Management. He built Cyberoam — now part of Sophos — with 100,000+ customers across 150+ countries, and Elitecore, acquired by Sterlite at $100M+ enterprise valuation. He has also served as SVP at Sophos managing IT and Operations.',
     creds: ['Stanford Advanced PM Programme', 'Masters in CS — USA', 'BE Electronics & Telecom'],
-    color: '#00ff88',
-    colorDim: 'rgba(0,255,136,0.12)',
+    color: '#00E5FF',
+    colorDim: 'rgba(0,229,255,0.12)',
   },
   {
     initials: 'SN',
@@ -20,8 +20,8 @@ const team = [
     short: 'SOC & SIEM expert leading NativeSOC\'s technical operations from Ahmedabad.',
     bio:   'Srijan Nandi leads NativeSOC\'s technical and SOC operations based in Ahmedabad. A specialist in SIEM architecture, threat detection engineering and SOC operations, he brings deep domain expertise across enterprise security platforms and has built scalable security operations for organisations across multiple verticals.',
     creds: ['SOC Operations Lead', 'SIEM Architecture Expert', 'Threat Detection Engineering'],
-    color: '#00d4ff',
-    colorDim: 'rgba(0,212,255,0.12)',
+    color: '#00E5FF',
+    colorDim: 'rgba(59,130,246,0.12)',
   },
   {
     initials: 'BS',
@@ -30,7 +30,7 @@ const team = [
     short: 'Driving NativeSOC sales from Mumbai across end-customers, resellers, SIs and OEMs.',
     bio:   'Bishwajit Sutradhar leads NativeSOC\'s sales and marketing from Mumbai, building relationships across end-customers, resellers, systems integrators and OEMs. With extensive networks across BFSI, Healthcare and Enterprise verticals, he drives go-to-market strategy and channel partnerships across India and beyond.',
     creds: ['Enterprise Sales Leadership', 'Channel & Partner Management', 'Go-to-Market Strategy'],
-    color: '#00d4aa',
+    color: '#3B82F6',
     colorDim: 'rgba(0,212,170,0.12)',
   },
 ];
@@ -41,7 +41,7 @@ export default function Team() {
   return (
     <section
       id="team"
-      style={{ background: '#0a1628' }}
+      style={{ background: '#111827' }}
       className="transition-colors duration-500 relative overflow-hidden"
     >
       {/* Subtle background */}
@@ -49,7 +49,7 @@ export default function Team() {
       <div
         className="absolute top-1/2 left-0 w-[600px] h-[600px] pointer-events-none -translate-y-1/2"
         style={{
-          background: 'radial-gradient(circle, rgba(0,255,136,0.04) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(0,229,255,0.04) 0%, transparent 60%)',
           transform: 'translateX(-30%)',
         }}
       />
@@ -62,7 +62,7 @@ export default function Team() {
         <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
-            style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.25)', color: '#00ff88' }}
+            style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
           >
             04
           </span>
@@ -82,7 +82,7 @@ export default function Team() {
           }}
         >
           Leaders who built{' '}
-          <span style={{ color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.4)' }}>
+          <span style={{ color: '#00E5FF', textShadow: '0 0 20px rgba(0,229,255,0.4)' }}>
             global security brands
           </span>{' '}
           from scratch.
@@ -92,7 +92,7 @@ export default function Team() {
         <div
           className={`mb-16 rounded-2xl overflow-hidden reveal ${inView ? 'in-view' : ''}`}
           style={{
-            border: '1px solid rgba(0,255,136,0.12)',
+            border: '1px solid rgba(0,229,255,0.12)',
             transitionDelay: '80ms',
             boxShadow: '0 0 40px rgba(0,0,0,0.4)',
           }}
@@ -105,7 +105,7 @@ export default function Team() {
           />
           <div
             className="px-5 py-3"
-            style={{ background: 'rgba(5,13,26,0.9)', borderTop: '1px solid rgba(0,255,136,0.1)' }}
+            style={{ background: 'rgba(10,15,31,0.9)', borderTop: '1px solid rgba(0,229,255,0.1)' }}
           >
             <span className="text-xs font-mono" style={{ color: '#7a9bb5' }}>
               NativeSOC — Expert-driven Cyber Security Team · Ahmedabad & Mumbai
@@ -124,7 +124,7 @@ export default function Team() {
         <div
           className={`mt-14 pt-10 reveal ${inView ? 'in-view' : ''}`}
           style={{
-            borderTop: '1px solid rgba(0,255,136,0.1)',
+            borderTop: '1px solid rgba(0,229,255,0.1)',
             transitionDelay: '320ms',
           }}
         >
@@ -165,7 +165,7 @@ function TeamCard({ member, delay, inView }: { member: typeof team[0]; delay: nu
           className="absolute inset-0 rounded-2xl overflow-hidden flex flex-col"
           style={{
             backfaceVisibility: 'hidden',
-            background: '#0a1628',
+            background: '#111827',
             border: `1px solid ${member.colorDim}`,
           }}
         >
@@ -173,7 +173,7 @@ function TeamCard({ member, delay, inView }: { member: typeof team[0]; delay: nu
           <div
             className="h-28 flex items-center justify-center flex-shrink-0 relative overflow-hidden"
             style={{
-              background: `linear-gradient(135deg, rgba(5,13,26,0.9), rgba(10,22,40,0.95))`,
+              background: `linear-gradient(135deg, rgba(10,15,31,0.9), rgba(17,24,39,0.95))`,
               borderBottom: `1px solid ${member.colorDim}`,
             }}
           >
@@ -200,7 +200,7 @@ function TeamCard({ member, delay, inView }: { member: typeof team[0]; delay: nu
                 />
               ))}
               <div
-                className="relative w-16 h-16 rounded-full flex items-center justify-center text-[#050d1a] font-bold text-xl z-10"
+                className="relative w-16 h-16 rounded-full flex items-center justify-center text-[#0A0F1F] font-bold text-xl z-10"
                 style={{
                   fontFamily: NHG,
                   background: `linear-gradient(135deg, ${member.color}, ${member.color}bb)`,
@@ -227,7 +227,7 @@ function TeamCard({ member, delay, inView }: { member: typeof team[0]; delay: nu
           style={{
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
-            background: '#050d1a',
+            background: '#0A0F1F',
             border: `1px solid ${member.colorDim}`,
           }}
         >

@@ -15,7 +15,7 @@ export default function About() {
   return (
     <section
       id="about"
-      style={{ background: '#050d1a' }}
+      style={{ background: '#0A0F1F' }}
       className="transition-colors duration-500 relative overflow-hidden"
     >
       {/* Subtle grid background */}
@@ -25,7 +25,7 @@ export default function About() {
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 60%)',
           transform: 'translate(20%, -20%)',
         }}
       />
@@ -40,9 +40,9 @@ export default function About() {
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
             style={{
-              background: 'rgba(0,255,136,0.1)',
-              border: '1px solid rgba(0,255,136,0.25)',
-              color: '#00ff88',
+              background: 'rgba(0,229,255,0.1)',
+              border: '1px solid rgba(0,229,255,0.25)',
+              color: '#00E5FF',
             }}
           >
             01
@@ -65,7 +65,7 @@ export default function About() {
           }}
         >
           Expert-driven security,{' '}
-          <span style={{ color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.4)' }}>
+          <span style={{ color: '#00E5FF', textShadow: '0 0 20px rgba(0,229,255,0.4)' }}>
             delivering cyber resilience
           </span>{' '}
           in a threat‑first world.
@@ -76,7 +76,7 @@ export default function About() {
           className={`mt-12 sm:mt-16 reveal ${inView ? 'in-view' : ''}`}
           style={{
             height: '1px',
-            background: 'rgba(0,255,136,0.1)',
+            background: 'rgba(0,229,255,0.1)',
             transitionDelay: '140ms',
           }}
         />
@@ -108,7 +108,7 @@ export default function About() {
             {/* SOC image */}
             <div
               className="mb-8 rounded-2xl overflow-hidden"
-              style={{ border: '1px solid rgba(0,255,136,0.12)' }}
+              style={{ border: '1px solid rgba(0,229,255,0.12)' }}
             >
               <img
                 src="/NativeDefence-/cyber_soc_dashboard.png"
@@ -121,7 +121,7 @@ export default function About() {
             <a
               href="#team"
               className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300 group"
-              style={{ color: '#00ff88' }}
+              style={{ color: '#00E5FF' }}
             >
               Meet the team
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -139,16 +139,16 @@ export default function About() {
                 key={title}
                 className="grad-border flex items-start gap-4 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 group"
                 style={{
-                  background: 'rgba(10,22,40,0.7)',
-                  border: '1px solid rgba(0,255,136,0.1)',
+                  background: 'rgba(17,24,39,0.7)',
+                  border: '1px solid rgba(0,229,255,0.1)',
                   animationDelay: `${i * 0.2}s`,
                 }}
               >
                 <div
                   className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: 'rgba(0,255,136,0.1)' }}
+                  style={{ background: 'rgba(0,229,255,0.1)' }}
                 >
-                  <Icon className="w-5 h-5" style={{ color: '#00ff88' }} />
+                  <Icon className="w-5 h-5" style={{ color: '#00E5FF' }} />
                 </div>
                 <div>
                   <p className="font-semibold text-white text-sm mb-1">{title}</p>
@@ -170,14 +170,14 @@ function StatsBar({ inView }: { inView: boolean }) {
   const s = stats.map(s => ({ ...s, count: useCountUp(s.value, inView) }));
 
   return (
-    <div style={{ background: '#0a1628', borderTop: '1px solid rgba(0,255,136,0.1)', borderBottom: '1px solid rgba(0,255,136,0.1)' }}>
+    <div style={{ background: '#111827', borderTop: '1px solid rgba(0,229,255,0.1)', borderBottom: '1px solid rgba(0,229,255,0.1)' }}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-12 sm:py-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x" style={{ '--tw-divide-opacity': 1 } as React.CSSProperties}>
           {s.map(({ count, suffix, label }) => (
             <div
               key={label}
               className="flex flex-col items-center lg:items-start lg:px-10 gap-1"
-              style={{ borderColor: 'rgba(0,255,136,0.1)' }}
+              style={{ borderColor: 'rgba(0,229,255,0.1)' }}
             >
               <span
                 className="font-normal"
@@ -186,8 +186,8 @@ function StatsBar({ inView }: { inView: boolean }) {
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                   lineHeight: 1,
                   letterSpacing: '-0.03em',
-                  color: '#00ff88',
-                  textShadow: '0 0 20px rgba(0,255,136,0.3)',
+                  color: '#00E5FF',
+                  textShadow: '0 0 20px rgba(0,229,255,0.3)',
                 }}
               >
                 {count}{suffix}

@@ -7,8 +7,8 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
-const ACCENT = '#00d4aa';
+const PRIMARY = '#00E5FF';
+const ACCENT = '#3B82F6';
 
 
 export default function AcademyPage() {
@@ -50,22 +50,22 @@ export default function AcademyPage() {
   };
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back button */}
           <div className="flex items-center gap-4">
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -80,19 +80,19 @@ export default function AcademyPage() {
           <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => handleSubLinkClick('academy-intro')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               About Academy
             </button>
             <button
               onClick={() => handleSubLinkClick('mission-usp')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Mission &amp; USP
             </button>
             <button
               onClick={() => handleSubLinkClick('courses')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Certification Courses
             </button>
@@ -113,7 +113,7 @@ export default function AcademyPage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -123,29 +123,29 @@ export default function AcademyPage() {
 
         {/* Mobile menu drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             <button
               onClick={() => handleSubLinkClick('academy-intro')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               About Academy
             </button>
             <button
               onClick={() => handleSubLinkClick('mission-usp')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Mission &amp; USP
             </button>
             <button
               onClick={() => handleSubLinkClick('courses')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0"
             >
               Certification Courses
             </button>
             <Link
               to="/#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Enquire Now
             </Link>
@@ -165,9 +165,9 @@ export default function AcademyPage() {
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
           {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8 animate-fade-in">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">NATIVEDEFENCE Academy</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8 animate-fade-in">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">NATIVEDEFENCE Academy</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
@@ -183,7 +183,7 @@ export default function AcademyPage() {
                 }}
               >
                 Empowering <br />
-                <span className="text-[#00ff88] font-medium">Cybersecurity Excellence.</span>
+                <span className="text-[#00E5FF] font-medium">Cybersecurity Excellence.</span>
               </h1>
               <p
                 className="text-[#7a9bb5] leading-relaxed mb-8"
@@ -197,7 +197,7 @@ export default function AcademyPage() {
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => handleSubLinkClick('courses')}
-                  className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+                  className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
                 >
                   Explore Courses
                   <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -206,7 +206,7 @@ export default function AcademyPage() {
                 </button>
                 <Link
                   to="/#contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00ff88] hover:gap-3 transition-all duration-300"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00E5FF] hover:gap-3 transition-all duration-300"
                 >
                   Contact Admissions
                   <ArrowUpRight className="w-4 h-4" />
@@ -215,9 +215,9 @@ export default function AcademyPage() {
             </div>
 
             {/* Quote/Side callout block */}
-            <div className="lg:col-span-5 bg-[#0a1628]/80 backdrop-blur-md p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#00ff88]/5 rounded-full blur-2xl pointer-events-none" />
-              <BookOpen className="w-8 h-8 text-[#00ff88] mb-5" />
+            <div className="lg:col-span-5 bg-[#111827]/80 backdrop-blur-md p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] relative">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#00E5FF]/5 rounded-full blur-2xl pointer-events-none" />
+              <BookOpen className="w-8 h-8 text-[#00E5FF] mb-5" />
               <h3 className="font-semibold text-lg text-white mb-3" style={{ fontFamily: NHG }}>
                 Unparalleled Training Ecosystem
               </h3>
@@ -226,7 +226,7 @@ export default function AcademyPage() {
                 We take pride in offering three distinct courses tailored to meet the dynamic
                 challenges of the digital era.
               </p>
-              <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#00ff88]">
+              <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#00E5FF]">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                 New Enrolments Now Active
               </div>
@@ -237,16 +237,16 @@ export default function AcademyPage() {
 
       {/* Academy image banner */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 pb-12">
-        <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(0,255,136,0.12)', boxShadow: '0 0 40px rgba(0,0,0,0.4)' }}>
+        <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(0,229,255,0.12)', boxShadow: '0 0 40px rgba(0,0,0,0.4)' }}>
           <img
             src="/NativeDefence-/cyber_academy.png"
             alt="NativeDefence Cybersecurity Academy"
             className="w-full h-64 md:h-80 object-cover"
             style={{ filter: 'brightness(0.85) saturate(1.1)' }}
           />
-          <div className="flex items-center gap-3 px-5 py-3" style={{ background: 'rgba(5,13,26,0.9)', borderTop: '1px solid rgba(0,255,136,0.1)' }}>
-            <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
-            <span className="text-xs font-mono text-[#00ff88]">NativeDefence Academy — Ahmedabad · Live training sessions active</span>
+          <div className="flex items-center gap-3 px-5 py-3" style={{ background: 'rgba(10,15,31,0.9)', borderTop: '1px solid rgba(0,229,255,0.1)' }}>
+            <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
+            <span className="text-xs font-mono text-[#00E5FF]">NativeDefence Academy — Ahmedabad · Live training sessions active</span>
           </div>
         </div>
       </div>
@@ -256,23 +256,23 @@ export default function AcademyPage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="max-w-3xl mb-16">
-            <div className="inline-block text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase mb-4">
+            <div className="inline-block text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase mb-4">
               THE ACADEMY ADVANTAGE
             </div>
             <h2
               className="font-normal text-white leading-[1.05]"
               style={{ fontFamily: NHG, fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', letterSpacing: '-0.02em' }}
             >
-              Why train with <span className="text-[#00ff88] font-semibold">NATIVEDEFENCE</span>?
+              Why train with <span className="text-[#00E5FF] font-semibold">NATIVEDEFENCE</span>?
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
             {/* Card 1: Our Mission */}
-            <div style={{ background: '#050d1a' }} className="p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div style={{ background: '#0A0F1F' }} className="p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF] mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Target className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-4" style={{ fontFamily: NHG }}>
@@ -284,15 +284,15 @@ export default function AcademyPage() {
                   a wealth of expertise to safeguard and defend against evolving digital threats.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-[rgba(0,255,136,0.1)] flex items-center gap-2 text-xs font-bold text-[#00ff88] uppercase tracking-wider">
+              <div className="mt-8 pt-4 border-t border-[rgba(0,229,255,0.1)] flex items-center gap-2 text-xs font-bold text-[#00E5FF] uppercase tracking-wider">
                 <span>20 Years Experience</span>
               </div>
             </div>
 
             {/* Card 2: USP */}
-            <div style={{ background: '#050d1a' }} className="p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div style={{ background: '#0A0F1F' }} className="p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF] mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Shield className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-4" style={{ fontFamily: NHG }}>
@@ -305,15 +305,15 @@ export default function AcademyPage() {
                   a robust defense against cyber threats.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-[rgba(0,255,136,0.1)] flex items-center gap-2 text-xs font-bold text-[#00ff88] uppercase tracking-wider">
+              <div className="mt-8 pt-4 border-t border-[rgba(0,229,255,0.1)] flex items-center gap-2 text-xs font-bold text-[#00E5FF] uppercase tracking-wider">
                 <span>In-House NativeSOC Integration</span>
               </div>
             </div>
 
             {/* Card 3: Faculty Excellence */}
-            <div style={{ background: '#050d1a' }} className="p-8 rounded-3xl border border-[rgba(0,255,136,0.1)] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div style={{ background: '#0A0F1F' }} className="p-8 rounded-3xl border border-[rgba(0,229,255,0.1)] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF] mb-6 group-hover:scale-110 transition-transform duration-300">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-4" style={{ fontFamily: NHG }}>
@@ -325,7 +325,7 @@ export default function AcademyPage() {
                   industry experts, ensuring that every student receives top-tier education and practical insights.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-[rgba(0,255,136,0.1)] flex items-center gap-2 text-xs font-bold text-[#00ff88] uppercase tracking-wider">
+              <div className="mt-8 pt-4 border-t border-[rgba(0,229,255,0.1)] flex items-center gap-2 text-xs font-bold text-[#00E5FF] uppercase tracking-wider">
                 <span>Gold Medalist Faculty</span>
               </div>
             </div>
@@ -345,7 +345,7 @@ export default function AcademyPage() {
 
           {/* Header */}
           <div className="max-w-3xl mb-16">
-            <div className="inline-block text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase mb-4">
+            <div className="inline-block text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase mb-4">
               Curriculum Showcase
             </div>
             <h2
@@ -353,7 +353,7 @@ export default function AcademyPage() {
               style={{ fontFamily: NHG, fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '-0.02em' }}
             >
               Flagship Cybersecurity <br />
-              <span className="text-[#00ff88] font-semibold">Certification Modules</span>
+              <span className="text-[#00E5FF] font-semibold">Certification Modules</span>
             </h2>
             <p className="text-[#7a9bb5] leading-relaxed max-w-xl">
               Take the next step in your professional growth. Check out our certified cyber curricula, built on modern cybersecurity standards and practical lab ecosystems.
@@ -361,16 +361,16 @@ export default function AcademyPage() {
           </div>
 
           {/* Informative Banner Badge */}
-          <div className="mb-14 p-6 sm:p-8 rounded-3xl bg-[rgba(0,255,136,0.08)]/80  border border-[rgba(0,255,136,0.15)]  flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="mb-14 p-6 sm:p-8 rounded-3xl bg-[rgba(0,229,255,0.08)]/80  border border-[rgba(0,229,255,0.15)]  flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#00ff88] block mb-2">Defenders Paradigm</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#00E5FF] block mb-2">Defenders Paradigm</span>
               <p className="text-sm sm:text-base text-white font-medium leading-relaxed max-w-3xl">
                 "Join us at NATIVEDEFENCE, where we not only educate but empower the next generation of cybersecurity defenders. Secure your future with NATIVEDEFENCE – your gateway to a resilient and secure digital world."
               </p>
             </div>
             <Link
               to="/#contact"
-              className="inline-flex items-center gap-2 bg-[#050d1a] hover:opacity-90 text-white text-xs font-bold px-5 py-3 rounded-full transition-all duration-300 whitespace-nowrap self-start md:self-auto"
+              className="inline-flex items-center gap-2 bg-[#0A0F1F] hover:opacity-90 text-white text-xs font-bold px-5 py-3 rounded-full transition-all duration-300 whitespace-nowrap self-start md:self-auto"
             >
               Secure Your Future Now
               <ArrowRight className="w-3.5 h-3.5" />
@@ -386,7 +386,7 @@ export default function AcademyPage() {
 
                 {/* Course Header & Visual */}
                 <div className="lg:col-span-5">
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00ff88] border border-[rgba(0,255,136,0.1)] rounded-full px-3 py-1 mb-4" style={{ background: '#050d1a' }}>
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00E5FF] border border-[rgba(0,229,255,0.1)] rounded-full px-3 py-1 mb-4" style={{ background: '#0A0F1F' }}>
                     <Brain className="w-3 h-3" />
                     Practical Focus
                   </div>
@@ -396,10 +396,10 @@ export default function AcademyPage() {
                   >
                     Certified Cyber Security Practitioner at NATIVEDEFENCE
                   </h3>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#00ff88] mb-2">Key Areas Covered</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#00E5FF] mb-2">Key Areas Covered</p>
                   <div className="flex flex-wrap gap-2">
                     {['Dynamic Labs', 'Hands-on Scenarios', 'Practical Triage', 'EdTech Experience'].map(tag => (
-                      <span key={tag} className="text-[10px] font-bold tracking-wider text-[#7a9bb5] bg-white/70  rounded-full px-3 py-1 border border-[rgba(0,255,136,0.1)]">
+                      <span key={tag} className="text-[10px] font-bold tracking-wider text-[#7a9bb5] bg-white/70  rounded-full px-3 py-1 border border-[rgba(0,229,255,0.1)]">
                         {tag}
                       </span>
                     ))}
@@ -415,14 +415,14 @@ export default function AcademyPage() {
                     decades of cybersecurity expertise, and step confidently into the world of digital defense.
                   </p>
 
-                  <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] flex flex-wrap items-center justify-between gap-4">
+                  <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-2 text-xs text-[#7a9bb5]">
                       <CheckCircle className="w-4 h-4 text-emerald-500" />
                       <span>Two Decades of Corporate Expertise</span>
                     </div>
                     <Link
                       to="/#contact"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-[#00ff88] hover:text-[#00ff88] transition-colors"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[#00E5FF] hover:text-[#00E5FF] transition-colors"
                     >
                       Enquire for Cohort →
                     </Link>
@@ -438,7 +438,7 @@ export default function AcademyPage() {
 
                 {/* Course Header & Visual */}
                 <div className="lg:col-span-5">
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00ff88] border border-[rgba(0,255,136,0.1)] rounded-full px-3 py-1 mb-4" style={{ background: '#050d1a' }}>
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00E5FF] border border-[rgba(0,229,255,0.1)] rounded-full px-3 py-1 mb-4" style={{ background: '#0A0F1F' }}>
                     <Trophy className="w-3 h-3" />
                     Advanced Strategy
                   </div>
@@ -448,10 +448,10 @@ export default function AcademyPage() {
                   >
                     Certified Cyber Security Pioneers by NATIVEDEFENCE
                   </h3>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#00ff88] mb-2">Key Areas Covered</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#00E5FF] mb-2">Key Areas Covered</p>
                   <div className="flex flex-wrap gap-2">
                     {['Advanced Frameworks', 'Emerging Tech', 'Pioneering Strategies', 'Expert Mentorship'].map(tag => (
-                      <span key={tag} className="text-[10px] font-bold tracking-wider text-[#7a9bb5] bg-white/70  rounded-full px-3 py-1 border border-[rgba(0,255,136,0.1)]">
+                      <span key={tag} className="text-[10px] font-bold tracking-wider text-[#7a9bb5] bg-white/70  rounded-full px-3 py-1 border border-[rgba(0,229,255,0.1)]">
                         {tag}
                       </span>
                     ))}
@@ -467,14 +467,14 @@ export default function AcademyPage() {
                     seasoned professionals, and position yourself at the forefront of cybersecurity innovation.
                   </p>
 
-                  <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] flex flex-wrap items-center justify-between gap-4">
+                  <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-2 text-xs text-[#7a9bb5]">
                       <CheckCircle className="w-4 h-4 text-emerald-500" />
                       <span>Led by Seasoned Industry Professionals</span>
                     </div>
                     <Link
                       to="/#contact"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-[#00ff88] hover:text-[#00ff88] transition-colors"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[#00E5FF] hover:text-[#00E5FF] transition-colors"
                     >
                       Enquire for Cohort →
                     </Link>
@@ -490,7 +490,7 @@ export default function AcademyPage() {
 
                 {/* Course Header & Visual */}
                 <div className="lg:col-span-5">
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00ff88] border border-[rgba(0,255,136,0.1)] rounded-full px-3 py-1 mb-4" style={{ background: '#050d1a' }}>
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00E5FF] border border-[rgba(0,229,255,0.1)] rounded-full px-3 py-1 mb-4" style={{ background: '#0A0F1F' }}>
                     <Award className="w-3 h-3" />
                     Comprehensive Scope
                   </div>
@@ -500,10 +500,10 @@ export default function AcademyPage() {
                   >
                     Certified Cyber Security Pursuit with NATIVEDEFENCE EdTech
                   </h3>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#00ff88] mb-2">Key Areas Covered</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#00E5FF] mb-2">Key Areas Covered</p>
                   <div className="flex flex-wrap gap-2">
                     {['Foundational Principles', 'Threat Detection', 'Enterprise Triage', 'Career Acceleration'].map(tag => (
-                      <span key={tag} className="text-[10px] font-bold tracking-wider text-[#7a9bb5] bg-white/70  rounded-full px-3 py-1 border border-[rgba(0,255,136,0.1)]">
+                      <span key={tag} className="text-[10px] font-bold tracking-wider text-[#7a9bb5] bg-white/70  rounded-full px-3 py-1 border border-[rgba(0,229,255,0.1)]">
                         {tag}
                       </span>
                     ))}
@@ -520,14 +520,14 @@ export default function AcademyPage() {
                     your path to success in the digital landscape.
                   </p>
 
-                  <div className="pt-6 border-t border-[rgba(0,255,136,0.1)] flex flex-wrap items-center justify-between gap-4">
+                  <div className="pt-6 border-t border-[rgba(0,229,255,0.1)] flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-2 text-xs text-[#7a9bb5]">
                       <CheckCircle className="w-4 h-4 text-emerald-500" />
                       <span>Full Spectrum Threat Landscape Instruction</span>
                     </div>
                     <Link
                       to="/#contact"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-[#00ff88] hover:text-[#00ff88] transition-colors"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[#00E5FF] hover:text-[#00E5FF] transition-colors"
                     >
                       Enquire for Cohort →
                     </Link>
@@ -559,7 +559,7 @@ export default function AcademyPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               to="/#contact"
-              className="inline-flex items-center gap-3 text-[#050d1a] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #00cc70, #00ff88)" }}
+              className="inline-flex items-center gap-3 text-[#0A0F1F] text-sm font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-colors duration-300 group" style={{ background: "linear-gradient(135deg, #3B82F6, #00E5FF)" }}
             >
               Request Syllabus
               <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -568,7 +568,7 @@ export default function AcademyPage() {
             </Link>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-white dark:bg-[#050d1a] hover:bg-[#f0f0ee] dark:hover:bg-[#00cc70] text-white border border-[rgba(0,255,136,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-white dark:bg-[#0A0F1F] hover:bg-[#f0f0ee] dark:hover:bg-[#3B82F6] text-white border border-[rgba(0,229,255,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to home
@@ -577,7 +577,7 @@ export default function AcademyPage() {
         </div>
 
         {/* Lower copyright band */}
-        <div className="border-t border-[rgba(0,255,136,0.1)]">
+        <div className="border-t border-[rgba(0,229,255,0.1)]">
           <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <img src={logoDark} style={{ opacity: 0.8 }} alt="NativeDefence Logo" className="h-7 w-auto opacity-70 transition-all duration-300" />

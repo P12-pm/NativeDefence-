@@ -49,7 +49,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      style={{ background: '#050d1a' }}
+      style={{ background: '#0A0F1F' }}
       className="transition-colors duration-500 relative overflow-hidden"
     >
       {/* Background grid */}
@@ -57,7 +57,7 @@ export default function Services() {
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0,212,255,0.04) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 60%)',
           transform: 'translate(20%, -20%)',
         }}
       />
@@ -70,7 +70,7 @@ export default function Services() {
         <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
-            style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.25)', color: '#00ff88' }}
+            style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
           >
             03
           </span>
@@ -90,7 +90,7 @@ export default function Services() {
           }}
         >
           Everything you need to{' '}
-          <span style={{ color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.4)' }}>
+          <span style={{ color: '#00E5FF', textShadow: '0 0 20px rgba(0,229,255,0.4)' }}>
             defend, detect
           </span>{' '}
           and respond.
@@ -99,7 +99,7 @@ export default function Services() {
         {/* Service cards */}
         <div
           className="flex flex-col gap-px rounded-2xl overflow-hidden"
-          style={{ background: 'rgba(0,255,136,0.07)' }}
+          style={{ background: 'rgba(0,229,255,0.07)' }}
         >
           {services.map((s, i) => (
             <ServiceRow key={s.num} service={s} delay={i * 80} inView={inView} />
@@ -117,14 +117,14 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
     <div
       className={`group transition-colors duration-300 reveal ${inView ? 'in-view' : ''}`}
       style={{
-        background: open ? '#0f1f3d' : '#050d1a',
+        background: open ? '#1F2937' : '#0A0F1F',
         transitionDelay: `${delay}ms`,
       }}
       onMouseEnter={e => {
-        if (!open) (e.currentTarget as HTMLElement).style.background = '#0a1628';
+        if (!open) (e.currentTarget as HTMLElement).style.background = '#111827';
       }}
       onMouseLeave={e => {
-        if (!open) (e.currentTarget as HTMLElement).style.background = '#050d1a';
+        if (!open) (e.currentTarget as HTMLElement).style.background = '#0A0F1F';
       }}
     >
       {/* Row header */}
@@ -136,7 +136,7 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
         {/* Number */}
         <span
           className="text-xs font-bold tracking-widest flex-shrink-0 hidden sm:block"
-          style={{ color: '#00ff88' }}
+          style={{ color: '#00E5FF' }}
         >
           {service.num}
         </span>
@@ -145,7 +145,7 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
         <span
           className="hidden md:inline-block flex-shrink-0 text-xs font-semibold rounded-full px-3 py-1"
           style={{
-            color: '#00d4aa',
+            color: '#3B82F6',
             background: 'rgba(0,212,170,0.08)',
             border: '1px solid rgba(0,212,170,0.2)',
           }}
@@ -155,7 +155,7 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
 
         {/* Title */}
         <span
-          className="flex-1 font-normal text-white transition-colors group-hover:text-[#00ff88]"
+          className="flex-1 font-normal text-white transition-colors group-hover:text-[#00E5FF]"
           style={{ fontFamily: NHG, fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)', letterSpacing: '-0.02em' }}
         >
           {service.title}
@@ -165,13 +165,13 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
         <div
           className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"
           style={{
-            border: '1px solid rgba(0,255,136,0.2)',
+            border: '1px solid rgba(0,229,255,0.2)',
             transform: open ? 'rotate(-45deg)' : 'rotate(0deg)',
             transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1), background 0.3s, border-color 0.3s',
-            background: open ? 'rgba(0,255,136,0.15)' : 'transparent',
+            background: open ? 'rgba(0,229,255,0.15)' : 'transparent',
           }}
         >
-          <ArrowRight className="w-4 h-4" style={{ color: '#00ff88' }} />
+          <ArrowRight className="w-4 h-4" style={{ color: '#00E5FF' }} />
         </div>
       </button>
 
@@ -185,7 +185,7 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
           <div className="sm:w-48 flex-shrink-0">
             <div
               className="rounded-xl overflow-hidden"
-              style={{ border: '1px solid rgba(0,255,136,0.12)' }}
+              style={{ border: '1px solid rgba(0,229,255,0.12)' }}
             >
               <img
                 src={service.img}
@@ -206,7 +206,7 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
                 <li key={pt} className="flex items-start gap-2.5 text-sm" style={{ color: '#c8e0f0' }}>
                   <span
                     className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    style={{ background: '#00ff88', boxShadow: '0 0 6px rgba(0,255,136,0.5)' }}
+                    style={{ background: '#00E5FF', boxShadow: '0 0 6px rgba(0,229,255,0.5)' }}
                   />
                   {pt}
                 </li>
@@ -216,7 +216,7 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
               <Link
                 to={service.href}
                 className="inline-flex items-center gap-2 mt-6 text-sm font-semibold hover:gap-3 transition-all duration-300 group/link"
-                style={{ color: '#00ff88' }}
+                style={{ color: '#00E5FF' }}
               >
                 Learn more
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
@@ -225,7 +225,7 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
               <a
                 href={service.href}
                 className="inline-flex items-center gap-2 mt-6 text-sm font-semibold hover:gap-3 transition-all duration-300 group/link"
-                style={{ color: '#00ff88' }}
+                style={{ color: '#00E5FF' }}
               >
                 Learn more
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />

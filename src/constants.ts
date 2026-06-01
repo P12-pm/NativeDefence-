@@ -8,21 +8,21 @@ export const NHG =
 ────────────────────────────────────────────────────── */
 export const COLORS = {
   /* Backgrounds */
-  dark:     '#050d1a',
-  medDark:  '#0a1628',
-  hover:    '#0f1f3d',
-  darkCard: '#0d1b32',
+  dark:     '#0A0F1F',
+  medDark:  '#111827',
+  hover:    '#1F2937',
+  darkCard: '#151D30',
   /* Text */
   body:     '#7a9bb5',
   text:     '#c8e0f0',
   /* Accents */
-  primary:  '#00ff88',   /* neon green — primary accent */
-  accent:   '#00d4aa',   /* teal-green — secondary accent */
-  cyan:     '#00d4ff',   /* electric cyan — tertiary */
+  primary:  '#00E5FF',   /* neon green — primary accent */
+  accent:   '#3B82F6',   /* teal-green — secondary accent */
+  cyan:     '#00E5FF',   /* electric cyan — tertiary */
   /* CTA */
-  cta:      '#00cc70',
-  ctaHov:   '#00aa5c',
+  cta:      '#3B82F6',
+  ctaHov:   '#2563EB',
   /* Borders */
-  border:   'rgba(0,255,136,0.15)',
-  borderDim:'rgba(0,255,136,0.07)',
+  border:   'rgba(0,229,255,0.15)',
+  borderDim:'rgba(0,229,255,0.07)',
 };

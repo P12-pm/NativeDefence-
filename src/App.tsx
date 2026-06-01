@@ -40,7 +40,7 @@ function HomePage() {
   }
 
   return (
-    <div className="min-h-screen transition-colors duration-500" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500" style={{ background: '#0A0F1F' }}>
       <Hero onNavClick={handleNavClick} isDark={isDark} onToggleDark={() => setIsDark(d => !d)} />
       <About />
       <NativeSOC />

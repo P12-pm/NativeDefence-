@@ -6,7 +6,7 @@ export default function Testimonial() {
 
   return (
     <section
-      style={{ background: '#050d1a' }}
+      style={{ background: '#0A0F1F' }}
       className="transition-colors duration-500 overflow-hidden relative"
     >
       {/* Background decoration */}
@@ -20,7 +20,7 @@ export default function Testimonial() {
           fontFamily: NHG,
           fontSize: '28rem',
           lineHeight: 1,
-          color: '#00ff88',
+          color: '#00E5FF',
           transform: 'translate(20%, -30%)',
         }}
       >
@@ -31,13 +31,13 @@ export default function Testimonial() {
       <div
         className="absolute top-0 left-20 w-px h-full pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, transparent, rgba(0,255,136,0.15), transparent)',
+          background: 'linear-gradient(to bottom, transparent, rgba(0,229,255,0.15), transparent)',
         }}
       />
       <div
         className="absolute top-0 right-32 w-px h-full pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, transparent, rgba(0,212,255,0.1), transparent)',
+          background: 'linear-gradient(to bottom, transparent, rgba(59,130,246,0.1), transparent)',
         }}
       />
 
@@ -45,7 +45,7 @@ export default function Testimonial() {
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%)',
           transform: 'translate(-30%, 30%)',
         }}
       />
@@ -59,7 +59,7 @@ export default function Testimonial() {
           <div className={`flex items-center gap-3 mb-12 reveal ${inView ? 'in-view' : ''}`}>
             <span
               className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
-              style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.25)', color: '#00ff88' }}
+              style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
             >
               05
             </span>
@@ -69,7 +69,7 @@ export default function Testimonial() {
           {/* Stars */}
           <div className={`flex gap-1 mb-8 reveal ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '60ms' }}>
             {[...Array(5)].map((_, i) => (
-              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#00ff88">
+              <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#00E5FF">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             ))}
@@ -89,8 +89,8 @@ export default function Testimonial() {
             "The knowledge and skills gained through{' '}
             <span
               style={{
-                color: '#00ff88',
-                textShadow: '0 0 15px rgba(0,255,136,0.4)',
+                color: '#00E5FF',
+                textShadow: '0 0 15px rgba(0,229,255,0.4)',
               }}
             >
               NATIVEDEFENCE
@@ -106,10 +106,10 @@ export default function Testimonial() {
             <div
               className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-semibold text-white text-sm"
               style={{
-                background: 'rgba(0,255,136,0.1)',
-                border: '1px solid rgba(0,255,136,0.25)',
+                background: 'rgba(0,229,255,0.1)',
+                border: '1px solid rgba(0,229,255,0.25)',
                 fontFamily: NHG,
-                boxShadow: '0 0 12px rgba(0,255,136,0.15)',
+                boxShadow: '0 0 12px rgba(0,229,255,0.15)',
               }}
             >
               MB
@@ -124,9 +124,9 @@ export default function Testimonial() {
         {/* Bottom divider with industries */}
         <div
           className={`mt-16 sm:mt-20 pt-10 reveal ${inView ? 'in-view' : ''}`}
-          style={{ borderTop: '1px solid rgba(0,255,136,0.1)', transitionDelay: '220ms' }}
+          style={{ borderTop: '1px solid rgba(0,229,255,0.1)', transitionDelay: '220ms' }}
         >
-          <p className="text-xs tracking-widest uppercase mb-5 font-bold" style={{ color: 'rgba(0,255,136,0.5)' }}>
+          <p className="text-xs tracking-widest uppercase mb-5 font-bold" style={{ color: 'rgba(0,229,255,0.5)' }}>
             Trusted across industries
           </p>
           <div className="flex flex-wrap gap-x-8 gap-y-3">

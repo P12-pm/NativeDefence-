@@ -17,7 +17,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      style={{ background: '#0a1628' }}
+      style={{ background: '#111827' }}
       className="transition-colors duration-500 relative overflow-hidden"
     >
       {/* Background */}
@@ -25,7 +25,7 @@ export default function Contact() {
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 60%)',
           transform: 'translate(20%, -20%)',
         }}
       />
@@ -38,7 +38,7 @@ export default function Contact() {
         <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
-            style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.25)', color: '#00ff88' }}
+            style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
           >
             06
           </span>
@@ -60,7 +60,7 @@ export default function Contact() {
               }}
             >
               Let's start your{' '}
-              <span style={{ color: '#00ff88', textShadow: '0 0 20px rgba(0,255,136,0.4)' }}>
+              <span style={{ color: '#00E5FF', textShadow: '0 0 20px rgba(0,229,255,0.4)' }}>
                 security journey
               </span>{' '}
               today.
@@ -77,7 +77,7 @@ export default function Contact() {
             <div
               className={`mb-8 rounded-2xl overflow-hidden reveal ${inView ? 'in-view' : ''}`}
               style={{
-                border: '1px solid rgba(0,255,136,0.12)',
+                border: '1px solid rgba(0,229,255,0.12)',
                 transitionDelay: '130ms',
               }}
             >
@@ -95,29 +95,29 @@ export default function Contact() {
                 href="mailto:sales@nativedefence.com"
                 className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5"
                 style={{
-                  background: 'rgba(5,13,26,0.7)',
-                  border: '1px solid rgba(0,255,136,0.12)',
+                  background: 'rgba(10,15,31,0.7)',
+                  border: '1px solid rgba(0,229,255,0.12)',
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,255,136,0.3)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,229,255,0.3)';
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,255,136,0.12)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,229,255,0.12)';
                 }}
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'rgba(0,255,136,0.1)' }}
+                  style={{ background: 'rgba(0,229,255,0.1)' }}
                 >
-                  <Mail className="w-5 h-5" style={{ color: '#00ff88' }} />
+                  <Mail className="w-5 h-5" style={{ color: '#00E5FF' }} />
                 </div>
                 <div>
                   <p className="text-xs mb-0.5" style={{ color: '#7a9bb5' }}>Email</p>
-                  <p className="text-sm font-semibold text-white group-hover:text-[#00ff88] transition-colors">
+                  <p className="text-sm font-semibold text-white group-hover:text-[#00E5FF] transition-colors">
                     sales@nativedefence.com
                   </p>
                 </div>
-                <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#00ff88' }} />
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#00E5FF' }} />
               </a>
 
               {[
@@ -127,13 +127,13 @@ export default function Contact() {
                 <div
                   key={loc.city}
                   className="flex items-start gap-4 p-5 rounded-2xl"
-                  style={{ background: 'rgba(5,13,26,0.7)', border: '1px solid rgba(0,255,136,0.08)' }}
+                  style={{ background: 'rgba(10,15,31,0.7)', border: '1px solid rgba(0,229,255,0.08)' }}
                 >
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                    style={{ background: 'rgba(0,212,255,0.1)' }}
+                    style={{ background: 'rgba(59,130,246,0.1)' }}
                   >
-                    <MapPin className="w-5 h-5" style={{ color: '#00d4ff' }} />
+                    <MapPin className="w-5 h-5" style={{ color: '#00E5FF' }} />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-white mb-1">{loc.city}</p>
@@ -150,10 +150,10 @@ export default function Contact() {
               <div className="h-full flex flex-col items-center justify-center text-center py-16">
                 <div
                   className="w-16 h-16 rounded-full mb-6 flex items-center justify-center"
-                  style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.3)' }}
+                  style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.3)' }}
                 >
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6L9 17l-5-5" stroke="#00ff88" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M20 6L9 17l-5-5" stroke="#00E5FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <h3
@@ -174,7 +174,7 @@ export default function Contact() {
                   <div key={field}>
                     <label
                       className="block text-xs font-bold tracking-widest uppercase mb-3"
-                      style={{ color: active === field ? '#00ff88' : '#7a9bb5' }}
+                      style={{ color: active === field ? '#00E5FF' : '#7a9bb5' }}
                     >
                       {label}
                     </label>
@@ -194,7 +194,7 @@ export default function Contact() {
                 <div>
                   <label
                     className="block text-xs font-bold tracking-widest uppercase mb-3"
-                    style={{ color: active === 'message' ? '#00ff88' : '#7a9bb5' }}
+                    style={{ color: active === 'message' ? '#00E5FF' : '#7a9bb5' }}
                   >
                     Message
                   </label>
@@ -212,13 +212,13 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="self-start flex items-center gap-3 text-[#050d1a] text-sm font-bold px-6 py-3.5 rounded-full transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:-translate-y-0.5"
-                  style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+                  className="self-start flex items-center gap-3 text-[#0A0F1F] text-sm font-bold px-6 py-3.5 rounded-full transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5"
+                  style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
                 >
                   Send message
                   <div
                     className="w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5"
-                    style={{ background: 'rgba(5,13,26,0.2)' }}
+                    style={{ background: 'rgba(10,15,31,0.2)' }}
                   >
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>

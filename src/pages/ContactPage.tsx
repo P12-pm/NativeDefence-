@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
-const PRIMARY = '#00ff88';
+const PRIMARY = '#00E5FF';
 
 export default function ContactPage() {
   const [isDark, _setIsDark] = useState(false);
@@ -84,22 +84,22 @@ export default function ContactPage() {
   });
 
   return (
-    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#050d1a' }}>
+    <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/85 dark:bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(0,255,136,0.1)]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo & Back button */}
           <div className="flex items-center gap-4">
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00ff88] transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            <span className="w-px h-4 bg-[#050d1a]/15 dark:bg-white/15" />
+            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
             <Link to="/" className="flex items-center">
               <img
                 src={logoDark}
@@ -114,19 +114,19 @@ export default function ContactPage() {
           <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => handleSubLinkClick('contact-hero')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Contact Channels
             </button>
             <button
               onClick={() => handleSubLinkClick('contact-form-section')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Send Message
             </button>
             <button
               onClick={() => handleSubLinkClick('office-map-section')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00ff88] px-3 py-1.5 rounded-full hover:bg-[#0a1628] hover:bg-[rgba(0,255,136,0.07)] transition-all duration-200"
+              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
             >
               Find Us
             </button>
@@ -147,7 +147,7 @@ export default function ContactPage() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] relative"
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
             >
               <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
               <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
@@ -157,28 +157,28 @@ export default function ContactPage() {
 
         {/* Mobile menu drawer */}
         <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-80' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,255,136,0.1)] pt-3">
+          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
             <button
               onClick={() => handleSubLinkClick('contact-hero')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Contact Channels
             </button>
             <button
               onClick={() => handleSubLinkClick('contact-form-section')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)]"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
             >
               Send Message
             </button>
             <button
               onClick={() => handleSubLinkClick('office-map-section')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,255,136,0.1)] last:border-0"
+              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0"
             >
               Find Us
             </button>
             <button
               onClick={() => handleSubLinkClick('contact-form-section')}
-              className="mt-2 block text-center bg-[#050d1a] text-white text-sm font-semibold py-3 rounded-full"
+              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
             >
               Sales Assessment
             </button>
@@ -195,9 +195,9 @@ export default function ContactPage() {
         </div>
 
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.15)] rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff88]" />
-            <span className="text-xs font-bold text-[#00ff88] tracking-wider uppercase">Contact Support & Sales</span>
+          <div className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] rounded-full px-4 py-1.5 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-[#00E5FF]" />
+            <span className="text-xs font-bold text-[#00E5FF] tracking-wider uppercase">Contact Support & Sales</span>
           </div>
 
           <div className="max-w-3xl">
@@ -211,7 +211,7 @@ export default function ContactPage() {
               }}
             >
               Let's Connect and <br />
-              <span className="text-[#00ff88] font-medium">Fortify Your Enterprise.</span>
+              <span className="text-[#00E5FF] font-medium">Fortify Your Enterprise.</span>
             </h1>
             <p
               className="text-[#7a9bb5] leading-relaxed"
@@ -235,27 +235,27 @@ export default function ContactPage() {
 
               {/* Departmental Emails */}
               <div className="space-y-4">
-                <h3 className="text-xs font-bold tracking-widest uppercase text-[#00ff88]">Communication Channels</h3>
+                <h3 className="text-xs font-bold tracking-widest uppercase text-[#00E5FF]">Communication Channels</h3>
 
                 {/* Sales Channel */}
                 <a
                   href="mailto:sales@nativedefence.com"
                   className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5"
                   style={{
-                    background: 'rgba(5,13,26,0.7)',
-                    border: '1px solid rgba(0,255,136,0.12)',
+                    background: 'rgba(10,15,31,0.7)',
+                    border: '1px solid rgba(0,229,255,0.12)',
                   }}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-[#00ff88]" />
+                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-[#00E5FF]" />
                   </div>
                   <div>
                     <p className="text-xs text-[#7a9bb5] mb-0.5">Enterprise Sales & Demos</p>
-                    <p className="text-sm font-semibold text-white group-hover:text-[#00ff88] dark:group-hover:text-[#00d4aa] transition-colors">
+                    <p className="text-sm font-semibold text-white group-hover:text-[#00E5FF] dark:group-hover:text-[#3B82F6] transition-colors">
                       sales@nativedefence.com
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-[#00ff88] ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-[-4px] group-hover:translate-x-0" />
+                  <ArrowRight className="w-4 h-4 text-[#00E5FF] ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-[-4px] group-hover:translate-x-0" />
                 </a>
 
                 {/* General Inquiry / Info Channel */}
@@ -263,20 +263,20 @@ export default function ContactPage() {
                   href="mailto:info@nativedefence.com"
                   className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5"
                   style={{
-                    background: 'rgba(5,13,26,0.7)',
-                    border: '1px solid rgba(0,255,136,0.12)',
+                    background: 'rgba(10,15,31,0.7)',
+                    border: '1px solid rgba(0,229,255,0.12)',
                   }}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-[#00ff88]" />
+                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-[#00E5FF]" />
                   </div>
                   <div>
                     <p className="text-xs text-[#7a9bb5] mb-0.5">General Inquiries & Careers</p>
-                    <p className="text-sm font-semibold text-white group-hover:text-[#00ff88] dark:group-hover:text-[#00d4aa] transition-colors">
+                    <p className="text-sm font-semibold text-white group-hover:text-[#00E5FF] dark:group-hover:text-[#3B82F6] transition-colors">
                       info@nativedefence.com
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-[#00ff88] ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-[-4px] group-hover:translate-x-0" />
+                  <ArrowRight className="w-4 h-4 text-[#00E5FF] ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-[-4px] group-hover:translate-x-0" />
                 </a>
 
                 {/* Phone Channel */}
@@ -284,20 +284,20 @@ export default function ContactPage() {
                   href="tel:+919748780073"
                   className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5"
                   style={{
-                    background: 'rgba(5,13,26,0.7)',
-                    border: '1px solid rgba(0,255,136,0.12)',
+                    background: 'rgba(10,15,31,0.7)',
+                    border: '1px solid rgba(0,229,255,0.12)',
                   }}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-[#00ff88]" />
+                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-[#00E5FF]" />
                   </div>
                   <div>
                     <p className="text-xs text-[#7a9bb5] mb-0.5">Phone Support (Operations)</p>
-                    <p className="text-sm font-semibold text-white group-hover:text-[#00ff88] dark:group-hover:text-[#00d4aa] transition-colors">
+                    <p className="text-sm font-semibold text-white group-hover:text-[#00E5FF] dark:group-hover:text-[#3B82F6] transition-colors">
                       +91 97487 80073
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-[#00ff88] ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-[-4px] group-hover:translate-x-0" />
+                  <ArrowRight className="w-4 h-4 text-[#00E5FF] ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-[-4px] group-hover:translate-x-0" />
                 </a>
               </div>
 
@@ -305,11 +305,11 @@ export default function ContactPage() {
               <div
                 className="flex items-center gap-4 p-5 rounded-2xl"
                 style={{
-                  background: 'rgba(5,13,26,0.7)',
-                  border: '1px solid rgba(0,255,136,0.12)',
+                  background: 'rgba(10,15,31,0.7)',
+                  border: '1px solid rgba(0,229,255,0.12)',
                 }}
               >
-                <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center text-[#00ff88]">
+                <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center text-[#00E5FF]">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -320,7 +320,7 @@ export default function ContactPage() {
 
               {/* Physical Offices */}
               <div className="space-y-4">
-                <h3 className="text-xs font-bold tracking-widest uppercase text-[#00ff88]">Corporate Offices</h3>
+                <h3 className="text-xs font-bold tracking-widest uppercase text-[#00E5FF]">Corporate Offices</h3>
 
                 {[
                   {
@@ -336,15 +336,15 @@ export default function ContactPage() {
                 ].map(loc => (
                   <div
                     key={loc.city}
-                    className="p-6 rounded-2xl border border-[rgba(0,255,136,0.1)] flex items-start gap-4 shadow-sm hover:shadow transition-shadow duration-200" style={{ background: '#050d1a' }}
+                    className="p-6 rounded-2xl border border-[rgba(0,229,255,0.1)] flex items-start gap-4 shadow-sm hover:shadow transition-shadow duration-200" style={{ background: '#0A0F1F' }}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-[rgba(0,255,136,0.12)] flex items-center justify-center flex-shrink-0 mt-0.5 text-[#00ff88]">
+                    <div className="w-10 h-10 rounded-xl bg-[rgba(0,229,255,0.12)] flex items-center justify-center flex-shrink-0 mt-0.5 text-[#00E5FF]">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-white mb-1">{loc.city}</h4>
                       <p className="text-xs text-[#7a9bb5] leading-relaxed mb-2">{loc.addr}</p>
-                      <span className="text-[10px] font-bold text-[#00ff88] bg-[rgba(0,255,136,0.08)] px-2.5 py-1 rounded">
+                      <span className="text-[10px] font-bold text-[#00E5FF] bg-[rgba(0,229,255,0.08)] px-2.5 py-1 rounded">
                         {loc.mapDesc}
                       </span>
                     </div>
@@ -355,12 +355,12 @@ export default function ContactPage() {
             </div>
 
             {/* Right: State-of-the-Art Contact Form */}
-            <div className="lg:col-span-7 bg-[rgba(10,22,40,0.4)] p-8 sm:p-12 rounded-3xl border border-[rgba(0,255,136,0.12)] backdrop-blur-xl shadow-2xl">
+            <div className="lg:col-span-7 bg-[rgba(17,24,39,0.4)] p-8 sm:p-12 rounded-3xl border border-[rgba(0,229,255,0.12)] backdrop-blur-xl shadow-2xl">
 
               {isSuccess ? (
                 <div className="h-full flex flex-col items-center justify-center text-center py-16 space-y-6">
-                  <div className="w-16 h-16 rounded-full bg-[rgba(0,255,136,0.08)] border border-[rgba(0,255,136,0.3)]/20 flex items-center justify-center animate-bounce">
-                    <CheckCircle className="w-8 h-8 text-[#00ff88]" />
+                  <div className="w-16 h-16 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.3)]/20 flex items-center justify-center animate-bounce">
+                    <CheckCircle className="w-8 h-8 text-[#00E5FF]" />
                   </div>
                   <div className="space-y-2">
                     <h3 className="font-semibold text-white text-2xl" style={{ fontFamily: NHG }}>
@@ -372,7 +372,7 @@ export default function ContactPage() {
                   </div>
                   <button
                     onClick={() => setIsSuccess(false)}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#00ff88] hover:opacity-85 transition-opacity"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#00E5FF] hover:opacity-85 transition-opacity"
                   >
                     Send another message
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -449,7 +449,7 @@ export default function ContactPage() {
                     <select
                       value={form.subject}
                       onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
-                      className="w-full text-white text-sm px-4 py-3 rounded-xl border border-[rgba(0,255,136,0.1)] outline-none focus:border-[rgba(0,255,136,0.3)] transition-colors" style={{ background: '#050d1a' }}
+                      className="w-full text-white text-sm px-4 py-3 rounded-xl border border-[rgba(0,229,255,0.1)] outline-none focus:border-[rgba(0,229,255,0.3)] transition-colors" style={{ background: '#0A0F1F' }}
                     >
                       <option value="Sales Inquiry">NativeSOC Demo & Sales Assessment</option>
                       <option value="VAPT Assessment">VAPT & Penetration Testing</option>
@@ -481,8 +481,8 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-3 hover:opacity-90 text-[#050d1a] text-sm font-bold py-4 rounded-full transition-all duration-300 disabled:opacity-70 group"
-                    style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)', boxShadow: '0 0 20px rgba(0,255,136,0.15)' }}
+                    className="w-full flex items-center justify-center gap-3 hover:opacity-90 text-[#0A0F1F] text-sm font-bold py-4 rounded-full transition-all duration-300 disabled:opacity-70 group"
+                    style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)', boxShadow: '0 0 20px rgba(0,229,255,0.15)' }}
                   >
                     {isSubmitting ? 'Verifying Threat Parameters...' : 'Submit Request'}
                     <div className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
@@ -505,7 +505,7 @@ export default function ContactPage() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-[11px] font-semibold text-[#050d1a] bg-[#00ff88] rounded-full px-3 py-1 tracking-widest uppercase">HQ Office Geolocation</span>
+            <span className="text-[11px] font-semibold text-[#0A0F1F] bg-[#00E5FF] rounded-full px-3 py-1 tracking-widest uppercase">HQ Office Geolocation</span>
             <h2 className="text-3xl font-semibold text-white mt-4" style={{ fontFamily: NHG }}>
               Locate Our Operations Center
             </h2>
@@ -514,7 +514,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="w-full h-96 sm:h-[450px] rounded-3xl overflow-hidden border border-[rgba(0,255,136,0.1)] shadow-md">
+          <div className="w-full h-96 sm:h-[450px] rounded-3xl overflow-hidden border border-[rgba(0,229,255,0.1)] shadow-md">
             <iframe
               title="NativeDefence Ahmedabad HQ Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.1192938150494!2d72.54019187606682!3d23.092750663473187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8346f042ee11%3A0xe54e3d36b85ccdb3!2sGanesh%20Glory%2011!5e0!3m2!1sen!2sin!4v1717145000000!5m2!1sen!2sin"
@@ -531,7 +531,7 @@ export default function ContactPage() {
       </section>
 
       {/* ══ FOOTER BAND ══ */}
-      <footer style={{ background: '#050d1a' }} className="border-t border-[rgba(0,255,136,0.1)] transition-colors duration-500">
+      <footer style={{ background: '#0A0F1F' }} className="border-t border-[rgba(0,229,255,0.1)] transition-colors duration-500">
 
         {/* Upper Band */}
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
@@ -547,15 +547,15 @@ export default function ContactPage() {
           <div className="flex flex-wrap gap-3">
             <a
               href="mailto:sales@nativedefence.com"
-              className="inline-flex items-center gap-2 hover:opacity-90 text-[#050d1a] text-sm font-semibold px-5 py-3.5 rounded-full transition-all duration-300"
-              style={{ background: 'linear-gradient(135deg, #00cc70, #00ff88)' }}
+              className="inline-flex items-center gap-2 hover:opacity-90 text-[#0A0F1F] text-sm font-semibold px-5 py-3.5 rounded-full transition-all duration-300"
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
             >
               Email Incident Command
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-[rgba(0,255,136,0.08)] hover:bg-[#eef2ee] dark:hover:bg-[#00cc70] text-white border border-[rgba(0,255,136,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-[rgba(0,229,255,0.08)] hover:bg-[#eef2ee] dark:hover:bg-[#3B82F6] text-white border border-[rgba(0,229,255,0.15)] text-sm font-semibold px-5 py-3.5 rounded-full transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Home
