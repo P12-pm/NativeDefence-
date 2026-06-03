@@ -355,3 +355,28 @@ html { scroll-behavior: smooth; }
 .cyber-input::placeholder {
   color: rgba(200,224,240,0.25);
 }
+
+/* ── Mobile improvements ─────────────────────────── */
+@media (max-width: 768px) {
+  /* Prevent iOS auto-zoom on input focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+
+  /* Reduce heavy animations on mobile for performance */
+  .animate-float,
+  .animate-float-slow {
+    animation: none;
+  }
+
+  /* Better tap targets */
+  a, button {
+    min-height: 44px;
+  }
+
+  /* Tighter section padding on mobile */
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}

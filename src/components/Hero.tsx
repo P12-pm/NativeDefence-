@@ -429,39 +429,31 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         </div>
       </div>
 
-      {/* ── Hero copy with Premium Glassmorphism Card & Floating Icons ── */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] pt-32 pb-24 px-4 sm:px-6 md:px-10">
+      {/* ── Hero copy ── */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-24 sm:pt-32 pb-32 sm:pb-24 px-5 sm:px-6 md:px-10">
         
-        {/* Floating holographic security icons */}
+        {/* Floating holographic security icons — desktop only */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-          
-          {/* Top-Left: Shield Icon */}
           <div
-            className="absolute top-[20%] left-[8%] md:left-[12%] animate-float hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(0,229,255,0.25)] shadow-[0_0_20px_rgba(0,229,255,0.15)] text-[#00E5FF]"
+            className="absolute top-[20%] left-[12%] animate-float hidden lg:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(0,229,255,0.25)] shadow-[0_0_20px_rgba(0,229,255,0.15)] text-[#00E5FF]"
             style={{ animationDelay: '0s', transform: 'rotate(-10deg)', backdropFilter: 'blur(8px)' }}
           >
             <Shield className="w-5 h-5 animate-pulse" />
           </div>
-
-          {/* Top-Right: Terminal Icon */}
           <div
-            className="absolute top-[25%] right-[8%] md:right-[12%] animate-float-slow hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(59,130,246,0.25)] shadow-[0_0_20px_rgba(59,130,246,0.15)] text-[#00E5FF]"
+            className="absolute top-[25%] right-[12%] animate-float-slow hidden lg:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(59,130,246,0.25)] shadow-[0_0_20px_rgba(59,130,246,0.15)] text-[#00E5FF]"
             style={{ animationDelay: '1.5s', transform: 'rotate(15deg)', backdropFilter: 'blur(8px)' }}
           >
             <Terminal className="w-6 h-6" />
           </div>
-
-          {/* Bottom-Left: Wifi Icon */}
           <div
-            className="absolute bottom-[30%] left-[6%] md:left-[10%] animate-float-slow hidden md:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(0,229,255,0.25)] shadow-[0_0_20px_rgba(0,229,255,0.15)] text-[#00E5FF]"
+            className="absolute bottom-[30%] left-[10%] animate-float-slow hidden lg:flex items-center justify-center w-14 h-14 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(0,229,255,0.25)] shadow-[0_0_20px_rgba(0,229,255,0.15)] text-[#00E5FF]"
             style={{ animationDelay: '0.8s', transform: 'rotate(8deg)', backdropFilter: 'blur(8px)' }}
           >
             <Wifi className="w-6 h-6" />
           </div>
-
-          {/* Bottom-Right: Play Icon */}
           <div
-            className="absolute bottom-[28%] right-[6%] md:right-[10%] animate-float hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(59,130,246,0.25)] shadow-[0_0_20px_rgba(59,130,246,0.15)] text-[#00E5FF]"
+            className="absolute bottom-[28%] right-[10%] animate-float hidden lg:flex items-center justify-center w-12 h-12 rounded-xl bg-[rgba(10,15,31,0.6)] border border-[rgba(59,130,246,0.25)] shadow-[0_0_20px_rgba(59,130,246,0.15)] text-[#00E5FF]"
             style={{ animationDelay: '2.2s', transform: 'rotate(-12deg)', backdropFilter: 'blur(8px)' }}
           >
             <Play className="w-5 h-5" />
@@ -469,49 +461,41 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         </div>
 
         {/* ── Hero Two-Column Content Grid ── */}
-        <div className="relative z-10 w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="relative z-10 w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
-          {/* Central Blue/Cyan Ambient Glow */}
+          {/* Ambient glow */}
           <div
-            className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-[600px] h-[500px] pointer-events-none rounded-full blur-[140px] opacity-40 z-0"
-            style={{
-              background: 'radial-gradient(circle, rgba(0,229,255,0.3) 0%, rgba(59,130,246,0.25) 50%, transparent 80%)',
-            }}
+            className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[500px] pointer-events-none rounded-full blur-[120px] opacity-30 z-0"
+            style={{ background: 'radial-gradient(circle, rgba(0,229,255,0.3) 0%, rgba(59,130,246,0.25) 50%, transparent 80%)' }}
           />
 
-          {/* Left Column: Heading Copy and CTAs */}
+          {/* Left Column */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10">
 
             {/* Cyber badge */}
             <div
-              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full"
-              style={{
-                background: 'rgba(0,229,255,0.08)',
-                border: '1px solid rgba(0,229,255,0.25)',
-                backdropFilter: 'blur(8px)',
-              }}
+              className="inline-flex items-center gap-2 mb-5 sm:mb-6 px-3 sm:px-4 py-1.5 rounded-full"
+              style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.25)', backdropFilter: 'blur(8px)' }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
-              <span className="text-[11px] font-bold text-[#00E5FF] tracking-[0.12em] uppercase">
+              <span className="text-[10px] sm:text-[11px] font-bold text-[#00E5FF] tracking-[0.10em] sm:tracking-[0.12em] uppercase">
                 NativeSOC™ — Advanced Threat Intelligence
               </span>
             </div>
 
-            {/* Heading with Scrambling HackerText */}
+            {/* Heading */}
             <h1
-              className="font-normal leading-[1.0] text-white max-w-3xl animate-reveal"
+              className="font-normal leading-[1.05] text-white max-w-3xl animate-reveal"
               style={{
                 fontFamily: NHG,
-                fontSize: 'clamp(2.2rem, 5.0vw, 4.5rem)',
-                letterSpacing: '-0.035em',
+                fontSize: 'clamp(1.9rem, 7vw, 4.5rem)',
+                letterSpacing: '-0.03em',
               }}
             >
               <HackerText text="Defense is the Best Offence in" />{' '}
               <span
                 className="animate-flicker shimmer-text block sm:inline font-semibold"
-                style={{
-                  textShadow: '0 0 25px rgba(0,229,255,0.5)',
-                }}
+                style={{ textShadow: '0 0 25px rgba(0,229,255,0.5)' }}
               >
                 <HackerText text="Cyber Security" delay={300} triggerOnHover />
               </span>
@@ -519,58 +503,61 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
             {/* Subheading */}
             <p
-              className="mt-6 sm:mt-8 text-[#7a9bb5] text-sm sm:text-base md:text-lg leading-relaxed max-w-xl"
+              className="mt-5 sm:mt-7 text-[#7a9bb5] text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-xl"
               style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
             >
               Stay ahead of the threat, Stay ahead in the Fight.
             </p>
 
-            {/* Strong CTAs */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 mt-10 w-full sm:w-auto justify-center lg:justify-start">
-              
-              {/* Primary assessment CTA */}
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-8 w-full sm:w-auto justify-center lg:justify-start">
               <a
                 href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-[#0A0F1F] text-sm font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 group"
+                className="inline-flex items-center justify-center gap-2 text-[#0A0F1F] text-sm font-bold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 group"
                 style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
               >
                 <Shield className="w-4 h-4" />
                 Free Assessment
-                <div className="w-6 h-6 rounded-full bg-[#0A0F1F]/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
-              
-              {/* Secondary platform explorer CTA */}
               <Link
                 to="/nativesoc"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-4 rounded-full border border-[rgba(0,229,255,0.25)] hover:border-[#00E5FF] hover:text-[#00E5FF] bg-[rgba(10,15,31,0.4)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
+                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-6 py-3.5 rounded-full border border-[rgba(0,229,255,0.25)] hover:border-[#00E5FF] hover:text-[#00E5FF] bg-[rgba(10,15,31,0.4)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 group"
               >
                 <Terminal className="w-4 h-4" />
                 Explore Platform
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
+            </div>
 
+            {/* Mobile quick stats — shown only on mobile instead of dashboard */}
+            <div className="flex items-center gap-3 mt-7 lg:hidden">
+              {[
+                { label: 'Threats Blocked', value: '2,847+', color: '#00E5FF' },
+                { label: 'Uptime', value: '99.9%', color: '#3B82F6' },
+                { label: 'Alerts', value: '24/7', color: '#00E5FF' },
+              ].map(s => (
+                <div key={s.label} className="flex-1 p-3 rounded-2xl text-center" style={{ background: 'rgba(10,15,31,0.6)', border: '1px solid rgba(0,229,255,0.12)' }}>
+                  <div className="text-sm font-bold font-mono" style={{ color: s.color }}>{s.value}</div>
+                  <div className="text-[9px] text-[#7a9bb5] uppercase tracking-wider mt-0.5 leading-tight">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Column: Live Simulated Threat Dashboard */}
-          <div className="lg:col-span-5 w-full relative z-10 flex flex-col gap-6">
+          {/* Right Column: Threat Dashboard — desktop only */}
+          <div className="hidden lg:flex lg:col-span-5 w-full relative z-10 flex-col gap-6">
             <ThreatDashboard />
           </div>
 
         </div>
       </div>
 
-      {/* ── Bottom-left SOC info ──────────────────────── */}
-      <div className="absolute left-4 right-4 sm:right-auto sm:left-6 md:left-10 bottom-6 sm:bottom-8 md:bottom-10 z-10 max-w-xs">
+      {/* ── Bottom SOC info — desktop only ── */}
+      <div className="hidden sm:block absolute left-6 md:left-10 bottom-8 md:bottom-10 z-10 max-w-xs">
         <div
           className="p-4 rounded-2xl"
-          style={{
-            background: 'rgba(10,15,31,0.7)',
-            backdropFilter: 'blur(16px)',
-            border: '1px solid rgba(0,229,255,0.15)',
-          }}
+          style={{ background: 'rgba(10,15,31,0.7)', backdropFilter: 'blur(16px)', border: '1px solid rgba(0,229,255,0.15)' }}
         >
           <div className="flex items-center gap-2 mb-2">
             <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
@@ -587,10 +574,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             >
               Get Protected
             </a>
-            <Link
-              to="/nativesoc"
-              className="text-xs font-semibold text-[#00E5FF] hover:opacity-80 transition-opacity"
-            >
+            <Link to="/nativesoc" className="text-xs font-semibold text-[#00E5FF] hover:opacity-80 transition-opacity">
               Learn more →
             </Link>
           </div>
