@@ -5,6 +5,10 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
+    // Disable browser scroll restoration so it never jumps mid-page
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
     window.scrollTo(0, 0)
   }, [pathname])
   return null
@@ -38,6 +42,14 @@ import MouseFollowGlow from './components/MouseFollowGlow'
 function HomePage() {
   const [isDark, setIsDark] = useState(false)
   const [loading, setLoading] = useState(true)
+
+  // Disable browser scroll restoration immediately on mount
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+    window.scrollTo(0, 0)
+  }, [])
 
   useEffect(() => {
     const root = document.documentElement
@@ -76,7 +88,10 @@ function HomePage() {
 
   return (
     <>
-      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+      {loading && <LoadingScreen onComplete={() => {
+        window.scrollTo(0, 0)
+        setLoading(false)
+      }} />}
       
       <div className="min-h-screen transition-colors duration-500 relative" style={{ background: '#0A0F1F' }}>
         <MouseFollowGlow />
