@@ -19,19 +19,21 @@
     <script type="text/javascript">
       // GitHub Pages SPA redirect handler — restores path from 404.html redirect
       (function(l) {
-        if (l.search[1] === '/' ) {
+        if (l.search[1] === '/') {
           var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&')
+            return s.replace(/~and~/g, '&');
           });
           window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded[0] +
+            l.pathname + decoded[0] +
             (decoded[1] ? '?' + decoded[1] : '') +
             l.hash
           );
         }
+        // Always scroll to top on initial load
+        window.scrollTo(0, 0);
       }(window.location))
     </script>
-    <script type="module" crossorigin src="/NativeDefence-/assets/index-Bm6YCuTQ.js"></script>
+    <script type="module" crossorigin src="/NativeDefence-/assets/index-DsLytbLm.js"></script>
     <link rel="stylesheet" crossorigin href="/NativeDefence-/assets/index-4lnbfSNk.css">
   </head>
   <body>
