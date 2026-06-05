@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { Play, Shield, Menu, X, ChevronDown, Terminal, Wifi, ArrowRight } from 'lucide-react';
+import { Play, Shield, X, ChevronDown, Terminal, Wifi, ArrowRight } from 'lucide-react';
 import logoLight from '../assets/logo_light.avif';
 import logoDark from '../assets/logo_dark.avif';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { gsap } from 'gsap';
@@ -106,6 +106,66 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
   const [mobileExpand, setMobileExpand] = useState<string | null>(null);
   const [londonTime, setLondonTime] = useState('');
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const [activeItem, setActiveItem] = useState('Home');
+
+  /* Active Section Scroll Spy & Route tracker */
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      const path = location.pathname;
+      if (path.startsWith('/nativesoc')) {
+        setActiveItem('NativeSOC');
+      } else if (path.startsWith('/academy') || path.startsWith('/course')) {
+        setActiveItem('Academy');
+      } else if (path.startsWith('/vapt')) {
+        setActiveItem('VAPT');
+      } else if (path.startsWith('/about-us')) {
+        setActiveItem('About Us');
+      } else if (path.startsWith('/partners')) {
+        setActiveItem('Partners');
+      } else if (path.startsWith('/contact')) {
+        setActiveItem('Contact');
+      } else {
+        setActiveItem('');
+      }
+      return;
+    }
+
+    const sectionIds = ['home', 'about', 'nativesoc', 'services', 'contact'];
+    const sectionToNavMap: Record<string, string> = {
+      home: 'Home',
+      about: 'About Us',
+      nativesoc: 'NativeSOC',
+      services: 'NativeSOC',
+      contact: 'Contact',
+    };
+
+    const observers = sectionIds.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveItem(sectionToNavMap[id]);
+          }
+        },
+        {
+          rootMargin: '-30% 0px -60% 0px',
+          threshold: 0,
+        }
+      );
+      observer.observe(el);
+      return { observer, el };
+    });
+
+    return () => {
+      observers.forEach((obs) => {
+        if (obs) obs.observer.disconnect();
+      });
+    };
+  }, [location.pathname]);
+
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const parallaxBgRef = useRef<HTMLDivElement>(null);
@@ -212,10 +272,10 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
       {/* ── NAV ────────────────────────────────────────── */}
       <nav
-        className={`nav-glow-line fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-500 ${
+        className={`nav-glow-line fixed z-50 flex items-center justify-between px-6 transition-all duration-500 ${
           scrolled
-            ? 'scrolled py-3 sm:py-3.5 bg-[#0A0F1F]/90 backdrop-blur-2xl border-b border-[rgba(0,229,255,0.15)] shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
-            : 'py-4 sm:py-5 bg-[#0A0F1F]/40 backdrop-blur-xl'
+            ? 'top-3 left-4 right-4 sm:left-6 sm:right-6 md:left-10 md:right-10 py-2.5 bg-[rgba(10,15,31,0.65)] backdrop-blur-xl border border-[rgba(0,229,255,0.2)] shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_20px_rgba(0,229,255,0.06)] rounded-full'
+            : 'top-6 left-4 right-4 sm:left-6 sm:right-6 md:left-10 md:right-10 py-4 bg-[rgba(10,15,31,0.4)] backdrop-blur-xl border border-[rgba(255,255,255,0.05)] rounded-full'
         }`}
       >
 
@@ -244,7 +304,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           }}
         >
 
-          {NAV_ITEMS.map((item, i) => (
+          {NAV_ITEMS.map((item) => (
             <div
               key={item.label}
               className="relative"
@@ -255,30 +315,65 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
               {item.href.startsWith('/') ? (
                 <Link
                   to={item.href}
-                  className={`nav-link-hover inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap ${i === 0
-                    ? 'nav-link-active font-semibold text-[#00E5FF] bg-[rgba(0,229,255,0.1)]'
-                    : 'font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)]'
-                    }`}
+                  className={`nav-link-hover inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap relative ${
+                    activeItem === item.label
+                      ? 'font-semibold text-[#00E5FF] z-10'
+                      : 'font-medium text-[#7a9bb5] hover:text-[#00E5FF] z-10'
+                  }`}
                 >
-                  {item.label}
+                  {activeItem === item.label && (
+                    <motion.span
+                      layoutId="activeCapsule"
+                      className="absolute inset-0 rounded-full z-0"
+                      style={{
+                        background: 'rgba(0,229,255,0.08)',
+                        border: '1px solid rgba(0,229,255,0.18)',
+                        boxShadow: '0 0 12px rgba(0,229,255,0.12)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.label}</span>
                   {item.children && (
                     <ChevronDown
-                      className={`w-3 h-3 flex-shrink-0 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : 'rotate-0'}`}
+                      className={`w-3 h-3 flex-shrink-0 transition-transform duration-300 relative z-10 ${openDropdown === item.label ? 'rotate-180' : 'rotate-0'}`}
                     />
                   )}
                 </Link>
               ) : (
                 <a
                   href={item.href}
-                  className={`nav-link-hover inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap ${i === 0
-                    ? 'nav-link-active font-semibold text-[#00E5FF] bg-[rgba(0,229,255,0.1)]'
-                    : 'font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)]'
-                    }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (location.pathname !== '/') {
+                      window.location.href = `/NativeDefence-/${item.href}`;
+                    } else {
+                      const sectionId = item.href.replace('#', '');
+                      onNavClick(sectionId);
+                    }
+                  }}
+                  className={`nav-link-hover inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap relative ${
+                    activeItem === item.label
+                      ? 'font-semibold text-[#00E5FF] z-10'
+                      : 'font-medium text-[#7a9bb5] hover:text-[#00E5FF] z-10'
+                  }`}
                 >
-                  {item.label}
+                  {activeItem === item.label && (
+                    <motion.span
+                      layoutId="activeCapsule"
+                      className="absolute inset-0 rounded-full z-0"
+                      style={{
+                        background: 'rgba(0,229,255,0.08)',
+                        border: '1px solid rgba(0,229,255,0.18)',
+                        boxShadow: '0 0 12px rgba(0,229,255,0.12)',
+                      }}
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.label}</span>
                   {item.children && (
                     <ChevronDown
-                      className={`w-3 h-3 flex-shrink-0 transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : 'rotate-0'}`}
+                      className={`w-3 h-3 flex-shrink-0 transition-transform duration-300 relative z-10 ${openDropdown === item.label ? 'rotate-180' : 'rotate-0'}`}
                     />
                   )}
                 </a>
@@ -338,6 +433,14 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           {/* CTA button */}
           <a
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              if (location.pathname !== '/') {
+                window.location.href = '/NativeDefence-/#contact';
+              } else {
+                onNavClick('contact');
+              }
+            }}
             className="nav-cta-btn ml-2 text-[#0A0F1F] text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 whitespace-nowrap hover:shadow-[0_0_25px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 hover:scale-105"
             style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
           >
@@ -348,12 +451,10 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         {/* ── Right cluster ────────────────────────────── */}
         <div className="flex items-center gap-2">
 
-          
-
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(v => !v)}
-            className="lg:hidden relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300"
+            className="lg:hidden relative flex flex-col justify-center items-center w-10 h-10 rounded-full transition-all duration-300 gap-1.5 focus:outline-none"
             style={{
               background: 'rgba(10,15,31,0.7)',
               backdropFilter: 'blur(12px)',
@@ -361,8 +462,21 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             }}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            <Menu className={`w-5 h-5 text-[#00E5FF] absolute transition-all duration-300 ${menuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`} />
-            <X className={`w-5 h-5 text-[#00E5FF] absolute transition-all duration-300 ${menuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`} />
+            <span
+              className={`w-5 h-[2px] bg-[#00E5FF] transition-all duration-300 rounded-full ${
+                menuOpen ? 'rotate-45 translate-y-[8px]' : ''
+              }`}
+            />
+            <span
+              className={`w-5 h-[2px] bg-[#00E5FF] transition-all duration-300 rounded-full ${
+                menuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+              }`}
+            />
+            <span
+              className={`w-5 h-[2px] bg-[#00E5FF] transition-all duration-300 rounded-full ${
+                menuOpen ? '-rotate-45 translate-y-[-8px]' : ''
+              }`}
+            />
           </button>
         </div>
       </nav>

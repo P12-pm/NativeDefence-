@@ -55,6 +55,20 @@ function HomePage() {
     window.scrollTo(0, 0)
   }, [])
 
+  // Smooth scroll to hash when loader finishes
+  useEffect(() => {
+    if (!loading && window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        const t = setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+        return () => clearTimeout(t);
+      }
+    }
+  }, [loading]);
+
   useEffect(() => {
     const root = document.documentElement
     if (isDark) {
