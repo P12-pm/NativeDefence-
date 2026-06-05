@@ -5,6 +5,11 @@ import logoDark from '../assets/logo_dark.avif';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 const heroContentVariants: Variants = {
   hidden: { opacity: 0 },
@@ -103,6 +108,28 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
   const [scrolled, setScrolled] = useState(false);
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const parallaxBgRef = useRef<HTMLDivElement>(null);
+
+  /* GSAP Parallax Scroll Effect */
+  useEffect(() => {
+    const element = parallaxBgRef.current;
+    if (!element) return;
+
+    const ctx = gsap.context(() => {
+      gsap.to(element, {
+        yPercent: 12,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#home',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   /* Lock body scroll when mobile menu open */
   useEffect(() => {
@@ -144,7 +171,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
     <section id="home" className="relative w-full overflow-hidden" style={{ background: '#0A0F1F', minHeight: '90vh' }}>
 
       {/* ── Background Video ─────────────────────────── */}
-      <div className="absolute inset-0 z-0">
+      <div ref={parallaxBgRef} className="absolute inset-0 z-0">
         <video
           ref={videoRef}
           autoPlay

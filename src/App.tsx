@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 // Scroll to top on every route change
 function ScrollToTop() {
@@ -11,6 +13,7 @@ function ScrollToTop() {
       history.scrollRestoration = 'manual'
     }
     window.scrollTo(0, 0)
+    AOS.refresh()
   }, [pathname])
   return null
 }
@@ -112,6 +115,14 @@ function HomePage() {
 }
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-cubic',
+    })
+  }, [])
+
   return (
     <BrowserRouter basename="/NativeDefence-">
       <ScrollToTop />

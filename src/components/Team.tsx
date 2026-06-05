@@ -36,7 +36,7 @@ const team = [
 ];
 
 export default function Team() {
-  const { ref, inView } = useInView();
+  const { ref } = useInView();
 
   return (
     <section
@@ -59,7 +59,7 @@ export default function Team() {
         className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-20 sm:py-28 lg:py-36"
       >
         {/* Tag */}
-        <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
+        <div data-aos="fade-up" className="flex items-center gap-3 mb-8">
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
             style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
@@ -71,14 +71,15 @@ export default function Team() {
 
         {/* Heading */}
         <h2
-          className={`font-normal text-white mb-16 sm:mb-20 reveal ${inView ? 'in-view' : ''}`}
+          data-aos="fade-up"
+          data-aos-delay="80"
+          className="font-normal text-white mb-16 sm:mb-20"
           style={{
             fontFamily: NHG,
             fontSize: 'clamp(2rem, 6vw, 5rem)',
             lineHeight: 0.95,
             letterSpacing: '-0.03em',
             maxWidth: '700px',
-            transitionDelay: '80ms',
           }}
         >
           Leaders who built{' '}
@@ -90,10 +91,11 @@ export default function Team() {
 
         {/* Security team image banner */}
         <div
-          className={`mb-16 rounded-2xl overflow-hidden reveal ${inView ? 'in-view' : ''}`}
+          data-aos="fade-up"
+          data-aos-delay="160"
+          className="mb-16 rounded-2xl overflow-hidden"
           style={{
             border: '1px solid rgba(0,229,255,0.12)',
-            transitionDelay: '80ms',
             boxShadow: '0 0 40px rgba(0,0,0,0.4)',
           }}
         >
@@ -116,16 +118,17 @@ export default function Team() {
         {/* Team cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {team.map((m, i) => (
-            <TeamCard key={m.name} member={m} delay={i * 100} inView={inView} />
+            <TeamCard key={m.name} member={m} delay={i * 100} />
           ))}
         </div>
 
         {/* Company footer note */}
         <div
-          className={`mt-14 pt-10 reveal ${inView ? 'in-view' : ''}`}
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="mt-14 pt-10"
           style={{
             borderTop: '1px solid rgba(0,229,255,0.1)',
-            transitionDelay: '320ms',
           }}
         >
           <p style={{ fontSize: '0.95rem', lineHeight: 1.8, color: '#7a9bb5', maxWidth: '48rem' }}>
@@ -142,13 +145,15 @@ export default function Team() {
   );
 }
 
-function TeamCard({ member, delay, inView }: { member: typeof team[0]; delay: number; inView: boolean }) {
+function TeamCard({ member, delay }: { member: typeof team[0]; delay: number }) {
   const [flipped, setFlipped] = useState(false);
 
   return (
     <div
-      className={`relative reveal ${inView ? 'in-view' : ''}`}
-      style={{ transitionDelay: `${delay}ms`, perspective: '1000px', minHeight: '340px' }}
+      data-aos="fade-up"
+      data-aos-delay={delay}
+      className="relative"
+      style={{ perspective: '1000px', minHeight: '340px' }}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
     >

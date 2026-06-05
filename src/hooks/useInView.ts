@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
 
 export function useInView(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,19 +17,29 @@ export function useInView(threshold = 0.12) {
   return { ref, inView };
 }
 
-export function useCountUp(target: number, active: boolean, duration = 1800) {
+export function useCountUp(target: number, active: boolean, duration = 1.8) {
   const [count, setCount] = useState(0);
+  const valRef = useRef({ val: 0 });
+
   useEffect(() => {
     if (!active) return;
-    let start = 0;
-    const step = (ts: number) => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - p, 3); // easeOutCubic
-      setCount(Math.floor(ease * target));
-      if (p < 1) requestAnimationFrame(step);
+    const obj = valRef.current;
+    obj.val = 0; // Reset count-up target
+
+    const tween = gsap.to(obj, {
+      val: target,
+      duration: duration,
+      ease: 'power2.out',
+      onUpdate: () => {
+        setCount(Math.floor(obj.val));
+      }
+    });
+
+    return () => {
+      tween.kill();
     };
-    requestAnimationFrame(step);
   }, [active, target, duration]);
+
   return count;
 }
+

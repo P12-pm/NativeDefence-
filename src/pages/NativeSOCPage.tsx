@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoDark from '../assets/logo_dark.avif';
 import {
-  ArrowLeft, ArrowRight, ArrowUpRight, Shield, Eye, Zap,
+  ArrowLeft, ArrowRight, ArrowUpRight, Shield, Zap,
   Database, FileSearch, Users, Menu, X, Sparkles, CheckCircle
 } from 'lucide-react';
+import { useCountUp, useInView } from '../hooks/useInView';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
 const PRIMARY = '#00E5FF';
@@ -28,40 +29,42 @@ const features = [
   },
   {
     id: 'HIDS',
-    icon: Eye,
-    title: 'Host-based Intrusion Detection',
-    desc: 'Analyse system activity on endpoints to identify potential threats and mitigate risk with advanced reports and alerts. Monitor process execution, file access, and privilege changes in real time.',
-    points: ['Process & syscall monitoring', 'Rootkit & malware detection', 'Privilege escalation alerts', 'Advanced endpoint reports'],
+    icon: Shield,
+    title: 'Host Intrusion Detection System',
+    desc: 'Monitor host-level activity, system logs, file integrity, and process execution for indicators of compromise. Detect unauthorised privilege escalations and suspicious binary executions.',
+    points: ['Real-time file integrity monitoring (FIM)', 'Host process & user activity tracking', 'Rootkit and malware detection', 'System configuration auditing'],
   },
   {
     id: 'FIM',
     icon: FileSearch,
     title: 'File Integrity Monitoring',
-    desc: 'Detect unauthorised changes to critical files, system configurations and registries in real time. Stay ahead of ransomware, insider threats, and supply-chain attacks with continuous file change tracking.',
-    points: ['Real-time change detection', 'Registry & config monitoring', 'Baseline deviation alerting', 'Audit-ready change history'],
+    desc: 'Continuously track system, configuration and application files for modifications. Detect registry edits, binary tempering, and permissions changes in real-time, preventing configuration drift and stealthy attacks.',
+    points: ['Instant change alerts with diff view', 'Cryptographic hashing validation', 'Authorised changes white-listing', 'Compliance reports for PCI-DSS/HIPAA'],
   },
   {
     id: 'UEBA',
     icon: Users,
     title: 'User & Entity Behaviour Analytics',
-    desc: 'Surface insider threats and compromised accounts through ML-driven behavioural baselines and anomaly detection. Identify lateral movement and data exfiltration before they escalate.',
-    points: ['Behavioural baseline learning', 'ML-powered anomaly scoring', 'Lateral movement detection', 'Insider threat early warning'],
+    desc: 'Build baseline models for normal user behavior. Detect credential abuse, compromised accounts, and insider threats by identifying anomalous time-of-day logins, unusual access targets, or unexpected bulk data downloads.',
+    points: ['Machine learning-driven profiling', 'Insider threat risk scoring', 'Anomalous behavior correlation', 'Automatic high-risk session locking'],
   },
   {
-    id: 'XOAR',
+    id: 'SOAR',
     icon: Zap,
-    title: 'Extended Orchestration & Automation',
-    desc: 'Automated response playbooks neutralise threats within minutes — no manual intervention required. Coordinate actions across your entire security stack with intelligent, context-aware workflows.',
-    points: ['Pre-built response playbooks', 'Cross-tool orchestration', 'Automated threat containment', 'Human-in-the-loop escalation'],
+    title: 'Security Orchestration, Automation & Response',
+    desc: 'Accelerate containment and response times from hours to seconds. Integrate security tools with automated playbook workflows to automatically block threat IPs, quarantine infected systems, and suspend compromised credentials.',
+    points: ['Visual playbook automation builder', 'API connectors for IT tools', 'Incident case management tracker', 'Automated containment actions'],
   },
 ];
 
-/* ─── Industry verticals ─── */
+/* ─── Target Industries ─── */
 const industries = [
-  { label: 'BFSI', icon: '🏦' },
-  { label: 'Financial Services', icon: '💳' },
-  { label: 'Healthcare', icon: '🏥' },
+  { label: 'BFSI & Fintech', icon: '🏦' },
+  { label: 'Healthcare & Pharma', icon: '🏥' },
+  { label: 'Energy & Utilities', icon: '⚡' },
+  { label: 'E-Commerce', icon: '🛒' },
   { label: 'Manufacturing', icon: '🏭' },
+  { label: 'Government & Public Sector', icon: '🏛️' },
   { label: 'Legal & Audit Firms', icon: '⚖️' },
   { label: 'Education', icon: '🎓' },
   { label: 'Retail', icon: '🛍️' },
@@ -80,39 +83,6 @@ const subLinks = [
   { label: 'Why NativeSOC', href: '/whynativesoc' },
 ];
 
-/* ─── Animated counter ─── */
-function useCountUp(target: number, active: boolean, duration = 1600) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!active) return;
-    let start = 0;
-    const step = Math.ceil(target / (duration / 16));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(start);
-    }, 16);
-    return () => clearInterval(timer);
-  }, [active, target, duration]);
-  return count;
-}
-
-/* ─── useInView hook ─── */
-function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setInView(true); },
-      { threshold }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-  return { ref, inView };
-}
 
 /* ─── Stats bar ─── */
 const stats = [

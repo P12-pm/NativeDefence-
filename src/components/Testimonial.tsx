@@ -2,7 +2,7 @@ import { useInView } from '../hooks/useInView';
 import { NHG } from '../constants';
 
 export default function Testimonial() {
-  const { ref, inView } = useInView(0.2);
+  const { ref } = useInView(0.2);
 
   return (
     <section
@@ -56,7 +56,7 @@ export default function Testimonial() {
       >
         <div className="max-w-3xl">
           {/* Tag */}
-          <div className={`flex items-center gap-3 mb-12 reveal ${inView ? 'in-view' : ''}`}>
+          <div data-aos="fade-up" className="flex items-center gap-3 mb-12">
             <span
               className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
               style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
@@ -67,7 +67,7 @@ export default function Testimonial() {
           </div>
 
           {/* Stars */}
-          <div className={`flex gap-1 mb-8 reveal ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '60ms' }}>
+          <div data-aos="fade-up" data-aos-delay="60" className="flex gap-1 mb-8">
             {[...Array(5)].map((_, i) => (
               <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="#00E5FF">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -77,13 +77,14 @@ export default function Testimonial() {
 
           {/* Quote */}
           <blockquote
-            className={`font-normal text-white mb-10 reveal ${inView ? 'in-view' : ''}`}
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="font-normal text-white mb-10"
             style={{
               fontFamily: NHG,
               fontSize: 'clamp(1.4rem, 4vw, 2.6rem)',
               lineHeight: 1.2,
               letterSpacing: '-0.025em',
-              transitionDelay: '100ms',
             }}
           >
             "The knowledge and skills gained through{' '}
@@ -100,8 +101,9 @@ export default function Testimonial() {
 
           {/* Attribution */}
           <div
-            className={`flex items-center gap-4 reveal ${inView ? 'in-view' : ''}`}
-            style={{ transitionDelay: '160ms' }}
+            data-aos="fade-up"
+            data-aos-delay="160"
+            className="flex items-center gap-4"
           >
             <div
               className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-semibold text-white text-sm"
@@ -123,8 +125,10 @@ export default function Testimonial() {
 
         {/* Bottom divider with industries */}
         <div
-          className={`mt-16 sm:mt-20 pt-10 reveal ${inView ? 'in-view' : ''}`}
-          style={{ borderTop: '1px solid rgba(0,229,255,0.1)', transitionDelay: '220ms' }}
+          data-aos="fade-up"
+          data-aos-delay="220"
+          className="mt-16 sm:mt-20 pt-10"
+          style={{ borderTop: '1px solid rgba(0,229,255,0.1)' }}
         >
           <p className="text-xs tracking-widest uppercase mb-5 font-bold" style={{ color: 'rgba(0,229,255,0.5)' }}>
             Trusted across industries

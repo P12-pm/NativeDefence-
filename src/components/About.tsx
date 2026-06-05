@@ -122,6 +122,7 @@ export default function About() {
 
             {/* SOC image */}
             <div
+              data-aos="zoom-in"
               className="mb-8 rounded-2xl overflow-hidden group"
               style={{ border: '1px solid rgba(0,229,255,0.12)', boxShadow: '0 0 30px rgba(0,0,0,0.4), 0 0 15px rgba(0,229,255,0.05)' }}
             >

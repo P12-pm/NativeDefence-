@@ -4,7 +4,7 @@ import { NHG } from '../constants';
 import { ArrowRight, Mail, MapPin } from 'lucide-react';
 
 export default function Contact() {
-  const { ref, inView } = useInView();
+  const { ref } = useInView();
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
   const [sent, setSent] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -35,7 +35,7 @@ export default function Contact() {
         className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-20 sm:py-28 lg:py-36"
       >
         {/* Tag */}
-        <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
+        <div data-aos="fade-up" className="flex items-center gap-3 mb-8">
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
             style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
@@ -50,13 +50,14 @@ export default function Contact() {
           {/* Left: heading + info */}
           <div>
             <h2
-              className={`font-normal text-white mb-6 reveal ${inView ? 'in-view' : ''}`}
+              data-aos="fade-up"
+              data-aos-delay="80"
+              className="font-normal text-white mb-6"
               style={{
                 fontFamily: NHG,
                 fontSize: 'clamp(2rem, 5vw, 4rem)',
                 lineHeight: 0.95,
                 letterSpacing: '-0.03em',
-                transitionDelay: '80ms',
               }}
             >
               Let's start your{' '}
@@ -67,18 +68,21 @@ export default function Contact() {
             </h2>
 
             <p
-              className={`mb-8 reveal ${inView ? 'in-view' : ''}`}
-              style={{ fontSize: '0.95rem', lineHeight: 1.8, transitionDelay: '120ms', color: '#7a9bb5' }}
+              data-aos="fade-up"
+              data-aos-delay="120"
+              className="mb-8 text-[#7a9bb5]"
+              style={{ fontSize: '0.95rem', lineHeight: 1.8 }}
             >
               Whether you need a full SOC solution, a penetration test, or strategic guidance — our experts are ready. We typically respond within 4 hours.
             </p>
 
             {/* Contact office image */}
             <div
-              className={`mb-8 rounded-2xl overflow-hidden reveal ${inView ? 'in-view' : ''}`}
+              data-aos="fade-up"
+              data-aos-delay="130"
+              className="mb-8 rounded-2xl overflow-hidden"
               style={{
                 border: '1px solid rgba(0,229,255,0.12)',
-                transitionDelay: '130ms',
               }}
             >
               <img
@@ -90,7 +94,7 @@ export default function Contact() {
             </div>
 
             {/* Contact cards */}
-            <div className={`flex flex-col gap-4 reveal ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '160ms' }}>
+            <div data-aos="fade-up" data-aos-delay="160" className="flex flex-col gap-4">
               <a
                 href="mailto:sales@nativedefence.com"
                 className="flex items-center gap-4 p-5 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5"
@@ -145,7 +149,7 @@ export default function Contact() {
           </div>
 
           {/* Right: form */}
-          <div className={`reveal-right ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '80ms' }}>
+          <div data-aos="fade-up" data-aos-delay="80">
             {sent ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-16">
                 <div
