@@ -84,7 +84,7 @@ export default function NativeSOC() {
 
         {/* Dashboard image */}
         <div
-          className={`mb-12 rounded-2xl overflow-hidden reveal ${inView ? 'in-view' : ''}`}
+          className={`mb-12 rounded-2xl overflow-hidden reveal group ${inView ? 'in-view' : ''}`}
           style={{
             border: '1px solid rgba(0,229,255,0.12)',
             transitionDelay: '80ms',
@@ -92,9 +92,9 @@ export default function NativeSOC() {
           }}
         >
           <img
-            src="/NativeDefence-/cyber_network_protection.png"
-            alt="Cybersecurity Network Protection Platform"
-            className="w-full h-64 md:h-80 object-cover"
+            src="/NativeDefence-/cyber_threat_detection.png"
+            alt="Cybersecurity Threat Detection Command Center"
+            className="w-full h-64 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
             style={{ filter: 'brightness(0.85) saturate(1.2)' }}
           />
           <div

@@ -12,7 +12,7 @@ const services = [
     desc:  'Round-the-clock monitoring with a fully managed SOC — SIEM, XDR, HIDS, FIM, VA and XOAR in one vendor-agnostic platform built with AI, ML and human intelligence.',
     points: ['24/7 real-time monitoring & alerting', 'AI-driven threat detection & correlation', 'Automated incident response (XOAR)', 'Compliance reporting (ISO 27001, PCI-DSS, HIPAA)'],
     href:  '#nativesoc',
-    img:   '/NativeDefence-/cyber_soc_dashboard.png',
+    img:   '/NativeDefence-/cyber_soc_dashboard.jpeg',
   },
   {
     num:   '02',
@@ -30,7 +30,7 @@ const services = [
     desc:  'Upskill your security teams with hands-on courses, certifications and live threat simulations from industry experts with decades of real-world SOC experience.',
     points: ['Live instructor-led online sessions', 'Threat hunting & SOC analyst workshops', 'Industry-recognised certifications', 'Custom enterprise curricula & labs'],
     href:  '/academy',
-    img:   '/NativeDefence-/cyber_security_team.png',
+    img:   '/NativeDefence-/cyber_security_team.jpeg',
   },
   {
     num:   '04',
@@ -184,13 +184,13 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
           {/* Image */}
           <div className="sm:w-48 flex-shrink-0">
             <div
-              className="rounded-xl overflow-hidden"
-              style={{ border: '1px solid rgba(0,229,255,0.12)' }}
+              className="rounded-xl overflow-hidden group/img"
+              style={{ border: '1px solid rgba(0,229,255,0.12)', boxShadow: '0 0 20px rgba(0,0,0,0.3), 0 0 10px rgba(0,229,255,0.05)' }}
             >
               <img
                 src={service.img}
                 alt={service.title}
-                className="w-full h-32 object-cover"
+                className="w-full h-32 object-cover transition-transform duration-700 group-hover/img:scale-110"
                 style={{ filter: 'brightness(0.85) saturate(1.1)' }}
               />
             </div>

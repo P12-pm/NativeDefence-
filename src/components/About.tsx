@@ -107,13 +107,13 @@ export default function About() {
 
             {/* SOC image */}
             <div
-              className="mb-8 rounded-2xl overflow-hidden"
-              style={{ border: '1px solid rgba(0,229,255,0.12)' }}
+              className="mb-8 rounded-2xl overflow-hidden group"
+              style={{ border: '1px solid rgba(0,229,255,0.12)', boxShadow: '0 0 30px rgba(0,0,0,0.4), 0 0 15px rgba(0,229,255,0.05)' }}
             >
               <img
-                src="/NativeDefence-/cyber_soc_dashboard.png"
+                src="/NativeDefence-/cyber_soc_dashboard.jpeg"
                 alt="Cybersecurity SOC Operations Center"
-                className="w-full h-48 object-cover"
+                className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{ filter: 'brightness(0.9) saturate(1.1)' }}
               />
             </div>
