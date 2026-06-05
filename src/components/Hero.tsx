@@ -432,7 +432,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
       </div>
 
       {/* ── Hero copy ── */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-5 sm:px-6 md:px-10" style={{ minHeight: '90vh', paddingTop: '80px', paddingBottom: '80px' }}>
+      <div className="relative z-10 flex flex-col items-center justify-center px-5 sm:px-6 md:px-10" style={{ minHeight: '90vh', paddingTop: '56px', paddingBottom: '60px' }}>
         
         {/* Floating holographic security icons — desktop only */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
