@@ -1,6 +1,7 @@
 import { useInView, useCountUp } from '../hooks/useInView';
 import { NHG } from '../constants';
 import { Shield, Eye, Zap, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const stats = [
   { value: 500,  suffix: '+',  label: 'Threats blocked daily' },
@@ -36,7 +37,13 @@ export default function About() {
         className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 pt-20 sm:pt-28 lg:pt-36"
       >
         {/* Section tag */}
-        <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center gap-3 mb-8"
+        >
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
             style={{
@@ -50,18 +57,21 @@ export default function About() {
           <span className="text-sm font-medium" style={{ color: '#7a9bb5' }}>
             Introducing NativeDefence
           </span>
-        </div>
+        </motion.div>
 
         {/* Big heading */}
-        <h2
-          className={`font-normal text-white reveal ${inView ? 'in-view' : ''}`}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.08 }}
+          className="font-normal text-white"
           style={{
             fontFamily: NHG,
             fontSize: 'clamp(2rem, 6vw, 5rem)',
             lineHeight: 0.95,
             letterSpacing: '-0.03em',
             maxWidth: '820px',
-            transitionDelay: '80ms',
           }}
         >
           Expert-driven security,{' '}
@@ -69,25 +79,30 @@ export default function About() {
             delivering cyber resilience
           </span>{' '}
           in a threat‑first world.
-        </h2>
+        </motion.h2>
 
         {/* Divider line */}
-        <div
-          className={`mt-12 sm:mt-16 reveal ${inView ? 'in-view' : ''}`}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.14 }}
+          className="mt-12 sm:mt-16 origin-left"
           style={{
             height: '1px',
             background: 'rgba(0,229,255,0.1)',
-            transitionDelay: '140ms',
           }}
         />
 
         {/* Two-column content */}
-        <div
-          className={`mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 pb-16 sm:pb-20 reveal ${inView ? 'in-view' : ''}`}
-          style={{ transitionDelay: '180ms' }}
-        >
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 pb-16 sm:pb-20">
           {/* Left: body text + image + cta */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.18 }}
+          >
             <p
               style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', lineHeight: 1.75, color: '#7a9bb5' }}
               className="leading-relaxed mb-6"
@@ -126,22 +141,38 @@ export default function About() {
               Meet the team
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-          </div>
+          </motion.div>
 
           {/* Right: three feature pills */}
-          <div className="flex flex-col gap-4">
+          <motion.div
+            variants={{
+              hidden: {},
+              show: {
+                transition: {
+                  staggerChildren: 0.15
+                }
+              }
+            }}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-col gap-4"
+          >
             {[
               { icon: Shield, title: 'Proactive Defence', desc: 'AI & ML models trained on millions of threat signatures detect zero-day attacks before they land.' },
               { icon: Eye,    title: 'Full Visibility',   desc: 'Unified view across endpoints, network, cloud and containers — no blind spots, no silos.' },
               { icon: Zap,    title: 'Instant Response',  desc: 'Automated XOAR playbooks contain and remediate threats in minutes, not hours or days.' },
-            ].map(({ icon: Icon, title, desc }, i) => (
-              <div
+            ].map(({ icon: Icon, title, desc }) => (
+              <motion.div
                 key={title}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                }}
                 className="grad-border flex items-start gap-4 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5 group"
                 style={{
                   background: 'rgba(17,24,39,0.7)',
                   border: '1px solid rgba(0,229,255,0.1)',
-                  animationDelay: `${i * 0.2}s`,
                 }}
               >
                 <div
@@ -154,9 +185,9 @@ export default function About() {
                   <p className="font-semibold text-white text-sm mb-1">{title}</p>
                   <p className="text-sm leading-relaxed" style={{ color: '#7a9bb5' }}>{desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 

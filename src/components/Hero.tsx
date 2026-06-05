@@ -3,6 +3,48 @@ import { Play, Shield, Menu, X, ChevronDown, Terminal, Wifi, ArrowRight } from '
 import logoLight from '../assets/logo_light.avif';
 import logoDark from '../assets/logo_dark.avif';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import type { Variants } from 'framer-motion';
+
+const heroContentVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
+    }
+  }
+};
+
+const heroItemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+  }
+};
+
+const drawerContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04,
+      delayChildren: 0.05
+    }
+  }
+};
+
+const drawerItemVariants: Variants = {
+  hidden: { opacity: 0, x: 24 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', damping: 25, stiffness: 220 }
+  }
+};
 import HackerText from './HackerText';
 import ThreatDashboard from './ThreatDashboard';
 
@@ -216,50 +258,53 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
               )}
 
               {/* Dropdown panel */}
-              {item.children && (
-                <div
-                  onMouseEnter={() => handleMouseEnter(item.label)}
-                  onMouseLeave={handleMouseLeave}
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50"
-                  style={{ pointerEvents: openDropdown === item.label ? 'auto' : 'none' }}
-                >
-                  <div
-                    className="dropdown-panel rounded-2xl shadow-2xl overflow-hidden transition-all duration-300"
-                    style={{
-                      minWidth: '240px',
-                      opacity: openDropdown === item.label ? 1 : 0,
-                      transform: openDropdown === item.label ? 'translateY(0) scale(1)' : 'translateY(-12px) scale(0.97)',
-                      background: 'rgba(10,15,31,0.95)',
-                      backdropFilter: 'blur(24px)',
-                      WebkitBackdropFilter: 'blur(24px)',
-                      border: '1px solid rgba(0,229,255,0.18)',
-                      boxShadow: '0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(0,229,255,0.08), inset 0 1px 0 rgba(0,229,255,0.1)',
-                    }}
+              <AnimatePresence>
+                {item.children && openDropdown === item.label && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -12, scale: 0.97, x: '-50%' }}
+                    animate={{ opacity: 1, y: 0, scale: 1, x: '-50%' }}
+                    exit={{ opacity: 0, y: -12, scale: 0.97, x: '-50%' }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    onMouseEnter={() => handleMouseEnter(item.label)}
+                    onMouseLeave={handleMouseLeave}
+                    className="absolute top-full left-1/2 pt-2 z-50"
                   >
-                    <div className="py-2 px-2 flex flex-col gap-0.5">
-                      {item.children.map(child =>
-                        child.href.startsWith('/') ? (
-                          <Link
-                            key={child.href}
-                            to={child.href}
-                            className="dropdown-item block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] py-2.5 rounded-xl transition-all duration-200"
-                          >
-                            {child.label}
-                          </Link>
-                        ) : (
-                          <a
-                            key={child.href}
-                            href={child.href}
-                            className="dropdown-item block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] py-2.5 rounded-xl transition-all duration-200"
-                          >
-                            {child.label}
-                          </a>
-                        )
-                      )}
+                    <div
+                      className="dropdown-panel rounded-2xl shadow-2xl overflow-hidden"
+                      style={{
+                        minWidth: '240px',
+                        background: 'rgba(10,15,31,0.95)',
+                        backdropFilter: 'blur(24px)',
+                        WebkitBackdropFilter: 'blur(24px)',
+                        border: '1px solid rgba(0,229,255,0.18)',
+                        boxShadow: '0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(0,229,255,0.08), inset 0 1px 0 rgba(0,229,255,0.1)',
+                      }}
+                    >
+                      <div className="py-2 px-2 flex flex-col gap-0.5">
+                        {item.children.map(child =>
+                          child.href.startsWith('/') ? (
+                            <Link
+                              key={child.href}
+                              to={child.href}
+                              className="dropdown-item block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] py-2.5 rounded-xl transition-all duration-200"
+                            >
+                              {child.label}
+                            </Link>
+                          ) : (
+                            <a
+                              key={child.href}
+                              href={child.href}
+                              className="dropdown-item block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] py-2.5 rounded-xl transition-all duration-200"
+                            >
+                              {child.label}
+                            </a>
+                          )
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </div>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
 
@@ -295,141 +340,163 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         </div>
       </nav>
 
-      {/* ── Mobile overlay ──────────────────────────────── */}
-      <div
-        className={`lg:hidden fixed inset-0 z-[60] transition-opacity duration-300 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => setMenuOpen(false)}
-      >
-        <div className="absolute inset-0 bg-[#0A0F1F]/60 backdrop-blur-sm" />
-      </div>
-
-      {/* ── Mobile drawer ───────────────────────────────── */}
-      <div
-        className={`lg:hidden fixed top-0 right-0 bottom-0 z-[60] w-[88%] max-w-sm flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-        style={{
-          background: 'rgba(10,15,31,0.97)',
-          backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)',
-          borderLeft: '1px solid rgba(0,229,255,0.15)',
-          boxShadow: '-20px 0 60px rgba(0,0,0,0.5)',
-        }}
-      >
-        {/* Drawer header */}
-        <div
-          className="flex items-center justify-between px-6 pt-6 pb-4 flex-shrink-0"
-          style={{ borderBottom: '1px solid rgba(0,229,255,0.1)' }}
-        >
-          <span className="font-semibold text-[#00E5FF]" style={{ fontFamily: NHG }}>
-            NativeDefence<sup className="text-[9px]">™</sup>
-          </span>
-          <div className="flex items-center gap-2">
-            
-            <button
+      {/* ── Mobile Overlay & Drawer ── */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            {/* Mobile overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden fixed inset-0 z-[60]"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center w-8 h-8 rounded-full"
-              style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.15)' }}
             >
-              <X className="w-4 h-4 text-[#00E5FF]" />
-            </button>
-          </div>
-        </div>
+              <div className="absolute inset-0 bg-[#0A0F1F]/60 backdrop-blur-sm" />
+            </motion.div>
 
-        {/* Drawer nav list */}
-        <div className="flex-1 overflow-y-auto py-3">
-          {NAV_ITEMS.map((item, i) => (
-            <div key={item.label}>
-              {/* Row */}
+            {/* Mobile drawer */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+              className="lg:hidden fixed top-0 right-0 bottom-0 z-[60] w-[88%] max-w-sm flex flex-col"
+              style={{
+                background: 'rgba(10,15,31,0.97)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                borderLeft: '1px solid rgba(0,229,255,0.15)',
+                boxShadow: '-20px 0 60px rgba(0,0,0,0.5)',
+              }}
+            >
+              {/* Drawer header */}
               <div
-                className={`flex items-center justify-between px-6 transition-all duration-500 ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
-                style={{ transitionDelay: menuOpen ? `${100 + i * 60}ms` : '0ms' }}
+                className="flex items-center justify-between px-6 pt-6 pb-4 flex-shrink-0"
+                style={{ borderBottom: '1px solid rgba(0,229,255,0.1)' }}
               >
-                {item.href.startsWith('/') ? (
-                  <Link
-                    to={item.href}
-                    onClick={() => !item.children && setMenuOpen(false)}
-                    className="flex-1 py-4 text-xl font-semibold text-white hover:text-[#00E5FF] transition-colors"
-                    style={{ fontFamily: NHG, letterSpacing: '-0.02em' }}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <a
-                    href={item.href}
-                    onClick={() => !item.children && setMenuOpen(false)}
-                    className="flex-1 py-4 text-xl font-semibold text-white hover:text-[#00E5FF] transition-colors"
-                    style={{ fontFamily: NHG, letterSpacing: '-0.02em' }}
-                  >
-                    {item.label}
-                  </a>
-                )}
-                {item.children && (
+                <span className="font-semibold text-[#00E5FF]" style={{ fontFamily: NHG }}>
+                  NativeDefence<sup className="text-[9px]">™</sup>
+                </span>
+                <div className="flex items-center gap-2">
                   <button
-                    onClick={() => setMobileExpand(mobileExpand === item.label ? null : item.label)}
-                    className="flex items-center justify-center w-8 h-8 rounded-full flex-shrink-0"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center justify-center w-8 h-8 rounded-full"
                     style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.15)' }}
                   >
-                    <ChevronDown
-                      className={`w-4 h-4 text-[#00E5FF] transition-transform duration-300 ${mobileExpand === item.label ? 'rotate-180' : 'rotate-0'}`}
-                    />
+                    <X className="w-4 h-4 text-[#00E5FF]" />
                   </button>
-                )}
+                </div>
               </div>
 
-              {/* Divider */}
-              <div className="h-px mx-6" style={{ background: 'rgba(0,229,255,0.06)' }} />
-
-              {/* Sub-items */}
-              {item.children && (
-                <div
-                  className="overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                  style={{ maxHeight: mobileExpand === item.label ? `${item.children.length * 56}px` : '0px' }}
-                >
-                  <div className="pt-1 pb-3 pl-10 pr-6 flex flex-col gap-0.5" style={{ background: 'rgba(0,229,255,0.03)' }}>
-                    {item.children.map(child =>
-                      child.href.startsWith('/') ? (
+              {/* Drawer nav list */}
+              <motion.div
+                variants={drawerContainerVariants}
+                initial="hidden"
+                animate="show"
+                className="flex-1 overflow-y-auto py-3"
+              >
+                {NAV_ITEMS.map((item) => (
+                  <div key={item.label}>
+                    {/* Row */}
+                    <motion.div
+                      variants={drawerItemVariants}
+                      className="flex items-center justify-between px-6"
+                    >
+                      {item.href.startsWith('/') ? (
                         <Link
-                          key={child.href}
-                          to={child.href}
-                          onClick={() => setMenuOpen(false)}
-                          className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors"
-                          style={{ borderBottom: '1px solid rgba(0,229,255,0.05)' }}
+                          to={item.href}
+                          onClick={() => !item.children && setMenuOpen(false)}
+                          className="flex-1 py-4 text-xl font-semibold text-white hover:text-[#00E5FF] transition-colors"
+                          style={{ fontFamily: NHG, letterSpacing: '-0.02em' }}
                         >
-                          {child.label}
+                          {item.label}
                         </Link>
                       ) : (
                         <a
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setMenuOpen(false)}
-                          className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors"
-                          style={{ borderBottom: '1px solid rgba(0,229,255,0.05)' }}
+                          href={item.href}
+                          onClick={() => !item.children && setMenuOpen(false)}
+                          className="flex-1 py-4 text-xl font-semibold text-white hover:text-[#00E5FF] transition-colors"
+                          style={{ fontFamily: NHG, letterSpacing: '-0.02em' }}
                         >
-                          {child.label}
+                          {item.label}
                         </a>
-                      )
+                      )}
+                      {item.children && (
+                        <button
+                          onClick={() => setMobileExpand(mobileExpand === item.label ? null : item.label)}
+                          className="flex items-center justify-center w-8 h-8 rounded-full flex-shrink-0"
+                          style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.15)' }}
+                        >
+                          <ChevronDown
+                            className={`w-4 h-4 text-[#00E5FF] transition-transform duration-300 ${mobileExpand === item.label ? 'rotate-180' : 'rotate-0'}`}
+                          />
+                        </button>
+                      )}
+                    </motion.div>
+
+                    {/* Divider */}
+                    <div className="h-px mx-6" style={{ background: 'rgba(0,229,255,0.06)' }} />
+
+                    {/* Sub-items */}
+                    {item.children && (
+                      <div
+                        className="overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                        style={{ maxHeight: mobileExpand === item.label ? `${item.children.length * 56}px` : '0px' }}
+                      >
+                        <div className="pt-1 pb-3 pl-10 pr-6 flex flex-col gap-0.5" style={{ background: 'rgba(0,229,255,0.03)' }}>
+                          {item.children.map(child =>
+                            child.href.startsWith('/') ? (
+                              <Link
+                                key={child.href}
+                                to={child.href}
+                                onClick={() => setMenuOpen(false)}
+                                className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors"
+                                style={{ borderBottom: '1px solid rgba(0,229,255,0.05)' }}
+                              >
+                                {child.label}
+                              </Link>
+                            ) : (
+                              <a
+                                key={child.href}
+                                href={child.href}
+                                onClick={() => setMenuOpen(false)}
+                                className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors"
+                                style={{ borderBottom: '1px solid rgba(0,229,255,0.05)' }}
+                              >
+                                {child.label}
+                              </a>
+                            )
+                          )}
+                        </div>
+                      </div>
                     )}
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+                ))}
+              </motion.div>
 
-        {/* Drawer footer CTA */}
-        <div
-          className={`flex-shrink-0 p-5 transition-all duration-500 ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
-          style={{ transitionDelay: menuOpen ? '500ms' : '0ms', borderTop: '1px solid rgba(0,229,255,0.1)' }}
-        >
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="block w-full text-center text-[#0A0F1F] text-sm font-bold px-5 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]"
-            style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
-          >
-            Free Assessment
-          </a>
-        </div>
-      </div>
+              {/* Drawer footer CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                className="flex-shrink-0 p-5"
+                style={{ borderTop: '1px solid rgba(0,229,255,0.1)' }}
+              >
+                <a
+                  href="#contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="block w-full text-center text-[#0A0F1F] text-sm font-bold px-5 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]"
+                  style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
+                >
+                  Free Assessment
+                </a>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ── Hero copy ── */}
       <div className="relative z-10 flex flex-col items-center justify-center px-5 sm:px-6 md:px-10" style={{ minHeight: '90vh', paddingTop: '56px', paddingBottom: '60px' }}>
@@ -472,10 +539,16 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           />
 
           {/* Left Column */}
-          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10">
+          <motion.div
+            variants={heroContentVariants}
+            initial="hidden"
+            animate="visible"
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10"
+          >
 
             {/* Cyber badge */}
-            <div
+            <motion.div
+              variants={heroItemVariants}
               className="inline-flex items-center gap-2 mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 rounded-full"
               style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.25)', backdropFilter: 'blur(8px)' }}
             >
@@ -483,11 +556,12 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
               <span className="text-[10px] sm:text-[11px] font-bold text-[#00E5FF] tracking-[0.10em] sm:tracking-[0.12em] uppercase">
                 NativeSOC™ — Advanced Threat Intelligence
               </span>
-            </div>
+            </motion.div>
 
             {/* Heading */}
-            <h1
-              className="font-normal leading-[1.05] text-white max-w-3xl animate-reveal"
+            <motion.h1
+              variants={heroItemVariants}
+              className="font-normal leading-[1.05] text-white max-w-3xl"
               style={{
                 fontFamily: NHG,
                 fontSize: 'clamp(1.8rem, 6vw, 4rem)',
@@ -501,18 +575,19 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
               >
                 <HackerText text="Cyber Security" delay={300} triggerOnHover />
               </span>
-            </h1>
+            </motion.h1>
 
             {/* Subheading */}
-            <p
+            <motion.p
+              variants={heroItemVariants}
               className="mt-3 sm:mt-4 text-[#7a9bb5] text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-xl"
               style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
             >
               Stay ahead of the threat, Stay ahead in the Fight.
-            </p>
+            </motion.p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-5 w-full sm:w-auto justify-center lg:justify-start">
+            <motion.div variants={heroItemVariants} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-5 w-full sm:w-auto justify-center lg:justify-start">
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 text-[#0A0F1F] text-sm font-bold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 group"
@@ -530,10 +605,10 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                 Explore Platform
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
-            </div>
+            </motion.div>
 
             {/* Mobile quick stats — shown only on mobile instead of dashboard */}
-            <div className="flex items-center gap-3 mt-5 lg:hidden">
+            <motion.div variants={heroItemVariants} className="flex items-center gap-3 mt-5 lg:hidden">
               {[
                 { label: 'Threats Blocked', value: '2,847+', color: '#00E5FF' },
                 { label: 'Uptime', value: '99.9%', color: '#3B82F6' },
@@ -544,13 +619,18 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                   <div className="text-[9px] text-[#7a9bb5] uppercase tracking-wider mt-0.5 leading-tight">{s.label}</div>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: Threat Dashboard — desktop only */}
-          <div className="hidden lg:flex lg:col-span-5 w-full relative z-10 flex-col gap-4">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:flex lg:col-span-5 w-full relative z-10 flex-col gap-4"
+          >
             <ThreatDashboard />
-          </div>
+          </motion.div>
 
         </div>
       </div>

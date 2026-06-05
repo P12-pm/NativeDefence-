@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 
 // Scroll to top on every route change
 function ScrollToTop() {
@@ -88,10 +89,12 @@ function HomePage() {
 
   return (
     <>
-      {loading && <LoadingScreen onComplete={() => {
-        window.scrollTo(0, 0)
-        setLoading(false)
-      }} />}
+      <AnimatePresence>
+        {loading && <LoadingScreen onComplete={() => {
+          window.scrollTo(0, 0)
+          setLoading(false)
+        }} />}
+      </AnimatePresence>
       
       <div className="min-h-screen transition-colors duration-500 relative" style={{ background: '#0A0F1F' }}>
         <MouseFollowGlow />

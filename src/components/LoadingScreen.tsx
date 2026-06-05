@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Shield, Cpu, Activity } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -20,7 +21,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [logs, setLogs] = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
   const [stage, setStage] = useState(0);
-  const [isFading, setIsFading] = useState(false);
 
   // Speed up progress bar and line printing
   useEffect(() => {
@@ -55,21 +55,18 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   useEffect(() => {
     if (progress === 100) {
       const delay = setTimeout(() => {
-        setIsFading(true);
-        const fadeDelay = setTimeout(() => {
-          onComplete();
-        }, 500); // match transition duration
-        return () => clearTimeout(fadeDelay);
-      }, 400); // delay before fading
+        onComplete();
+      }, 400); // delay before completion
       return () => clearTimeout(delay);
     }
   }, [progress, onComplete]);
 
   return (
-    <div
-      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#0A0F1F] transition-opacity duration-500 ease-out select-none ${
-        isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'
-      }`}
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#0A0F1F] select-none"
     >
       {/* Background Cyber Grid */}
       <div className="absolute inset-0 cyber-grid-bg opacity-20 pointer-events-none" />
@@ -161,6 +158,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <span>AES-256</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

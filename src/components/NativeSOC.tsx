@@ -1,7 +1,22 @@
-import { useInView } from '../hooks/useInView';
 import { NHG } from '../constants';
 import { ArrowRight } from 'lucide-react';
 import TerminalSection from './TerminalSection';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
+
+const socGridVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+};
+
+const socItemVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+};
 
 const features = [
   { id: 'SIEM',  title: 'Security Information & Event Management', desc: 'Centralise and correlate log data from every source across your organisation for complete, real-time security intelligence.' },
@@ -19,8 +34,6 @@ const verticals = [
 ];
 
 export default function NativeSOC() {
-  const { ref, inView } = useInView();
-
   return (
     <section
       id="nativesoc"
@@ -38,11 +51,16 @@ export default function NativeSOC() {
       />
 
       <div
-        ref={ref}
         className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-20 sm:py-28 lg:py-36"
       >
         {/* Section tag */}
-        <div className={`flex items-center gap-3 mb-8 reveal ${inView ? 'in-view' : ''}`}>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center gap-3 mb-8"
+        >
           <span
             className="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full"
             style={{ background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.25)', color: '#00E5FF' }}
@@ -50,19 +68,22 @@ export default function NativeSOC() {
             02
           </span>
           <span className="text-sm font-medium" style={{ color: '#7a9bb5' }}>Platform Overview</span>
-        </div>
+        </motion.div>
 
         {/* Heading row */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16 sm:mb-20">
-          <h2
-            className={`font-normal text-white reveal ${inView ? 'in-view' : ''}`}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.08 }}
+            className="font-normal text-white"
             style={{
               fontFamily: NHG,
               fontSize: 'clamp(2rem, 6vw, 5rem)',
               lineHeight: 0.95,
               letterSpacing: '-0.03em',
               maxWidth: '700px',
-              transitionDelay: '80ms',
             }}
           >
             NativeSOC —{' '}
@@ -70,24 +91,31 @@ export default function NativeSOC() {
               your complete
             </span>{' '}
             cyber defence platform.
-          </h2>
+          </motion.h2>
 
-          <a
+          <motion.a
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.15 }}
             href="#contact"
-            className={`hidden lg:inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300 group reveal ${inView ? 'in-view' : ''} flex-shrink-0`}
-            style={{ color: '#00E5FF', transitionDelay: '100ms' }}
+            className="hidden lg:inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300 group flex-shrink-0"
+            style={{ color: '#00E5FF' }}
           >
             Get a demo
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          </motion.a>
         </div>
 
         {/* Dashboard image */}
-        <div
-          className={`mb-12 rounded-2xl overflow-hidden reveal group ${inView ? 'in-view' : ''}`}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="mb-12 rounded-2xl overflow-hidden group"
           style={{
             border: '1px solid rgba(0,229,255,0.12)',
-            transitionDelay: '80ms',
             boxShadow: '0 0 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,229,255,0.05)',
           }}
         >
@@ -104,36 +132,60 @@ export default function NativeSOC() {
             <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
             <span className="text-xs font-mono" style={{ color: '#00E5FF' }}>NativeSOC™ Platform — Real-time threat monitoring active</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Features grid */}
-        <div
+        <motion.div
+          variants={socGridVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px rounded-2xl overflow-hidden mb-16"
           style={{ background: 'rgba(0,229,255,0.08)' }}
         >
-          {features.map((f, i) => (
-            <FeatureCell key={f.id} feature={f} delay={i * 60} inView={inView} />
+          {features.map((f) => (
+            <FeatureCell key={f.id} feature={f} />
           ))}
-        </div>
+        </motion.div>
 
         {/* Verticals strip */}
-        <div className={`reveal ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '300ms' }}>
-          <p
+        <div className="relative">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
             className="text-xs font-bold tracking-widest uppercase mb-5"
             style={{ color: '#00E5FF' }}
           >
             Industry Coverage
-          </p>
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            {verticals.map((v, i) => (
-              <span
+          </motion.p>
+          <motion.div
+            variants={{
+              hidden: {},
+              show: {
+                transition: {
+                  staggerChildren: 0.03
+                }
+              }
+            }}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-wrap gap-2 sm:gap-3"
+          >
+            {verticals.map((v) => (
+              <motion.span
                 key={v}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  show: { opacity: 1, scale: 1, transition: { duration: 0.4 } }
+                }}
                 className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
                 style={{
                   color: '#c8e0f0',
                   background: 'rgba(17,24,39,0.7)',
                   border: '1px solid rgba(0,229,255,0.1)',
-                  transitionDelay: `${i * 30}ms`,
                   cursor: 'default',
                 }}
                 onMouseEnter={e => {
@@ -146,30 +198,36 @@ export default function NativeSOC() {
                 }}
               >
                 {v}
-              </span>
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Diagnostic CLI Console Simulator */}
-        <div className="mt-16 sm:mt-24 max-w-4xl mx-auto reveal" style={{ transitionDelay: '400ms' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 sm:mt-24 max-w-4xl mx-auto"
+        >
           <p className="text-xs font-bold tracking-widest uppercase mb-4 text-[#00E5FF] text-center">
             Diagnostics Laboratory Sandbox
           </p>
           <TerminalSection />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-function FeatureCell({ feature, delay, inView }: { feature: typeof features[0]; delay: number; inView: boolean }) {
+function FeatureCell({ feature }: { feature: typeof features[0] }) {
   return (
-    <div
-      className={`p-6 sm:p-8 group hover:-translate-y-0.5 transition-all duration-300 reveal ${inView ? 'in-view' : ''} cursor-default`}
+    <motion.div
+      variants={socItemVariants}
+      className="p-6 sm:p-8 group hover:-translate-y-0.5 transition-all duration-300 cursor-default"
       style={{
         background: '#111827',
-        transitionDelay: `${delay}ms`,
       }}
       onMouseEnter={e => {
         (e.currentTarget as HTMLElement).style.background = '#1F2937';
@@ -201,6 +259,6 @@ function FeatureCell({ feature, delay, inView }: { feature: typeof features[0]; 
       <p className="text-sm leading-relaxed" style={{ color: '#7a9bb5' }}>
         {feature.desc}
       </p>
-    </div>
+    </motion.div>
   );
 }

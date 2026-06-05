@@ -3,6 +3,7 @@ import { useInView } from '../hooks/useInView';
 import { NHG } from '../constants';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const services = [
   {
@@ -176,64 +177,71 @@ function ServiceRow({ service, delay, inView }: { service: typeof services[0]; d
       </button>
 
       {/* Expanded body */}
-      <div
-        className="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-        style={{ maxHeight: open ? '500px' : '0px' }}
-      >
-        <div className="px-5 sm:px-8 pb-8 sm:pb-10 flex flex-col sm:flex-row gap-8 sm:gap-16">
-          {/* Image */}
-          <div className="sm:w-48 flex-shrink-0">
-            <div
-              className="rounded-xl overflow-hidden group/img"
-              style={{ border: '1px solid rgba(0,229,255,0.12)', boxShadow: '0 0 20px rgba(0,0,0,0.3), 0 0 10px rgba(0,229,255,0.05)' }}
-            >
-              <img
-                src={service.img}
-                alt={service.title}
-                className="w-full h-32 object-cover transition-transform duration-700 group-hover/img:scale-110"
-                style={{ filter: 'brightness(0.85) saturate(1.1)' }}
-              />
-            </div>
-          </div>
-
-          <p className="flex-1 leading-relaxed" style={{ fontSize: '0.95rem', color: '#7a9bb5' }}>
-            {service.desc}
-          </p>
-
-          <div className="flex-1">
-            <ul className="flex flex-col gap-2.5">
-              {service.points.map(pt => (
-                <li key={pt} className="flex items-start gap-2.5 text-sm" style={{ color: '#c8e0f0' }}>
-                  <span
-                    className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    style={{ background: '#00E5FF', boxShadow: '0 0 6px rgba(0,229,255,0.5)' }}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.04, 0.62, 0.23, 0.98] }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 sm:px-8 pb-8 sm:pb-10 flex flex-col sm:flex-row gap-8 sm:gap-16">
+              {/* Image */}
+              <div className="sm:w-48 flex-shrink-0">
+                <div
+                  className="rounded-xl overflow-hidden group/img"
+                  style={{ border: '1px solid rgba(0,229,255,0.12)', boxShadow: '0 0 20px rgba(0,0,0,0.3), 0 0 10px rgba(0,229,255,0.05)' }}
+                >
+                  <img
+                    src={service.img}
+                    alt={service.title}
+                    className="w-full h-32 object-cover transition-transform duration-700 group-hover/img:scale-110"
+                    style={{ filter: 'brightness(0.85) saturate(1.1)' }}
                   />
-                  {pt}
-                </li>
-              ))}
-            </ul>
-            {service.href.startsWith('/') ? (
-              <Link
-                to={service.href}
-                className="inline-flex items-center gap-2 mt-6 text-sm font-semibold hover:gap-3 transition-all duration-300 group/link"
-                style={{ color: '#00E5FF' }}
-              >
-                Learn more
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-              </Link>
-            ) : (
-              <a
-                href={service.href}
-                className="inline-flex items-center gap-2 mt-6 text-sm font-semibold hover:gap-3 transition-all duration-300 group/link"
-                style={{ color: '#00E5FF' }}
-              >
-                Learn more
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
+                </div>
+              </div>
+
+              <p className="flex-1 leading-relaxed" style={{ fontSize: '0.95rem', color: '#7a9bb5' }}>
+                {service.desc}
+              </p>
+
+              <div className="flex-1">
+                <ul className="flex flex-col gap-2.5">
+                  {service.points.map(pt => (
+                    <li key={pt} className="flex items-start gap-2.5 text-sm" style={{ color: '#c8e0f0' }}>
+                      <span
+                        className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: '#00E5FF', boxShadow: '0 0 6px rgba(0,229,255,0.5)' }}
+                      />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                {service.href.startsWith('/') ? (
+                  <Link
+                    to={service.href}
+                    className="inline-flex items-center gap-2 mt-6 text-sm font-semibold hover:gap-3 transition-all duration-300 group/link"
+                    style={{ color: '#00E5FF' }}
+                  >
+                    Learn more
+                    <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                  </Link>
+                ) : (
+                  <a
+                    href={service.href}
+                    className="inline-flex items-center gap-2 mt-6 text-sm font-semibold hover:gap-3 transition-all duration-300 group/link"
+                    style={{ color: '#00E5FF' }}
+                  >
+                    Learn more
+                    <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                  </a>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
