@@ -99,7 +99,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
   };
 
   return (
-    <section id="home" className="relative w-full min-h-screen overflow-hidden" style={{ background: '#0A0F1F' }}>
+    <section id="home" className="relative w-full overflow-hidden" style={{ background: '#0A0F1F', minHeight: '90vh' }}>
 
       {/* ── Background Video ─────────────────────────── */}
       <div className="absolute inset-0 z-0">
@@ -432,7 +432,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
       </div>
 
       {/* ── Hero copy ── */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-24 sm:pt-32 pb-32 sm:pb-24 px-5 sm:px-6 md:px-10">
+      <div className="relative z-10 flex flex-col items-center justify-center px-5 sm:px-6 md:px-10" style={{ minHeight: '90vh', paddingTop: '80px', paddingBottom: '80px' }}>
         
         {/* Floating holographic security icons — desktop only */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
@@ -463,7 +463,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         </div>
 
         {/* ── Hero Two-Column Content Grid ── */}
-        <div className="relative z-10 w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="relative z-10 w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
           {/* Ambient glow */}
           <div
@@ -476,7 +476,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
             {/* Cyber badge */}
             <div
-              className="inline-flex items-center gap-2 mb-5 sm:mb-6 px-3 sm:px-4 py-1.5 rounded-full"
+              className="inline-flex items-center gap-2 mb-3 sm:mb-4 px-3 sm:px-4 py-1.5 rounded-full"
               style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.25)', backdropFilter: 'blur(8px)' }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] animate-pulse" />
@@ -490,7 +490,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
               className="font-normal leading-[1.05] text-white max-w-3xl animate-reveal"
               style={{
                 fontFamily: NHG,
-                fontSize: 'clamp(1.9rem, 7vw, 4.5rem)',
+                fontSize: 'clamp(1.8rem, 6vw, 4rem)',
                 letterSpacing: '-0.03em',
               }}
             >
@@ -505,14 +505,14 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
             {/* Subheading */}
             <p
-              className="mt-5 sm:mt-7 text-[#7a9bb5] text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-xl"
+              className="mt-3 sm:mt-4 text-[#7a9bb5] text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-xl"
               style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}
             >
               Stay ahead of the threat, Stay ahead in the Fight.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-8 w-full sm:w-auto justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-5 w-full sm:w-auto justify-center lg:justify-start">
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 text-[#0A0F1F] text-sm font-bold px-6 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 group"
@@ -533,7 +533,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
             </div>
 
             {/* Mobile quick stats — shown only on mobile instead of dashboard */}
-            <div className="flex items-center gap-3 mt-7 lg:hidden">
+            <div className="flex items-center gap-3 mt-5 lg:hidden">
               {[
                 { label: 'Threats Blocked', value: '2,847+', color: '#00E5FF' },
                 { label: 'Uptime', value: '99.9%', color: '#3B82F6' },
@@ -548,7 +548,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           </div>
 
           {/* Right Column: Threat Dashboard — desktop only */}
-          <div className="hidden lg:flex lg:col-span-5 w-full relative z-10 flex-col gap-6">
+          <div className="hidden lg:flex lg:col-span-5 w-full relative z-10 flex-col gap-4">
             <ThreatDashboard />
           </div>
 
@@ -556,7 +556,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
       </div>
 
       {/* ── Bottom SOC info — desktop only ── */}
-      <div className="hidden sm:block absolute left-6 md:left-10 bottom-8 md:bottom-10 z-10 max-w-xs">
+      <div className="hidden sm:block absolute left-6 md:left-10 bottom-4 md:bottom-6 z-10 max-w-xs">
         <div
           className="p-4 rounded-2xl"
           style={{ background: 'rgba(10,15,31,0.7)', backdropFilter: 'blur(16px)', border: '1px solid rgba(0,229,255,0.15)' }}
@@ -583,10 +583,10 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
         </div>
       </div>
 
-      {/* ── Bottom-right live status ──────────────────── */}
-      <div className="hidden sm:flex absolute right-6 md:right-10 bottom-8 md:bottom-10 z-10 items-center gap-3">
+      {/* ── Bottom-right live status ────────────────── */}
+      <div className="hidden sm:flex absolute right-6 md:right-10 bottom-4 z-10 items-center gap-3">
         <div
-          className="flex items-center gap-2 px-3 py-2 rounded-full"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full"
           style={{
             background: 'rgba(10,15,31,0.7)',
             backdropFilter: 'blur(12px)',
