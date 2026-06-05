@@ -143,29 +143,29 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
       {/* ── NAV ────────────────────────────────────────── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-500 ${
+        className={`nav-glow-line fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-500 ${
           scrolled
-            ? 'py-3 sm:py-3.5 bg-[#0A0F1F]/90 backdrop-blur-2xl border-b border-[rgba(0,229,255,0.15)] shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
+            ? 'scrolled py-3 sm:py-3.5 bg-[#0A0F1F]/90 backdrop-blur-2xl border-b border-[rgba(0,229,255,0.15)] shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
             : 'py-4 sm:py-5 bg-[#0A0F1F]/40 backdrop-blur-xl'
         }`}
       >
 
         {/* Logo */}
         <div
-          className="flex items-center cursor-pointer flex-shrink-0"
+          className="flex items-center cursor-pointer flex-shrink-0 group"
           onClick={() => onNavClick('home')}
         >
           <img
             src={isDark ? logoDark : logoLight}
             alt="NativeDefence Logo"
-            className="transition-all duration-300 object-contain"
+            className="transition-all duration-300 object-contain group-hover:drop-shadow-[0_0_12px_rgba(0,229,255,0.4)] group-hover:scale-105"
             style={{ height: '45px', width: 'auto' }}
           />
         </div>
 
         {/* ── Desktop pill nav ─────────────────────────── */}
         <div
-          className="hidden lg:flex items-center rounded-full px-2 py-1.5 gap-0.5"
+          className="nav-pill-container hidden lg:flex items-center rounded-full px-2 py-1.5 gap-0.5"
           style={{
             background: 'rgba(10,15,31,0.7)',
             backdropFilter: 'blur(16px)',
@@ -186,8 +186,8 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
               {item.href.startsWith('/') ? (
                 <Link
                   to={item.href}
-                  className={`inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap ${i === 0
-                    ? 'font-semibold text-[#00E5FF] bg-[rgba(0,229,255,0.1)]'
+                  className={`nav-link-hover inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap ${i === 0
+                    ? 'nav-link-active font-semibold text-[#00E5FF] bg-[rgba(0,229,255,0.1)]'
                     : 'font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)]'
                     }`}
                 >
@@ -201,8 +201,8 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
               ) : (
                 <a
                   href={item.href}
-                  className={`inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap ${i === 0
-                    ? 'font-semibold text-[#00E5FF] bg-[rgba(0,229,255,0.1)]'
+                  className={`nav-link-hover inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full transition-all duration-200 whitespace-nowrap ${i === 0
+                    ? 'nav-link-active font-semibold text-[#00E5FF] bg-[rgba(0,229,255,0.1)]'
                     : 'font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)]'
                     }`}
                 >
@@ -224,16 +224,16 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                   style={{ pointerEvents: openDropdown === item.label ? 'auto' : 'none' }}
                 >
                   <div
-                    className="rounded-2xl shadow-2xl overflow-hidden transition-all duration-300"
+                    className="dropdown-panel rounded-2xl shadow-2xl overflow-hidden transition-all duration-300"
                     style={{
-                      minWidth: '220px',
+                      minWidth: '240px',
                       opacity: openDropdown === item.label ? 1 : 0,
-                      transform: openDropdown === item.label ? 'translateY(0)' : 'translateY(-8px)',
-                      background: 'rgba(10,15,31,0.92)',
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)',
-                      border: '1px solid rgba(0,229,255,0.15)',
-                      boxShadow: '0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0,229,255,0.05)',
+                      transform: openDropdown === item.label ? 'translateY(0) scale(1)' : 'translateY(-12px) scale(0.97)',
+                      background: 'rgba(10,15,31,0.95)',
+                      backdropFilter: 'blur(24px)',
+                      WebkitBackdropFilter: 'blur(24px)',
+                      border: '1px solid rgba(0,229,255,0.18)',
+                      boxShadow: '0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(0,229,255,0.08), inset 0 1px 0 rgba(0,229,255,0.1)',
                     }}
                   >
                     <div className="py-2 px-2 flex flex-col gap-0.5">
@@ -242,7 +242,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                           <Link
                             key={child.href}
                             to={child.href}
-                            className="block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)] px-4 py-2.5 rounded-xl transition-all duration-150"
+                            className="dropdown-item block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] py-2.5 rounded-xl transition-all duration-200"
                           >
                             {child.label}
                           </Link>
@@ -250,7 +250,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
                           <a
                             key={child.href}
                             href={child.href}
-                            className="block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] hover:bg-[rgba(0,229,255,0.07)] px-4 py-2.5 rounded-xl transition-all duration-150"
+                            className="dropdown-item block text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] py-2.5 rounded-xl transition-all duration-200"
                           >
                             {child.label}
                           </a>
@@ -266,7 +266,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
           {/* CTA button */}
           <a
             href="#contact"
-            className="ml-2 text-[#0A0F1F] text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 whitespace-nowrap hover:shadow-[0_0_20px_rgba(0,229,255,0.5)] hover:-translate-y-0.5"
+            className="nav-cta-btn ml-2 text-[#0A0F1F] text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 whitespace-nowrap hover:shadow-[0_0_25px_rgba(0,229,255,0.6)] hover:-translate-y-0.5 hover:scale-105"
             style={{ background: 'linear-gradient(135deg, #3B82F6, #00E5FF)' }}
           >
             Free Assessment
