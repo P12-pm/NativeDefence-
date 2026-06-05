@@ -143,8 +143,10 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
       {/* ── NAV ────────────────────────────────────────── */}
       <nav
-        className={`absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 sm:py-5 transition-all duration-500 ${
-          scrolled ? 'bg-[#0A0F1F]/80 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]' : ''
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-500 ${
+          scrolled
+            ? 'py-3 sm:py-3.5 bg-[#0A0F1F]/90 backdrop-blur-2xl border-b border-[rgba(0,229,255,0.15)] shadow-[0_4px_30px_rgba(0,0,0,0.4)]'
+            : 'py-4 sm:py-5 bg-[#0A0F1F]/40 backdrop-blur-xl'
         }`}
       >
 
@@ -295,7 +297,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
       {/* ── Mobile overlay ──────────────────────────────── */}
       <div
-        className={`lg:hidden fixed inset-0 z-20 transition-opacity duration-300 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`lg:hidden fixed inset-0 z-[60] transition-opacity duration-300 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setMenuOpen(false)}
       >
         <div className="absolute inset-0 bg-[#0A0F1F]/60 backdrop-blur-sm" />
@@ -303,7 +305,7 @@ export default function Hero({ onNavClick, isDark, onToggleDark: _onToggleDark }
 
       {/* ── Mobile drawer ───────────────────────────────── */}
       <div
-        className={`lg:hidden fixed top-0 right-0 bottom-0 z-20 w-[88%] max-w-sm flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`lg:hidden fixed top-0 right-0 bottom-0 z-[60] w-[88%] max-w-sm flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         style={{
           background: 'rgba(10,15,31,0.97)',
           backdropFilter: 'blur(24px)',
