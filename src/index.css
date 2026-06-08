@@ -425,7 +425,6 @@ html { scroll-behavior: smooth; }
 
 /* Scrolled nav top glow line */
 .nav-glow-line {
-  position: relative;
 }
 .nav-glow-line::after {
   content: '';

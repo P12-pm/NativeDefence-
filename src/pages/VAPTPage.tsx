@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import logoDark from '../assets/logo_dark.avif';
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, Award, Sparkles,
-  Menu, X, CheckCircle, Target, Flame, ChevronRight, ChevronDown
+  CheckCircle, Target, Flame, ChevronRight, ChevronDown
 } from 'lucide-react';
+import HeroVideoBg from '../components/HeroVideoBg';
+import Navbar from '../components/Navbar';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
 const PRIMARY = '#00E5FF';
@@ -199,7 +201,6 @@ const steps = [
 
 export default function VAPTPage() {
   const [isDark, _setIsDark] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [expandedThreat, setExpandedThreat] = useState<number | null>(null);
   const [threatSearch, setThreatSearch] = useState('');
 
@@ -218,14 +219,7 @@ export default function VAPTPage() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
-  /* Lock body scroll when mobile menu is open */
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
-
   const handleSubLinkClick = (id: string) => {
-    setMenuOpen(false);
     const el = document.getElementById(id);
     if (el) {
       const navOffset = 64;
@@ -247,120 +241,21 @@ export default function VAPTPage() {
     <div className="min-h-screen transition-colors duration-500 text-white" style={{ background: '#0A0F1F' }}>
 
       {/* ══ NAVBAR ══ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)]">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
-
-          {/* Logo & Back button */}
-          <div className="flex items-center gap-4">
-            <Link
-              to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors duration-200"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back
-            </Link>
-            <span className="w-px h-4 bg-[#0A0F1F]/15 dark:bg-white/15" />
-            <Link to="/" className="flex items-center">
-              <img
-                src={logoDark}
-                alt="NativeDefence Logo"
-                className="transition-all duration-300 object-contain"
-                style={{ height: '45px', width: 'auto' }}
-              />
-            </Link>
-          </div>
-
-          {/* Desktop Nav Items */}
-          <div className="hidden lg:flex items-center gap-2">
-            <button
-              onClick={() => handleSubLinkClick('vapt-intro')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
-            >
-              Overview
-            </button>
-            <button
-              onClick={() => handleSubLinkClick('timeline-methodology')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
-            >
-              Methodology
-            </button>
-            <button
-              onClick={() => handleSubLinkClick('safeguard-industries')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
-            >
-              Industries
-            </button>
-            <button
-              onClick={() => handleSubLinkClick('threat-intel')}
-              className="text-xs font-semibold text-[#7a9bb5] hover:text-[#00E5FF] px-3 py-1.5 rounded-full hover:bg-[#111827] hover:bg-[rgba(0,229,255,0.07)] transition-all duration-200"
-            >
-              Threat Intelligence
-            </button>
-          </div>
-
-          {/* Nav Actions */}
-          <div className="flex items-center gap-2">
-            
-
-            {/* CTA */}
-            <Link
-              to="/#contact"
-              className="hidden sm:flex items-center gap-1.5 hover:opacity-90 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors duration-200"
-            >
-              Schedule VAPT
-            </Link>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMenuOpen(v => !v)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(0,229,255,0.08)] border border-[rgba(0,229,255,0.15)] relative"
-            >
-              <Menu className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-0' : 'opacity-100'}`} />
-              <X className={`w-4 h-4 text-white absolute transition-all duration-200 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile menu drawer */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'max-h-96' : 'max-h-0'}`}>
-          <div className="px-4 pb-4 flex flex-col gap-1 border-t border-[rgba(0,229,255,0.1)] pt-3">
-            <button
-              onClick={() => handleSubLinkClick('vapt-intro')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
-            >
-              Overview
-            </button>
-            <button
-              onClick={() => handleSubLinkClick('timeline-methodology')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
-            >
-              Methodology
-            </button>
-            <button
-              onClick={() => handleSubLinkClick('safeguard-industries')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)]"
-            >
-              Industries
-            </button>
-            <button
-              onClick={() => handleSubLinkClick('threat-intel')}
-              className="text-left text-sm font-medium text-[#7a9bb5] py-2.5 border-b border-[rgba(0,229,255,0.1)] last:border-0"
-            >
-              Threat Intelligence
-            </button>
-            <Link
-              to="/#contact"
-              onClick={() => setMenuOpen(false)}
-              className="mt-2 block text-center bg-[#0A0F1F] text-white text-sm font-semibold py-3 rounded-full"
-            >
-              Schedule VAPT
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar
+        backLink="/"
+        subLinks={[
+          { label: 'Overview', targetId: 'vapt-intro' },
+          { label: 'Methodology', targetId: 'timeline-methodology' },
+          { label: 'Industries', targetId: 'safeguard-industries' },
+          { label: 'Threat Intelligence', targetId: 'threat-intel' }
+        ]}
+        ctaText="Schedule VAPT"
+        ctaLink="/#contact"
+      />
 
       {/* ══ HERO SECTION ══ */}
       <section id="vapt-intro" className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
+        <HeroVideoBg />
         {/* Dynamic background gradients */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[550px] rounded-full opacity-[0.07] dark:opacity-[0.05]"
