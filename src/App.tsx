@@ -42,6 +42,7 @@ import CybersecurityAwarenessPage from './pages/CybersecurityAwarenessPage'
 // Advanced Cyber Features Components
 import LoadingScreen from './components/LoadingScreen'
 import MouseFollowGlow from './components/MouseFollowGlow'
+import MobileStickyCreate from './components/MobileStickyCreate'
 
 function HomePage() {
   const [isDark, setIsDark] = useState(false)
@@ -123,6 +124,12 @@ function HomePage() {
         <Testimonial />
         <Contact />
         <Footer />
+        {/* Mobile sticky bottom CTA — hidden on desktop */}
+        <MobileStickyCreate
+          ctaText="Free Assessment"
+          ctaLink="/contact"
+          showAfterPx={120}
+        />
       </div>
     </>
   )

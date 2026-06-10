@@ -7,6 +7,7 @@ import {
 import HeroVideoBg from '../components/HeroVideoBg';
 import Navbar from '../components/Navbar';
 import logoDark from '../assets/logo_dark.avif';
+import MobileStickyCreate from '../components/MobileStickyCreate';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
 const PRIMARY = '#00E5FF';
@@ -499,6 +500,8 @@ export default function AcademyPage() {
         </div>
       </footer>
 
+      {/* Mobile sticky bottom CTA — hidden on desktop */}
+      <MobileStickyCreate ctaText="Enquire Now" ctaLink="/contact" />
     </div>
   );
 }

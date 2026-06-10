@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import HeroVideoBg from '../components/HeroVideoBg';
 import Navbar from '../components/Navbar';
+import MobileStickyCreate from '../components/MobileStickyCreate';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
 const PRIMARY = '#00E5FF';
@@ -690,6 +691,8 @@ export default function VAPTPage() {
         </div>
       </footer>
 
+      {/* Mobile sticky bottom CTA — hidden on desktop */}
+      <MobileStickyCreate ctaText="Schedule VAPT" ctaLink="/contact" />
     </div>
   );
 }

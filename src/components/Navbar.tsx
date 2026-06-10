@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ChevronDown, X } from 'lucide-react';
+import { ArrowLeft, ChevronDown, Menu, X } from 'lucide-react';
 import logoDark from '../assets/logo_dark.avif';
 
 const NHG = '"Neue Haas Grotesk Display Pro 55 Roman", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif';
@@ -145,8 +145,10 @@ export default function Navbar({
   // Body scroll lock when mobile drawer is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
+    document.documentElement.style.overflow = menuOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [menuOpen]);
 
@@ -184,7 +186,7 @@ export default function Navbar({
             : 'top-0 left-0 right-0 h-16 bg-[#0A0F1F]/85 dark:bg-[#0A0F1F]/90 backdrop-blur-xl border-b border-[rgba(0,229,255,0.1)] flex items-center justify-between px-4 sm:px-6 md:px-10'
         } ${
           // On mobile screens, always force full-width at the top for sub-pages or consistent mobile sticky bar
-          'max-lg:top-0 max-lg:left-0 max-lg:right-0 max-lg:h-16 max-lg:rounded-none max-lg:bg-[#0A0F1F]/90 max-lg:border-b max-lg:border-[rgba(0,229,255,0.1)] max-lg:px-6'
+          'max-lg:top-0 max-lg:left-0 max-lg:right-0 max-lg:h-16 max-lg:rounded-none max-lg:bg-[#0A0F1F]/90 max-lg:border-b max-lg:border-[rgba(0,229,255,0.1)] max-lg:px-6 max-lg:flex max-lg:items-center max-lg:justify-between'
         }`}
       >
         {/* Left Side: Logo or Back Button */}
@@ -416,29 +418,17 @@ export default function Navbar({
           {/* Interactive Hamburger Menu Button */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="lg:hidden relative flex flex-col justify-center items-center w-10 h-10 rounded-full transition-all duration-300 gap-1.5 focus:outline-none flex-shrink-0"
+            className="lg:hidden relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5FF]/70 flex-shrink-0"
             style={{
               background: 'rgba(10,15,31,0.7)',
               backdropFilter: 'blur(12px)',
               border: '1px solid rgba(0,229,255,0.2)',
             }}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation-drawer"
           >
-            <span
-              className={`w-5 h-[2px] bg-[#00E5FF] transition-all duration-300 rounded-full ${
-                menuOpen ? 'rotate-45 translate-y-[8px]' : ''
-              }`}
-            />
-            <span
-              className={`w-5 h-[2px] bg-[#00E5FF] transition-all duration-300 rounded-full ${
-                menuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
-              }`}
-            />
-            <span
-              className={`w-5 h-[2px] bg-[#00E5FF] transition-all duration-300 rounded-full ${
-                menuOpen ? '-rotate-45 translate-y-[-8px]' : ''
-              }`}
-            />
+            {menuOpen ? <X className="h-5 w-5 text-[#00E5FF]" /> : <Menu className="h-5 w-5 text-[#00E5FF]" />}
           </button>
         </div>
       </nav>
@@ -453,7 +443,7 @@ export default function Navbar({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden fixed inset-0 z-[60]"
+              className="lg:hidden fixed inset-0 z-[55]"
               onClick={() => setMenuOpen(false)}
             >
               <div className="absolute inset-0 bg-[#0A0F1F]/60 backdrop-blur-sm" />
@@ -461,11 +451,12 @@ export default function Navbar({
 
             {/* Sliding Mobile Menu Drawer */}
             <motion.div
+              id="mobile-navigation-drawer"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="lg:hidden fixed top-0 right-0 bottom-0 z-[60] w-[88%] max-w-sm flex flex-col"
+              className="lg:hidden fixed top-0 right-0 bottom-0 z-[70] w-full max-w-[360px] flex flex-col"
               style={{
                 background: 'rgba(10,15,31,0.98)',
                 backdropFilter: 'blur(24px)',
@@ -476,36 +467,51 @@ export default function Navbar({
             >
               {/* Drawer Header */}
               <div
-                className="flex items-center justify-between px-6 pt-6 pb-4 flex-shrink-0"
+                className="flex items-center justify-between gap-4 px-5 pt-[calc(env(safe-area-inset-top)+18px)] pb-4 flex-shrink-0"
                 style={{ borderBottom: '1px solid rgba(0,229,255,0.1)' }}
               >
-                <span className="font-semibold text-[#00E5FF] tracking-wider" style={{ fontFamily: NHG }}>
+                <span className="min-w-0 truncate text-base font-semibold text-[#00E5FF] tracking-wide" style={{ fontFamily: NHG }}>
                   NativeDefence<sup className="text-[9px]">™</sup>
                 </span>
                 <button
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center w-8 h-8 rounded-full"
+                  className="flex items-center justify-center w-10 h-10 rounded-full flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5FF]/70"
                   style={{ background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.15)' }}
+                  aria-label="Close menu"
                 >
-                  <X className="w-4 h-4 text-[#00E5FF]" />
+                  <X className="w-5 h-5 text-[#00E5FF]" />
                 </button>
               </div>
 
               {/* Drawer Menu List */}
-              <div className="flex-1 overflow-y-auto py-3">
+              <div className="flex-1 overflow-y-auto py-3 overscroll-contain">
                 {isHomePage ? (
                   /* Standard items for Homepage */
                   GLOBAL_NAV_ITEMS.map((item) => (
                     <div key={item.label}>
-                      <div className="flex items-center justify-between px-6">
-                        {item.href.startsWith('/') ? (
+                      <div className="flex items-center justify-between gap-2 px-4">
+                        {item.children ? (
+                          <button
+                            onClick={() => setMobileExpand(mobileExpand === item.label ? null : item.label)}
+                            className="flex min-w-0 flex-1 items-center justify-between gap-3 rounded-xl px-3 py-3.5 text-left text-base font-semibold text-white transition-colors hover:bg-[rgba(0,229,255,0.06)] hover:text-[#00E5FF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5FF]/60"
+                            style={{ fontFamily: NHG }}
+                            aria-expanded={mobileExpand === item.label}
+                          >
+                            <span className="truncate">{item.label}</span>
+                            <ChevronDown
+                              className={`w-4 h-4 flex-shrink-0 text-[#00E5FF] transition-transform duration-300 ${
+                                mobileExpand === item.label ? 'rotate-180' : 'rotate-0'
+                              }`}
+                            />
+                          </button>
+                        ) : item.href.startsWith('/') ? (
                           <Link
                             to={item.href}
-                            onClick={() => !item.children && setMenuOpen(false)}
-                            className="flex-1 py-4 text-lg font-semibold text-white hover:text-[#00E5FF] transition-colors"
-                            style={{ fontFamily: NHG, letterSpacing: '-0.01em' }}
+                            onClick={() => setMenuOpen(false)}
+                            className="flex min-w-0 flex-1 rounded-xl px-3 py-3.5 text-base font-semibold text-white hover:bg-[rgba(0,229,255,0.06)] hover:text-[#00E5FF] transition-colors"
+                            style={{ fontFamily: NHG }}
                           >
-                            {item.label}
+                            <span className="truncate">{item.label}</span>
                           </Link>
                         ) : (
                           <a
@@ -520,42 +526,25 @@ export default function Navbar({
                                 onNavClick(sectionId);
                               }
                             }}
-                            className="flex-1 py-4 text-lg font-semibold text-white hover:text-[#00E5FF] transition-colors"
-                            style={{ fontFamily: NHG, letterSpacing: '-0.01em' }}
+                            className="flex min-w-0 flex-1 rounded-xl px-3 py-3.5 text-base font-semibold text-white hover:bg-[rgba(0,229,255,0.06)] hover:text-[#00E5FF] transition-colors"
+                            style={{ fontFamily: NHG }}
                           >
-                            {item.label}
+                            <span className="truncate">{item.label}</span>
                           </a>
-                        )}
-
-                        {item.children && (
-                          <button
-                            onClick={() => setMobileExpand(mobileExpand === item.label ? null : item.label)}
-                            className="flex items-center justify-center w-8 h-8 rounded-full flex-shrink-0"
-                            style={{
-                              background: 'rgba(0,229,255,0.08)',
-                              border: '1px solid rgba(0,229,255,0.15)',
-                            }}
-                          >
-                            <ChevronDown
-                              className={`w-4 h-4 text-[#00E5FF] transition-transform duration-300 ${
-                                mobileExpand === item.label ? 'rotate-180' : 'rotate-0'
-                              }`}
-                            />
-                          </button>
                         )}
                       </div>
 
                       {/* Divider */}
-                      <div className="h-px mx-6" style={{ background: 'rgba(0,229,255,0.06)' }} />
+                      <div className="h-px mx-5" style={{ background: 'rgba(0,229,255,0.06)' }} />
 
                       {/* Nested Dropdown Sub-links */}
                       {item.children && (
                         <div
                           className="overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                          style={{ maxHeight: mobileExpand === item.label ? `${item.children.length * 56}px` : '0px' }}
+                          style={{ maxHeight: mobileExpand === item.label ? `${item.children.length * 52 + 16}px` : '0px' }}
                         >
                           <div
-                            className="pt-1 pb-3 pl-10 pr-6 flex flex-col gap-0.5"
+                            className="mx-4 mb-2 mt-1 rounded-xl px-3 py-2 flex flex-col gap-0.5"
                             style={{ background: 'rgba(0,229,255,0.03)' }}
                           >
                             {item.children.map((child) => (
@@ -563,8 +552,7 @@ export default function Navbar({
                                 key={child.href}
                                 to={child.href}
                                 onClick={() => setMenuOpen(false)}
-                                className="block py-3 text-sm font-medium text-[#7a9bb5] hover:text-[#00E5FF] transition-colors"
-                                style={{ borderBottom: '1px solid rgba(0,229,255,0.05)' }}
+                                className="block rounded-lg px-3 py-3 text-sm font-medium text-[#9fb8ca] hover:bg-[rgba(0,229,255,0.06)] hover:text-[#00E5FF] transition-colors"
                               >
                                 {child.label}
                               </Link>
@@ -579,12 +567,12 @@ export default function Navbar({
                   subLinks &&
                   subLinks.map((link) => (
                     <div key={link.label}>
-                      <div className="flex items-center justify-between px-6">
+                      <div className="flex items-center justify-between px-4">
                         {link.targetId ? (
                           <button
                             onClick={() => handleSubLinkScroll(link.targetId!)}
-                            className="flex-1 text-left py-4 text-lg font-semibold text-white hover:text-[#00E5FF] transition-colors"
-                            style={{ fontFamily: NHG, letterSpacing: '-0.01em' }}
+                            className="flex-1 rounded-xl px-3 py-3.5 text-left text-base font-semibold text-white hover:bg-[rgba(0,229,255,0.06)] hover:text-[#00E5FF] transition-colors"
+                            style={{ fontFamily: NHG }}
                           >
                             {link.label}
                           </button>
@@ -592,21 +580,21 @@ export default function Navbar({
                           <Link
                             to={link.href || '/'}
                             onClick={() => setMenuOpen(false)}
-                            className="flex-1 py-4 text-lg font-semibold text-white hover:text-[#00E5FF] transition-colors"
-                            style={{ fontFamily: NHG, letterSpacing: '-0.01em' }}
+                            className="flex-1 rounded-xl px-3 py-3.5 text-base font-semibold text-white hover:bg-[rgba(0,229,255,0.06)] hover:text-[#00E5FF] transition-colors"
+                            style={{ fontFamily: NHG }}
                           >
                             {link.label}
                           </Link>
                         )}
                       </div>
-                      <div className="h-px mx-6" style={{ background: 'rgba(0,229,255,0.06)' }} />
+                      <div className="h-px mx-5" style={{ background: 'rgba(0,229,255,0.06)' }} />
                     </div>
                   ))
                 )}
               </div>
 
               {/* Drawer Bottom CTA Button */}
-              <div className="flex-shrink-0 p-5" style={{ borderTop: '1px solid rgba(0,229,255,0.1)' }}>
+              <div className="flex-shrink-0 px-5 pb-[calc(env(safe-area-inset-bottom)+20px)] pt-4" style={{ borderTop: '1px solid rgba(0,229,255,0.1)' }}>
                 <Link
                   to={ctaLink}
                   onClick={(e) => {

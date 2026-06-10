@@ -530,3 +530,25 @@ html { scroll-behavior: smooth; }
     padding-bottom: 4rem;
   }
 }
+
+/* ── Mobile sticky bar safe area ─────────────────── */
+
+/* Adds env(safe-area-inset-bottom) for iOS notched devices */
+.safe-bottom {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+/* Prevent page content from hiding behind the sticky mobile CTA bar on mobile */
+@media (max-width: 1023px) {
+  /* Add bottom clearance to page content so sticky bar doesn't overlap footer/last section */
+  body {
+    padding-bottom: 80px;
+  }
+}
+@media (min-width: 1024px) {
+  /* Remove any bottom padding on desktop — sticky bar is hidden */
+  body {
+    padding-bottom: 0;
+  }
+}
+
